@@ -1,2 +1,3 @@
-# adventofcode
-Advent of Code solutions in JavaScript.
+# Advent of Code
+
+[Advent of Code](https://adventofcode.com/) solutions in JavaScript.
