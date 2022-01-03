@@ -4,5 +4,9 @@
 
 ## Advent Of Code 2021
 
-![AoC Progress](https://img.shields.io/static/v1?label=AoC%20Progress&message=64%25%20(16%20of%2025)&color=yellow&logo=github&style=for-the-badge)
+![AoC Progress](<https://img.shields.io/static/v1?label=AoC%20Progress&message=64%25%20(16%20of%2025)&color=yellow&logo=github&style=for-the-badge>)
 ![Code Coverage](https://img.shields.io/static/v1?label=Code%20Coverage&message=100%25&color=lightgreen&logo=github&style=for-the-badge)
+
+## Codacy
+
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/25a68dd5c77a4b2db7d499f8f8882372)](https://www.codacy.com/gh/ropaolle/adventofcode/dashboard?utm_source=github.com&utm_medium=referral&utm_content=ropaolle/adventofcode&utm_campaign=Badge_Grade)
