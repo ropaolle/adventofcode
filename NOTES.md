@@ -1,5 +1,11 @@
 # Notes
 
+- [ ] [freeCodeCamp points](https://www.freecodecamp.org/)
+- [ ] [codacy.com](https://codacy.com/)
+- [ ] [snyk.io](https://snyk.io/)
+- [ ] [codebeat.co](https://codebeat.co/)
+- [?] [deepsource.io](https://deepsource.io/) - Krånglig
+
 ## Running test and dev
 
 ```sh

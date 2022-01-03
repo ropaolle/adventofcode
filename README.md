@@ -11,3 +11,4 @@
 
 ![Codacy grade](https://img.shields.io/codacy/grade/25a68dd5c77a4b2db7d499f8f8882372?logo=codacy&style=for-the-badge)
 ![Codacy coverage](https://img.shields.io/codacy/coverage/25a68dd5c77a4b2db7d499f8f8882372?logo=codacy&style=for-the-badge)
+[![codebeat badge](https://codebeat.co/badges/bf22bb74-c257-4712-95e7-fcdb19808c9b)](https://codebeat.co/projects/github-com-ropaolle-adventofcode-main)
