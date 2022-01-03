@@ -21,7 +21,7 @@ const getGrid = (lines) => {
   const [maxX, maxY] = getMax(lines);
   return Array(maxY + 1)
     .fill(0)
-    .map((x) => Array(maxX + 1).fill(0));
+    .map(() => Array(maxX + 1).fill(0));
 };
 
 const getCount = (grid) =>
@@ -76,8 +76,7 @@ function partTwo(input) {
       for (let x = start; x < stop + 1; x++) {
         grid[y1][x] += 1;
       }
-    } 
-    else {  
+    } else {
       const steps = Math.abs(x1 - x2);
       const dirX = x1 - x2 > 0 ? -1 : 1;
       const dirY = y1 - y2 > 0 ? -1 : 1;

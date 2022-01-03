@@ -55,11 +55,11 @@ const getData = (data) =>
 
 const getGrid = (cords) => {
   const maxX = cords.reduce((acc, [x]) => Math.max(acc, x), 0);
-  const maxY = cords.reduce((acc, [_, y]) => Math.max(acc, y), 0);
+  const maxY = cords.reduce((acc, [, y]) => Math.max(acc, y), 0);
   //   console.log('maxX/maxY', maxX, maxY);
   const paper = Array(maxY + 1)
     .fill('.')
-    .map((_) => Array(maxX + 1).fill('.'));
+    .map(() => Array(maxX + 1).fill('.'));
   cords.forEach(([x, y]) => (paper[y][x] = '#'));
   return paper;
 };

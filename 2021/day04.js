@@ -23,7 +23,7 @@ const testInput = `
 const getBoards = (data) =>
   data.reduce((acc, val, i) => {
     const currentBoard = Math.ceil((i + 1) / 5);
-    const valueArray = val.trim().replace(/  /g, ',').replace(/ /g, ',').split(',').map(Number);
+    const valueArray = val.trim().replace(/ {2}/g, ',').replace(/ /g, ',').split(',').map(Number);
     const newBoard = i % 5;
     if (newBoard === 0) {
       acc[currentBoard - 1] = [];
@@ -40,8 +40,8 @@ const hasBingo = (board) => {
   for (let i = 0; i < 5; i++) {
     const j = i * 5;
     if (
-      board[j] + board[j + 1] + board[j + 2] + board[j + 3] + board[j + 4] == -5 ||
-      board[0 + i] + board[5 + i] + board[10 + i] + board[15 + i] + board[20 + i] == -5
+      board[j] + board[j + 1] + board[j + 2] + board[j + 3] + board[j + 4] === -5 ||
+      board[0 + i] + board[5 + i] + board[10 + i] + board[15 + i] + board[20 + i] === -5
     ) {
       return true;
     }

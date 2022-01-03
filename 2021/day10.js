@@ -39,12 +39,6 @@ let isBalanced = (input) => {
 let isBalanced2 = (input) => {
   let brackets = '[]{}()<>';
   let stack = [];
-  const points = {
-    ')': 1,
-    ']': 2,
-    '}': 3,
-    '>': 4,
-  };
 
   for (let bracket of input) {
     let bracketsIndex = brackets.indexOf(bracket);

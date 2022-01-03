@@ -26,9 +26,9 @@ function flipBits(str) {
 
 function commonBits(data) {
   return data
-    .reduce((acc, val, i, arr) => {
+    .reduce((acc, val) => {
       val.split('').forEach((val, i) => {
-        acc[i] += val == '1' ? 1 : -1;
+        acc[i] += val === '1' ? 1 : -1;
       });
       return acc;
     }, Array(data[0].length).fill(0))
@@ -41,7 +41,7 @@ function commonBits(data) {
   let result = Array(data[0].length).fill(0);
   for (const bits of data) {
     bits.split('').forEach((bit, i) => {
-      result[i] += bit == '1' ? 1 : -1;
+      result[i] += bit === '1' ? 1 : -1;
     });
   }
   return result.map((v) => (v >= 0 ? 1 : 0)).join('');
@@ -52,7 +52,7 @@ function getRating(input, compare) {
   let data = parse(input);
 
   for (let i = 0; i < data[0].length; i++) {
-    if (data.length == 1) {
+    if (data.length === 1) {
       break;
     }
     data = data.filter((v) => compare(v, i, data));
@@ -68,9 +68,17 @@ function partOne(input) {
   return gamma * epsilon;
 }
 
+function compareA(v, i, acc) {
+  return v[i] === commonBits(acc)[i];
+}
+
+function compareB(v, i, acc) {
+  return v[i] !== commonBits(acc)[i];
+}
+
 function partTwo(input) {
-  const oxygenGeneratorRating = getRating(input, (v, i, acc) => v[i] === commonBits(acc)[i]);
-  const co2ScrubberRating = getRating(input, (v, i, acc) => v[i] !== commonBits(acc)[i]);
+  const oxygenGeneratorRating = getRating(input, compareA);
+  const co2ScrubberRating = getRating(input, compareB);
 
   return oxygenGeneratorRating * co2ScrubberRating;
 }
