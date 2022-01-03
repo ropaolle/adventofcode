@@ -98,7 +98,7 @@ function partOne(input) {
   let paper = getGrid(cords);
   paper = foldPaper(paper, folds[0]);
   //   printPaper(paper);
-  // const length = 
+  // const length =
   return (paper.join('').match(/#/g) || /* c8 ignore next */ []).length;
 }
 
@@ -124,8 +124,8 @@ function partTwo(input) {
 
 /* c8 ignore next 4 */
 if (process.env.ROPAOLLE === 'DEV') {
-  console.log(`${__filename} - Part one:`, partOne(testInput));
-  console.log(`${__filename} - Part two:`, partTwo(testInput));
+  console.info(`${__filename} - Part one:`, partOne(testInput));
+  console.info(`${__filename} - Part two:`, partTwo(testInput));
 }
 
 exports.partOne = partOne;

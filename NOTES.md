@@ -46,6 +46,12 @@ console.log(x?.a);
 // nullish coalescing - https://dev.to/laurieontech/nullish-coalescing-let-falsy-fool-you-no-more-41c0
 let t = '';
 console.log(t ?? 'hallå', t || 'olle');
+
+/* c8 ignore next 4 */
+if (process.env.ROPAOLLE === 'DEV') {
+  console.info(`${__filename} - Part one:`, partOne(testInput));
+  console.info(`${__filename} - Part two:`, partTwo(testInput));
+}
 ```
 
 ### ES6 Modules
