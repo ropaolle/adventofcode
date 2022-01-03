@@ -23,6 +23,26 @@
       "json-summary"
     ]
   },
+  "eslintConfig": {
+    "rules": {
+      "no-console": [
+        "error",
+        {
+          "allow": [
+            "info",
+            "error"
+          ]
+        }
+      ],
+      "quotes": [
+        "error",
+        "single",
+        {
+          "avoidEscape": true
+        }
+      ]
+    }
+  },
   "devDependencies": {
     "c8": "^7.10.0",
     "chai": "^4.3.4",
