@@ -9,4 +9,5 @@
 
 ## Codacy
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/25a68dd5c77a4b2db7d499f8f8882372)](https://www.codacy.com/gh/ropaolle/adventofcode/dashboard?utm_source=github.com&utm_medium=referral&utm_content=ropaolle/adventofcode&utm_campaign=Badge_Grade)
+![Codacy grade](https://img.shields.io/codacy/grade/25a68dd5c77a4b2db7d499f8f8882372?logo=codacy&style=for-the-badge)
+![Codacy coverage](https://img.shields.io/codacy/coverage/25a68dd5c77a4b2db7d499f8f8882372?logo=codacy&style=for-the-badge)

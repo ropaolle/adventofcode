@@ -2,6 +2,7 @@
   "name": "adventofcode",
   "version": "1.0.0",
   "description": "Advent of Code solutions in JavaScript.",
+  "main": "index.js",
   "scripts": {
     "dev": "nodemon -q",
     "test:dev": "mocha -w --slow 10",
@@ -36,5 +37,8 @@
     "mochawesome": "^7.0.1",
     "nodemon": "^2.0.15",
     "prettier": "2.5.1"
+  },
+  "dependencies": {
+    "mquery": "^3.2.5"
   }
 }
