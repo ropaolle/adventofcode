@@ -1,4 +1,4 @@
-let testInput = `
+const testInput = `
 D2FE28
 38006F45291200
 EE00D40C823060

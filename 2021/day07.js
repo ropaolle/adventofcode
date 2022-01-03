@@ -1,4 +1,4 @@
-let testInput = `16,1,2,0,4,2,7,1,2,14`;
+const testInput = `16,1,2,0,4,2,7,1,2,14`;
 
 function parse(input) {
   return input.split(',').map(Number);

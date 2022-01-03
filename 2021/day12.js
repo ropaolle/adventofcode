@@ -1,4 +1,4 @@
-let testInput = `
+const testInput = `
 start-A
 start-b
 A-c

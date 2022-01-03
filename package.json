@@ -1,0 +1,33 @@
+{
+  "name": "adventofcode",
+  "version": "1.0.0",
+  "description": "Advent of Code solutions in JavaScript.",
+  "scripts": {
+    "dev": "nodemon -q",
+    "test:dev": "mocha -w --slow 10",
+    "test": "mocha --reporter mochawesome --reporter-options quiet=true",
+    "coverage": "c8 --100 npm test",
+    "update-badges": "node node.mjs",
+    "pre-commit": "npm run --silent coverage & node .scripts/update-badges.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ropaolle/adventofcode.git"
+  },
+  "author": "RopaOlle@gmail.com",
+  "license": "ISC",
+  "homepage": "https://github.com/ropaolle/adventofcode#readme",
+  "c8": {
+    "reporter": [
+      "text",
+      "json-summary"
+    ]
+  },
+  "devDependencies": {
+    "c8": "^7.10.0",
+    "chai": "^4.3.4",
+    "mocha": "^9.1.3",
+    "mochawesome": "^7.0.1",
+    "nodemon": "^2.0.15"
+  }
+}

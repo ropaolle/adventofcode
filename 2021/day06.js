@@ -1,4 +1,4 @@
-let testInput = '3,4,3,1,2';
+const testInput = '3,4,3,1,2';
 
 const getFishCount = (fishes, days) => {
   for (let i = 0; i < days; i++) {

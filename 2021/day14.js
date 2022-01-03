@@ -1,4 +1,4 @@
-let testInput = `
+const testInput = `
 NNCB
 
 CH -> B

@@ -1,4 +1,4 @@
-let testInput = `
+const testInput = `
 5483143223
 2745854711
 5264556173

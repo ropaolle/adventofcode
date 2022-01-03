@@ -1,4 +1,4 @@
-let testInput = `
+const testInput = `
 00100
 11110
 10110

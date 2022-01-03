@@ -1,4 +1,4 @@
-let testInput = `
+const testInput = `
 6,10
 0,14
 9,10

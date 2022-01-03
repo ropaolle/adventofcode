@@ -1,4 +1,4 @@
-let testInput = `
+const testInput = `
 forward 5
 down 5
 forward 8
