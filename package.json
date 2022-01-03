@@ -39,6 +39,6 @@
     "prettier": "2.5.1"
   },
   "dependencies": {
-    "mquery": "^3.2.5"
+    "mquery": "^3.2.0"
   }
 }
