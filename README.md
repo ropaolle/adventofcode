@@ -1,5 +1,7 @@
 # Advent of Code
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/ceeecdb8154441c8b0d8d0f9d83a4d44)](https://app.codacy.com/gh/ropaolle/adventofcode?utm_source=github.com&utm_medium=referral&utm_content=ropaolle/adventofcode&utm_campaign=Badge_Grade_Settings)
+
 [Advent of Code](https://adventofcode.com/) solutions in JavaScript.
 
 ## Advent Of Code 2021
