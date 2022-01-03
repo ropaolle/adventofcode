@@ -84,7 +84,7 @@ function partOne(input) {
 }
 
 function isSubset(subset, set) {
-  return subset && set ? [...subset].every((v) => [...set].includes(v)) : undefined;
+  return subset && set && [...subset].every((v) => [...set].includes(v));
 }
 
 function diffCount(subset, set) {
