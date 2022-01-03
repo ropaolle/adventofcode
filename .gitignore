@@ -1,7 +1,3 @@
 node_modules
 coverage
-<<<<<<< HEAD
 mochawesome-report
-=======
-mochawesome-report
->>>>>>> local-dev

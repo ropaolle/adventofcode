@@ -28,7 +28,9 @@ function paths(links, { allowOneSmallCave } = {}) {
     let { u, visited, canSkip } = frontier.pop();
 
     visited = [...visited];
-    if (u === u.toLowerCase()) visited.push(u);
+    if (u === u.toLowerCase()) {
+      visited.push(u);
+    }
 
     for (const v of next(u)) {
       if (v === 'end') {

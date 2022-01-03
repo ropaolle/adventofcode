@@ -3,8 +3,6 @@ var expect = require('chai').expect;
 
 function dailyTest(day, answerOne, answerTwo) {
   context(`Day ${day}`, function () {
-    if (day === '15') this.timeout(10000);
-
     var { partOne, partTwo } = require(`../2020/day${day}.js`);
     var file = fs.readFileSync(`./2020/day${day}.txt`).toString();
 

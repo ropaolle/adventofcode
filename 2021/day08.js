@@ -88,7 +88,9 @@ function isSubset(subset, set) {
 }
 
 function diffCount(subset, set) {
-  if (!subset || !set) return;
+  if (!subset || !set) {
+    return;
+  }
   return set.length - [...subset].reduce((acc, v) => ([...set].includes(v) ? acc + 1 : acc), 0);
 }
 

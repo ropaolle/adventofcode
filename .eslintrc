@@ -1,16 +1,18 @@
 {
   "parserOptions": {
-    "ecmaVersion": 2017
+    "ecmaVersion": 2020
   },
   "env": {
     "node": true,
-    "es6": true
+    "es6": true,
+    "mocha": true
   },
   "plugins": ["prettier"],
   "extends": ["eslint:recommended", "plugin:prettier/recommended"],
   "rules": {
     "prettier/prettier": ["error", { "singleQuote": true, "printWidth": 100 }],
     "no-console": ["error", { "allow": ["warn", "error", "info"] }],
-    "eqeqeq": ["error", "smart"]
+    "eqeqeq": ["error", "smart"],
+    "curly": "error"
   }
 }

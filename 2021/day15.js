@@ -33,7 +33,9 @@ const shortestPath = (map, startPos = [0, 0]) => {
       pos: [x, y],
       cost,
     } = queue.shift();
-    if (y === map.length - 1 && x === map[0].length - 1) return cost;
+    if (y === map.length - 1 && x === map[0].length - 1) {
+      return cost;
+    }
 
     ADJ.map(([dx, dy]) => [dx + x, dy + y])
       .filter(([x, y]) => map[y]?.[x])
