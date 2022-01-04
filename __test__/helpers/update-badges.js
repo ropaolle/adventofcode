@@ -1,13 +1,17 @@
 const fsPromises = require('fs').promises;
 var parseStringPromise = require('xml2js').parseStringPromise;
 
-function getCoverageProcent({ statements, coveredstatements }) {
+function getCoverageResult({ statements, coveredstatements }, year) {
   const coverageProcent = (coveredstatements / statements) * 100;
-  return coverageProcent >= 100 ? 100 : Math.floor(coverageProcent);
+  return {
+    type: 'coverage',
+    coverageProcent: coverageProcent >= 100 ? 100 : Math.floor(coverageProcent),
+    year,
+  };
 }
 
-async function loadData() {
-  const result = { tests: [], coverage: [] };
+async function parseTestData() {
+  const result = [];
 
   try {
     // Parse test data
@@ -20,7 +24,7 @@ async function loadData() {
       const success = tests - errors;
       const successProcent = Math.floor((success / 25) * 100);
       const year = name.slice(-4);
-      result.tests.push({ /* ...test, */ success, successProcent, year });
+      result.push({ type: 'test', success, successProcent, year });
     });
 
     // Parse coverage data
@@ -33,18 +37,11 @@ async function loadData() {
     const projectStatus = projectData.metrics.shift()['$'];
     if (projectStatus.packages === '1') {
       // If the coverage test only includes on test file we do not get PacketStatus, only Project status.
-      const name = result.tests[0].name;
-      result.coverage.push({
-        coverageProcent: getCoverageProcent(projectStatus),
-        year: name /* , ...projectStatus */,
-      });
+      result.push(getCoverageResult(projectStatus, result.tests[0].name));
     } else {
       projectData.package.forEach(({ $: { name }, metrics }) => {
         const packetStatus = metrics.shift()['$'];
-        result.coverage.push({
-          coverageProcent: getCoverageProcent(packetStatus),
-          year: name /* , ...packetStatus */,
-        });
+        result.push(getCoverageResult(packetStatus, name));
       });
     }
   } catch (err) {
@@ -54,61 +51,47 @@ async function loadData() {
   return result;
 }
 
-async function updateFile(badgeTag, newBadge, filename = './README.md') {
+// eslint-disable-next-line complexity
+function getBadge({ type, year, success, successProcent, coverageProcent }) {
+  const logo = 'github';
+  const style = 'for-the-badge'; // 'flat'
+  const { tag, label, message, color } =
+    type === 'test'
+      ? {
+          tag: `![AoC Progress ${year}]`,
+          label: `AoC Progress`,
+          color: success < 15 ? 'red' : success < 25 ? 'yellow' : 'lightgreen',
+          message: `${successProcent}% (${success} of 25)`,
+        }
+      : {
+          tag: `![Code Coverage ${year}]`,
+          label: `Code Coverage`,
+          color: coverageProcent < 65 ? 'red' : coverageProcent < 100 ? 'yellow' : 'lightgreen',
+          message: `${coverageProcent}%`,
+        };
+  const link = `https://img.shields.io/static/v1?label=${label}&message=${message}&color=${color}&logo=${logo}&style=${style}`;
+
+  return { tag, badge: `${tag}(${encodeURI(link)})` };
+}
+
+async function updateFile(badges, filename = './README.md') {
   try {
     const text = await fsPromises.readFile(filename, 'utf8');
     const lines = text.split(/\n/);
-    const line = lines.findIndex((line) => line.indexOf(badgeTag) === 0);
-    lines[line] = newBadge;
+    badges.forEach(({ tag, badge }) => {
+      const line = lines.findIndex((line) => line.indexOf(tag) === 0);
+      lines[line] = badge;
+    });
     await fsPromises.writeFile(filename, lines.join('\n'));
   } catch (err) {
     console.error('Failed to update file', err.message);
   }
 }
 
-async function replaceBadge(options = {}) {
-  const defaultBadgeOptions = {
-    tag: 'tag',
-    label: 'label',
-    color: 'green',
-    message: 'message',
-    logo: 'github',
-    style: 'for-the-badge', // 'flat',
-  };
-
-  const { tag, label, message, color, logo, style } = { ...defaultBadgeOptions, ...options };
-  const link = `https://img.shields.io/static/v1?label=${label}&message=${message}&color=${color}&logo=${logo}&style=${style}`;
-  const newBadge = `${tag}(${encodeURI(link)})`;
-
-  console.log('tag', newBadge);
-
-  await updateFile(tag, newBadge);
-}
-
 async function updateBadges() {
-  const data = await loadData();
-  // console.info('data', data);
-  console.info('\n');
-
-  data['tests'].forEach(({ success, successProcent, year }) => {
-    console.info(`Replacing badge AoC Progress ${year}!`);
-    replaceBadge({
-      tag: `![AoC Progress ${year}]`,
-      label: `AoC Progress`,
-      color: success < 15 ? 'red' : success < 25 ? 'yellow' : 'lightgreen',
-      message: `${successProcent}% (${success} of 25)`,
-    });
-  });
-
-  data['coverage'].forEach(({ coverageProcent, year }) => {
-    console.info(`Replacing badge Code Coverage ${year}!`);
-    replaceBadge({
-      tag: `![Code Coverage ${year}]`,
-      label: `Code Coverage`,
-      color: coverageProcent < 65 ? 'red' : coverageProcent < 100 ? 'yellow' : 'lightgreen',
-      message: `${coverageProcent}%`,
-    });
-  });
+  const data = await parseTestData();
+  const badges = data.reduce((acc, test) => [...acc, getBadge(test)], []);
+  await updateFile(badges);
 }
 
 updateBadges();

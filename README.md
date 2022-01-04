@@ -4,8 +4,13 @@
 
 ## Advent Of Code 2021
 
-![AoC Progress](<https://img.shields.io/static/v1?label=AoC%20Progress&message=64%25%20(16%20of%2025)&color=yellow&logo=github&style=for-the-badge>)
-![Code Coverage](https://img.shields.io/static/v1?label=Code%20Coverage&message=100%25&color=lightgreen&logo=github&style=for-the-badge)
+![AoC Progress 2021](https://img.shields.io/static/v1?label=AoC%20Progress&message=16%25%20(4%20of%2025)&color=red&logo=github&style=for-the-badge)
+![Code Coverage 2021](https://img.shields.io/static/v1?label=Code%20Coverage&message=87%25&color=yellow&logo=github&style=for-the-badge)
+
+## Advent Of Code 2020
+
+![AoC Progress 2020](https://img.shields.io/static/v1?label=AoC%20Progress&message=8%25%20(2%20of%2025)&color=red&logo=github&style=for-the-badge)
+![Code Coverage 2020](https://img.shields.io/static/v1?label=Code%20Coverage&message=90%25&color=yellow&logo=github&style=for-the-badge)
 
 ## Codacy
 
