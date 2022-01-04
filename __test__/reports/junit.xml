@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="6" failures="0" errors="0" time="0.633">
+  <testsuite name="AOC 2021" errors="0" failures="0" skipped="0" timestamp="2022-01-04T20:08:45" time="0.362" tests="4">
+    <testcase classname="AOC 2021 Day 01 part one" name="AOC 2021 Day 01 part one" time="0.003">
+    </testcase>
+    <testcase classname="AOC 2021 Day 01 part two" name="AOC 2021 Day 01 part two" time="0.002">
+    </testcase>
+    <testcase classname="AOC 2021 Day 02 part one" name="AOC 2021 Day 02 part one" time="0.002">
+    </testcase>
+    <testcase classname="AOC 2021 Day 02 part two" name="AOC 2021 Day 02 part two" time="0.002">
+    </testcase>
+  </testsuite>
+  <testsuite name="AOC 2020" errors="0" failures="0" skipped="0" timestamp="2022-01-04T20:08:45" time="0.114" tests="2">
+    <testcase classname="AOC 2020 Day 01 part one" name="AOC 2020 Day 01 part one" time="0.005">
+    </testcase>
+    <testcase classname="AOC 2020 Day 01 part two" name="AOC 2020 Day 01 part two" time="0.015">
+    </testcase>
+  </testsuite>
+</testsuites>

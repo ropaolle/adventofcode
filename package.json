@@ -7,7 +7,7 @@
     "dev": "nodemon -q",
     "test": "jest --config=jest.config.js",
     "test:dev": "jest --watch --config=jest.config.js",
-    "update-badges": "node node.mjs",
+    "update-badges": "node ./__test__/helpers/update-badges.js",
     "pre-commit": "npm run --silent coverage & node .scripts/update-badges.mjs",
     "eslint": "eslint 20*/**.js"
   },
