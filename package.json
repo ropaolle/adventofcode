@@ -2,11 +2,11 @@
   "name": "adventofcode",
   "version": "1.0.0",
   "description": "Advent of Code solutions in JavaScript.",
+  "type": "commonjs",
   "scripts": {
     "dev": "nodemon -q",
-    "test:dev": "mocha -w --slow 10",
-    "test": "mocha --reporter mochawesome --reporter-options quiet=true",
-    "coverage": "c8 --100 npm test",
+    "test": "jest --config=jest.config.js",
+    "test:dev": "jest --watch --config=jest.config.js",
     "update-badges": "node node.mjs",
     "pre-commit": "npm run --silent coverage & node .scripts/update-badges.mjs",
     "eslint": "eslint 20*/**.js"
@@ -25,16 +25,17 @@
     ]
   },
   "devDependencies": {
-    "c8": "^7.10.0",
-    "chai": "^4.3.4",
     "eslint": "^8.2.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-prettier": "^4.0.0",
-    "mocha": "^9.1.3",
+    "jest": "^27.4.5",
+    "jest-junit": "^13.0.0",
+    "jest-slow-test-reporter": "^1.0.0",
     "mochawesome": "^7.0.1",
     "nodemon": "^2.0.15",
-    "prettier": "2.5.1"
+    "prettier": "2.5.1",
+    "xml2js": "^0.4.23"
   }
 }

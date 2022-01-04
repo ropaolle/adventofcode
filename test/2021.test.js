@@ -1,50 +1,29 @@
-var fs = require('fs');
-var expect = require('chai').expect;
-
-function dailyTest(day, answerOne, answerTwo) {
-  context(`Day ${day}`, function () {
-    // TODO: workaround
-    if (day === '15') {
-      this.timeout(10000);
-    }
-
-    var { partOne, partTwo } = require(`../2021/day${day}.js`);
-    var file = fs.readFileSync(`./2021/day${day}.txt`).toString();
-
-    it('part one', function () {
-      expect(partOne(file)).to.equal(answerOne);
-    });
-
-    it('part two', function () {
-      expect(partTwo(file)).to.equal(answerTwo);
-    });
-  });
-}
+var { aocTest } = require('./helpers.js');
 
 describe('AOC 2021', function () {
-  dailyTest('01', 1624, 1653);
-  dailyTest('02', 1693300, 1857958050);
-  dailyTest('03', 3320834, 4481199);
-  dailyTest('04', 71708, 34726);
-  dailyTest('05', 3990, 21305);
-  dailyTest('06', 391888, 1754597645339);
-  dailyTest('07', 323647, 87640209);
-  dailyTest('08', 342, 1068933);
-  dailyTest('09', 575, 1019700);
-  dailyTest('10', 392097, 4263222782);
-  dailyTest('11', 1642, 320);
-  dailyTest('12', 3887, 104834);
-  dailyTest('13', 666, 'CJHAZHKU');
-  dailyTest('14', 3306, 3760312702877);
-  dailyTest('15', 553, 2858);
-  dailyTest('16', 986, 18234816469452);
-  // dailyTest('17', 0, 0);
-  // dailyTest('18', 0, 0);
-  // dailyTest('19', 0, 0);
-  // dailyTest('20', 0, 0);
-  // dailyTest('21', 0, 0);
-  // dailyTest('22', 0, 0);
-  // dailyTest('23', 0, 0);
-  // dailyTest('24', 0, 0);
-  // dailyTest('25', 0, 0);
+  aocTest('2021', '01', 1624, 1653);
+  aocTest('2021', '02', 1693300, 1857958050);
+  aocTest('2021', '03', 3320834, 4481199);
+  aocTest('2021', '04', 71708, 34726);
+  aocTest('2021', '05', 3990, 21305);
+  aocTest('2021', '06', 391888, 1754597645339);
+  aocTest('2021', '07', 323647, 87640209);
+  aocTest('2021', '08', 342, 1068933);
+  aocTest('2021', '09', 575, 1019700);
+  aocTest('2021', '10', 392097, 4263222782);
+  aocTest('2021', '11', 1642, 320);
+  aocTest('2021', '12', 3887, 104834);
+  aocTest('2021', '13', 666, 'CJHAZHKU');
+  aocTest('2021', '14', 3306, 3760312702877);
+  // aocTest('2021', '15', 553, 2858);
+  // aocTest('2021', '16', 986, 18234816469452);
+  // aocTest('2021', '17', 0, 0);
+  // aocTest('2021', '18', 0, 0);
+  // aocTest('2021', '19', 0, 0);
+  // aocTest('2021', '20', 0, 0);
+  // aocTest('2021', '21', 0, 0);
+  // aocTest('2021', '22', 0, 0);
+  // aocTest('2021', '23', 0, 0);
+  // aocTest('2021', '24', 0, 0);
+  // aocTest('2021', '25', 0, 0);
 });
