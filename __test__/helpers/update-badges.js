@@ -61,7 +61,7 @@ function getBadge({ type, year, success, successProcent, coverageProcent }) {
           tag: `![AoC Progress ${year}]`,
           label: `AoC Progress`,
           color: success < 30 ? 'red' : success < 50 ? 'yellow' : 'lightgreen',
-          message: `${successProcent}% (${success} of 25)`,
+          message: `${successProcent}% (${success / 2} of 25)`,
         }
       : {
           tag: `![Code Coverage ${year}]`,
