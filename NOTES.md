@@ -15,14 +15,6 @@
 - [info a](https://github.com/prettier/prettier-eslint/blob/master/package-scripts.js)
 - [Prettier-eslint](https://github.com/prettier/prettier-eslint)
 
-- name: Codecov
-  uses: codecov/codecov-action@v2
-  with:
-    token: ${{ secrets.CODECOV_TOKEN }}
-    flags: unittests
-
-    fec6e932-560d-4d48-abab-9ba5c41575cc
-
 ## Running test and dev
 
 ```sh
