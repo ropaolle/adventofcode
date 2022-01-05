@@ -35,3 +35,16 @@ jobs:
           # name: codecov-umbrella # optional
           # fail_ci_if_error: false # optional (default = false)
           # verbose: true # optional (default = false)
+
+      - name: Update README
+        run: |-
+          npm run badges
+          cat README.md
+      - name: Commit and push
+        run: |-
+          git add .
+          git diff
+          git config --global user.email "github-action-bot@example.com"
+          git config --global user.name "GitHub Action Bot"
+          git commit -m "Updated README" -a || echo "No changes to commit"
+          git push
