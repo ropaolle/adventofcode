@@ -1,5 +1,3 @@
-const testInput = '3,4,3,1,2';
-
 const getFishCount = (fishes, days) => {
   for (let i = 0; i < days; i++) {
     const count = fishes.length;
@@ -46,12 +44,6 @@ function partTwo(input) {
   }
 
   return fishGens.reduce((acc, v) => acc + v);
-}
-
-/* c8 ignore next 4 */
-if (process.env.ROPAOLLE === 'DEV') {
-  console.info(`${__filename} - Part one:`, partOne(testInput));
-  console.info(`${__filename} - Part two:`, partTwo(testInput));
 }
 
 exports.partOne = partOne;

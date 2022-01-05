@@ -1,11 +1,3 @@
-const testInput = `
-2199943210
-3987894921
-9856789892
-8767896789
-9899965678
-`;
-
 const neighbors = [
   [-1, 0],
   [0, -1],
@@ -40,10 +32,7 @@ const getLowPoints = (matrix) => {
 };
 
 function parse(input) {
-  return input
-    .split(/\r?\n/)
-    .filter((line) => line.length !== 0) // Ignore empty lines in the test input
-    .map((v) => v.split('').map(Number));
+  return input.split(/\r?\n/).map((v) => v.split('').map(Number));
 }
 
 function partOne(input) {
@@ -86,12 +75,6 @@ function partTwo(input) {
     .sort(compareNumbers)
     .splice(0, 3)
     .reduce((acc, v) => acc * v, 1);
-}
-
-/* c8 ignore next 4 */
-if (process.env.ROPAOLLE === 'DEV') {
-  console.info(`${__filename} - Part one:`, partOne(testInput));
-  console.info(`${__filename} - Part two:`, partTwo(testInput));
 }
 
 exports.partOne = partOne;

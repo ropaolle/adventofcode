@@ -1,12 +1,3 @@
-const testInput = `
-forward 5
-down 5
-forward 8
-up 3
-down 8
-forward 2
-`;
-
 function parse(input) {
   return input.split(/\r?\n/).map((val) => val.split(' '));
 }
@@ -26,7 +17,7 @@ function partOne(input) {
       case 'down':
         depth += Number(val);
         break;
-      /* c8 ignore next 2 */
+      /* istanbul ignore next */
       default:
         break;
     }
@@ -52,18 +43,12 @@ function partTwo(input) {
       case 'down':
         aim += Number(val);
         break;
-      /* c8 ignore next 2 */
+      /* istanbul ignore next */
       default:
         break;
     }
   }
   return horizontal * depth;
-}
-
-/* c8 ignore next 4 */
-if (process.env.ROPAOLLE === 'DEV') {
-  console.info(`${__filename} - Part one:`, partOne(testInput));
-  console.info(`${__filename} - Part two:`, partTwo(testInput));
 }
 
 exports.partOne = partOne;

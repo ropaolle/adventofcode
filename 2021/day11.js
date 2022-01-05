@@ -1,21 +1,5 @@
-const testInput = `
-5483143223
-2745854711
-5264556173
-6141336146
-6357385478
-4167524645
-2176841721
-6882881134
-4846848554
-5283751526
-`;
-
 function parse(input) {
-  return input
-    .split(/\r?\n/)
-    .filter((line) => line.length !== 0) // Ignore empty lines in the test input
-    .map((v) => v.split('').map(Number));
+  return input.split(/\r?\n/).map((v) => v.split('').map(Number));
 }
 
 const map = [
@@ -29,7 +13,7 @@ const map = [
   [1, -1],
 ];
 
-const countFlashes = (matrix, generation = 0) => {
+const countFlashes = (matrix, generation) => {
   let flashes = 0;
 
   for (let i = 0; i < 1000; i++) {
@@ -96,12 +80,6 @@ function partOne(input) {
 function partTwo(input) {
   const matrix = parse(input);
   return countFlashes(matrix, 0);
-}
-
-/* c8 ignore next 4 */
-if (process.env.ROPAOLLE === 'DEV') {
-  console.info(`${__filename} - Part one:`, partOne(testInput));
-  console.info(`${__filename} - Part two:`, partTwo(testInput));
 }
 
 exports.partOne = partOne;

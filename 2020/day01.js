@@ -1,20 +1,5 @@
-const testInput = `
-1721
-979
-366
-299
-675
-1456
-`;
-
 function parse(input) {
-  return (
-    input
-      .split(/\r?\n/)
-      // Ignore empty lines in the test input
-      .filter((line) => line.length !== 0)
-      .map((line) => Number(line))
-  );
+  return input.split(/\r?\n/).map((line) => Number(line));
 }
 
 function partOne(input) {
@@ -52,13 +37,6 @@ function partTwo(input) {
       }
     }
   }
-  /* c8 ignore next */
-}
-
-/* c8 ignore next 4 */
-if (process.env.ROPAOLLE === 'DEV') {
-  console.info(`${__filename} - Part one:`, partOne(testInput));
-  console.info(`${__filename} - Part two:`, partTwo(testInput));
 }
 
 exports.partOne = partOne;

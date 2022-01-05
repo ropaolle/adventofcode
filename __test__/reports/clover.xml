@@ -1,0 +1,685 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1641380604071" clover="3.2.0">
+  <project timestamp="1641380604071" name="All files">
+    <metrics statements="622" coveredstatements="622" conditionals="213" coveredconditionals="213" methods="176" coveredmethods="176" elements="1011" coveredelements="1011" complexity="0" loc="622" ncloc="622" packages="2" files="17" classes="17"/>
+    <package name="2020">
+      <metrics statements="16" coveredstatements="16" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4"/>
+      <file name="day01.js" path="C:\GitHub\adventofcode\2020\day01.js">
+        <metrics statements="16" coveredstatements="16" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4"/>
+        <line num="2" count="400" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="63" type="stmt"/>
+        <line num="10" count="10489" type="stmt"/>
+        <line num="16" count="10489" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="61" type="stmt"/>
+        <line num="28" count="10122" type="stmt"/>
+        <line num="29" count="867390" type="stmt"/>
+        <line num="34" count="867390" type="cond" truecount="2" falsecount="0"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="2021">
+      <metrics statements="606" coveredstatements="606" conditionals="209" coveredconditionals="209" methods="172" coveredmethods="172"/>
+      <file name="day01.js" path="C:\GitHub\adventofcode\2021\day01.js">
+        <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="5" coveredmethods="5"/>
+        <line num="2" count="4000" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="3996" type="cond" truecount="2" falsecount="0"/>
+        <line num="10" count="3277" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+      </file>
+      <file name="day02.js" path="C:\GitHub\adventofcode\2021\day02.js">
+        <metrics statements="27" coveredstatements="27" conditionals="6" coveredconditionals="6" methods="4" coveredmethods="4"/>
+        <line num="2" count="2000" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1000" type="cond" truecount="3" falsecount="0"/>
+        <line num="12" count="404" type="stmt"/>
+        <line num="13" count="404" type="stmt"/>
+        <line num="15" count="214" type="stmt"/>
+        <line num="16" count="214" type="stmt"/>
+        <line num="18" count="382" type="stmt"/>
+        <line num="19" count="382" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="35" count="1000" type="cond" truecount="3" falsecount="0"/>
+        <line num="37" count="404" type="stmt"/>
+        <line num="38" count="404" type="stmt"/>
+        <line num="39" count="404" type="stmt"/>
+        <line num="41" count="214" type="stmt"/>
+        <line num="42" count="214" type="stmt"/>
+        <line num="44" count="382" type="stmt"/>
+        <line num="45" count="382" type="stmt"/>
+        <line num="51" count="1" type="stmt"/>
+        <line num="54" count="1" type="stmt"/>
+        <line num="55" count="1" type="stmt"/>
+      </file>
+      <file name="day03.js" path="C:\GitHub\adventofcode\2021\day03.js">
+        <metrics statements="25" coveredstatements="25" conditionals="6" coveredconditionals="6" methods="14" coveredmethods="14"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="12" type="stmt"/>
+        <line num="13" count="4003" type="stmt"/>
+        <line num="15" count="2667506" type="stmt"/>
+        <line num="16" count="32010072" type="cond" truecount="2" falsecount="0"/>
+        <line num="18" count="2667506" type="stmt"/>
+        <line num="20" count="48036" type="cond" truecount="2" falsecount="0"/>
+        <line num="37" count="2" type="stmt"/>
+        <line num="39" count="2" type="stmt"/>
+        <line num="40" count="22" type="cond" truecount="2" falsecount="0"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="43" count="4002" type="stmt"/>
+        <line num="45" count="2" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="51" count="1" type="stmt"/>
+        <line num="53" count="1" type="stmt"/>
+        <line num="57" count="2042" type="stmt"/>
+        <line num="61" count="1960" type="stmt"/>
+        <line num="65" count="1" type="stmt"/>
+        <line num="66" count="1" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
+        <line num="71" count="1" type="stmt"/>
+        <line num="72" count="1" type="stmt"/>
+      </file>
+      <file name="day04.js" path="C:\GitHub\adventofcode\2021\day04.js">
+        <metrics statements="42" coveredstatements="42" conditionals="18" coveredconditionals="18" methods="13" coveredmethods="13"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="1000" type="stmt"/>
+        <line num="4" count="1000" type="stmt"/>
+        <line num="5" count="1000" type="stmt"/>
+        <line num="6" count="1000" type="cond" truecount="2" falsecount="0"/>
+        <line num="7" count="200" type="stmt"/>
+        <line num="9" count="1000" type="stmt"/>
+        <line num="10" count="1000" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="206275" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="8251" type="stmt"/>
+        <line num="19" count="41035" type="stmt"/>
+        <line num="20" count="41035" type="cond" truecount="2" falsecount="0"/>
+        <line num="24" count="101" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="50" type="cond" truecount="2" falsecount="0"/>
+        <line num="33" count="1202" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
+        <line num="35" count="2" type="stmt"/>
+        <line num="36" count="2" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="43" count="24" type="stmt"/>
+        <line num="44" count="24" type="stmt"/>
+        <line num="45" count="2370" type="stmt"/>
+        <line num="46" count="2370" type="cond" truecount="2" falsecount="0"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="54" count="1" type="stmt"/>
+        <line num="56" count="100" type="stmt"/>
+        <line num="57" count="1" type="stmt"/>
+        <line num="58" count="90" type="stmt"/>
+        <line num="59" count="90" type="stmt"/>
+        <line num="60" count="8910" type="cond" truecount="2" falsecount="0"/>
+        <line num="61" count="5881" type="stmt"/>
+        <line num="62" count="5881" type="cond" truecount="2" falsecount="0"/>
+        <line num="63" count="100" type="cond" truecount="2" falsecount="0"/>
+        <line num="64" count="1" type="stmt"/>
+        <line num="66" count="5049" type="stmt"/>
+        <line num="74" count="1" type="stmt"/>
+        <line num="75" count="1" type="stmt"/>
+      </file>
+      <file name="day05.js" path="C:\GitHub\adventofcode\2021\day05.js">
+        <metrics statements="47" coveredstatements="47" conditionals="14" coveredconditionals="14" methods="14" coveredmethods="14"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="1000" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="11" count="1980" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1960200" type="cond" truecount="2" falsecount="0"/>
+        <line num="18" count="2000" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="500" type="stmt"/>
+        <line num="27" count="500" type="cond" truecount="2" falsecount="0"/>
+        <line num="28" count="168" type="stmt"/>
+        <line num="29" count="168" type="stmt"/>
+        <line num="30" count="168" type="stmt"/>
+        <line num="31" count="53470" type="stmt"/>
+        <line num="33" count="332" type="cond" truecount="2" falsecount="0"/>
+        <line num="34" count="147" type="stmt"/>
+        <line num="35" count="147" type="stmt"/>
+        <line num="36" count="147" type="stmt"/>
+        <line num="37" count="49254" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
+        <line num="50" count="500" type="stmt"/>
+        <line num="51" count="500" type="cond" truecount="2" falsecount="0"/>
+        <line num="52" count="168" type="stmt"/>
+        <line num="53" count="168" type="stmt"/>
+        <line num="54" count="168" type="stmt"/>
+        <line num="55" count="53470" type="stmt"/>
+        <line num="57" count="332" type="cond" truecount="2" falsecount="0"/>
+        <line num="58" count="147" type="stmt"/>
+        <line num="59" count="147" type="stmt"/>
+        <line num="60" count="147" type="stmt"/>
+        <line num="61" count="49254" type="stmt"/>
+        <line num="64" count="185" type="stmt"/>
+        <line num="65" count="185" type="cond" truecount="2" falsecount="0"/>
+        <line num="66" count="185" type="cond" truecount="2" falsecount="0"/>
+        <line num="67" count="185" type="stmt"/>
+        <line num="68" count="98308" type="stmt"/>
+        <line num="73" count="1" type="stmt"/>
+        <line num="76" count="1" type="stmt"/>
+        <line num="77" count="1" type="stmt"/>
+      </file>
+      <file name="day06.js" path="C:\GitHub\adventofcode\2021\day06.js">
+        <metrics statements="24" coveredstatements="24" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="6"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="80" type="stmt"/>
+        <line num="4" count="80" type="stmt"/>
+        <line num="5" count="4201827" type="cond" truecount="2" falsecount="0"/>
+        <line num="7" count="391588" type="stmt"/>
+        <line num="8" count="391588" type="stmt"/>
+        <line num="10" count="3810239" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="32" count="300" type="stmt"/>
+        <line num="33" count="300" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="41" count="256" type="stmt"/>
+        <line num="42" count="256" type="stmt"/>
+        <line num="43" count="256" type="stmt"/>
+        <line num="46" count="8" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+      </file>
+      <file name="day07.js" path="C:\GitHub\adventofcode\2021\day07.js">
+        <metrics statements="16" coveredstatements="16" conditionals="6" coveredconditionals="6" methods="7" coveredmethods="7"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="500000" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="15" count="1000" type="cond" truecount="2" falsecount="0"/>
+        <line num="16" count="500000" type="stmt"/>
+        <line num="17" count="500000" type="stmt"/>
+        <line num="18" count="1000" type="cond" truecount="4" falsecount="0"/>
+        <line num="19" count="762" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+      </file>
+      <file name="day08.js" path="C:\GitHub\adventofcode\2021\day08.js">
+        <metrics statements="60" coveredstatements="60" conditionals="35" coveredconditionals="35" methods="14" coveredmethods="14"/>
+        <line num="54" count="2" type="stmt"/>
+        <line num="58" count="1" type="stmt"/>
+        <line num="60" count="1" type="stmt"/>
+        <line num="62" count="200" type="stmt"/>
+        <line num="67" count="800" type="cond" truecount="2" falsecount="0"/>
+        <line num="74" count="5989" type="cond" truecount="3" falsecount="0"/>
+        <line num="78" count="1068" type="cond" truecount="4" falsecount="0"/>
+        <line num="79" count="769" type="stmt"/>
+        <line num="81" count="1495" type="cond" truecount="2" falsecount="0"/>
+        <line num="85" count="200" type="stmt"/>
+        <line num="87" count="200" type="stmt"/>
+        <line num="89" count="2800" type="stmt"/>
+        <line num="92" count="200" type="stmt"/>
+        <line num="93" count="2000" type="cond" truecount="2" falsecount="0"/>
+        <line num="94" count="200" type="stmt"/>
+        <line num="95" count="200" type="stmt"/>
+        <line num="96" count="1800" type="cond" truecount="2" falsecount="0"/>
+        <line num="97" count="200" type="stmt"/>
+        <line num="98" count="200" type="stmt"/>
+        <line num="99" count="1600" type="cond" truecount="2" falsecount="0"/>
+        <line num="100" count="200" type="stmt"/>
+        <line num="101" count="200" type="stmt"/>
+        <line num="102" count="1400" type="cond" truecount="2" falsecount="0"/>
+        <line num="103" count="200" type="stmt"/>
+        <line num="104" count="200" type="stmt"/>
+        <line num="109" count="200" type="stmt"/>
+        <line num="110" count="1080" type="cond" truecount="2" falsecount="0"/>
+        <line num="111" count="200" type="stmt"/>
+        <line num="112" count="200" type="stmt"/>
+        <line num="113" count="200" type="stmt"/>
+        <line num="118" count="200" type="stmt"/>
+        <line num="119" count="1081" type="cond" truecount="4" falsecount="0"/>
+        <line num="120" count="200" type="stmt"/>
+        <line num="121" count="200" type="stmt"/>
+        <line num="122" count="200" type="stmt"/>
+        <line num="127" count="200" type="stmt"/>
+        <line num="128" count="1081" type="cond" truecount="2" falsecount="0"/>
+        <line num="129" count="200" type="stmt"/>
+        <line num="130" count="200" type="stmt"/>
+        <line num="131" count="200" type="stmt"/>
+        <line num="136" count="200" type="stmt"/>
+        <line num="137" count="1092" type="cond" truecount="4" falsecount="0"/>
+        <line num="138" count="200" type="stmt"/>
+        <line num="139" count="200" type="stmt"/>
+        <line num="140" count="200" type="stmt"/>
+        <line num="145" count="200" type="stmt"/>
+        <line num="146" count="1068" type="cond" truecount="2" falsecount="0"/>
+        <line num="147" count="200" type="stmt"/>
+        <line num="148" count="200" type="stmt"/>
+        <line num="149" count="200" type="stmt"/>
+        <line num="154" count="200" type="stmt"/>
+        <line num="155" count="1067" type="cond" truecount="2" falsecount="0"/>
+        <line num="156" count="200" type="stmt"/>
+        <line num="157" count="200" type="stmt"/>
+        <line num="158" count="200" type="stmt"/>
+        <line num="162" count="800" type="stmt"/>
+        <line num="166" count="1" type="stmt"/>
+        <line num="168" count="200" type="stmt"/>
+        <line num="171" count="1" type="stmt"/>
+        <line num="172" count="1" type="stmt"/>
+      </file>
+      <file name="day09.js" path="C:\GitHub\adventofcode\2021\day09.js">
+        <metrics statements="40" coveredstatements="40" conditionals="16" coveredconditionals="16" methods="12" coveredmethods="12"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="9" count="1541" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="18" count="200" type="stmt"/>
+        <line num="19" count="20000" type="stmt"/>
+        <line num="20" count="36630" type="stmt"/>
+        <line num="21" count="36630" type="stmt"/>
+        <line num="22" count="36630" type="cond" truecount="5" falsecount="0"/>
+        <line num="25" count="20000" type="cond" truecount="2" falsecount="0"/>
+        <line num="26" count="472" type="stmt"/>
+        <line num="31" count="2" type="stmt"/>
+        <line num="35" count="200" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="40" count="236" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="50" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="51" count="7238" type="stmt"/>
+        <line num="52" count="7238" type="stmt"/>
+        <line num="53" count="7238" type="stmt"/>
+        <line num="54" count="28952" type="stmt"/>
+        <line num="55" count="28952" type="stmt"/>
+        <line num="56" count="28952" type="cond" truecount="6" falsecount="0"/>
+        <line num="58" count="28645" type="cond" truecount="2" falsecount="0"/>
+        <line num="61" count="7002" type="stmt"/>
+        <line num="62" count="7002" type="stmt"/>
+        <line num="65" count="7238" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
+        <line num="70" count="236" type="stmt"/>
+        <line num="71" count="236" type="stmt"/>
+        <line num="73" count="236" type="stmt"/>
+        <line num="77" count="3" type="stmt"/>
+        <line num="80" count="1" type="stmt"/>
+        <line num="81" count="1" type="stmt"/>
+      </file>
+      <file name="day10.js" path="C:\GitHub\adventofcode\2021\day10.js">
+        <metrics statements="35" coveredstatements="35" conditionals="12" coveredconditionals="12" methods="10" coveredmethods="10"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="110" type="stmt"/>
+        <line num="5" count="110" type="stmt"/>
+        <line num="6" count="110" type="stmt"/>
+        <line num="13" count="110" type="stmt"/>
+        <line num="14" count="8849" type="stmt"/>
+        <line num="15" count="8849" type="cond" truecount="2" falsecount="0"/>
+        <line num="16" count="5120" type="stmt"/>
+        <line num="18" count="3729" type="cond" truecount="4" falsecount="0"/>
+        <line num="19" count="55" type="stmt"/>
+        <line num="23" count="55" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="110" type="stmt"/>
+        <line num="28" count="110" type="stmt"/>
+        <line num="30" count="110" type="stmt"/>
+        <line num="31" count="8849" type="stmt"/>
+        <line num="32" count="8849" type="cond" truecount="2" falsecount="0"/>
+        <line num="33" count="5120" type="stmt"/>
+        <line num="35" count="3729" type="cond" truecount="4" falsecount="0"/>
+        <line num="36" count="55" type="stmt"/>
+        <line num="40" count="55" type="stmt"/>
+        <line num="44" count="2" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
+        <line num="49" count="110" type="stmt"/>
+        <line num="53" count="1" type="stmt"/>
+        <line num="55" count="1" type="stmt"/>
+        <line num="57" count="1" type="stmt"/>
+        <line num="59" count="110" type="stmt"/>
+        <line num="61" count="736" type="stmt"/>
+        <line num="63" count="110" type="stmt"/>
+        <line num="64" count="245" type="stmt"/>
+        <line num="66" count="1" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
+        <line num="71" count="1" type="stmt"/>
+        <line num="72" count="1" type="stmt"/>
+      </file>
+      <file name="day11.js" path="C:\GitHub\adventofcode\2021\day11.js">
+        <metrics statements="41" coveredstatements="41" conditionals="18" coveredconditionals="18" methods="7" coveredmethods="7"/>
+        <line num="2" count="20" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="20" count="420" type="stmt"/>
+        <line num="23" count="420" type="stmt"/>
+        <line num="24" count="4200" type="stmt"/>
+        <line num="25" count="42000" type="stmt"/>
+        <line num="26" count="42000" type="cond" truecount="2" falsecount="0"/>
+        <line num="27" count="1720" type="stmt"/>
+        <line num="28" count="1720" type="stmt"/>
+        <line num="29" count="1720" type="stmt"/>
+        <line num="31" count="40280" type="stmt"/>
+        <line num="36" count="420" type="stmt"/>
+        <line num="37" count="1145" type="stmt"/>
+        <line num="39" count="1145" type="stmt"/>
+        <line num="40" count="11450" type="stmt"/>
+        <line num="41" count="114500" type="cond" truecount="2" falsecount="0"/>
+        <line num="42" count="6629" type="stmt"/>
+        <line num="43" count="53032" type="stmt"/>
+        <line num="44" count="53032" type="stmt"/>
+        <line num="46" count="53032" type="cond" truecount="4" falsecount="0"/>
+        <line num="47" count="28418" type="stmt"/>
+        <line num="48" count="28418" type="cond" truecount="2" falsecount="0"/>
+        <line num="49" count="4909" type="stmt"/>
+        <line num="50" count="4909" type="stmt"/>
+        <line num="51" count="4909" type="stmt"/>
+        <line num="52" count="23509" type="cond" truecount="4" falsecount="0"/>
+        <line num="53" count="18685" type="stmt"/>
+        <line num="57" count="6629" type="stmt"/>
+        <line num="64" count="420" type="cond" truecount="2" falsecount="0"/>
+        <line num="65" count="1" type="stmt"/>
+        <line num="69" count="428" type="cond" truecount="2" falsecount="0"/>
+        <line num="70" count="1" type="stmt"/>
+        <line num="76" count="1" type="stmt"/>
+        <line num="77" count="1" type="stmt"/>
+        <line num="81" count="1" type="stmt"/>
+        <line num="82" count="1" type="stmt"/>
+        <line num="85" count="1" type="stmt"/>
+        <line num="86" count="1" type="stmt"/>
+      </file>
+      <file name="day12.js" path="C:\GitHub\adventofcode\2021\day12.js">
+        <metrics statements="25" coveredstatements="25" conditionals="11" coveredconditionals="11" methods="10" coveredmethods="10"/>
+        <line num="2" count="50" type="stmt"/>
+        <line num="6" count="252030" type="stmt"/>
+        <line num="7" count="6300750" type="stmt"/>
+        <line num="8" count="6300750" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="15" count="252030" type="stmt"/>
+        <line num="17" count="252030" type="stmt"/>
+        <line num="18" count="252030" type="cond" truecount="2" falsecount="0"/>
+        <line num="19" count="86887" type="stmt"/>
+        <line num="22" count="252030" type="stmt"/>
+        <line num="23" count="1008220" type="cond" truecount="2" falsecount="0"/>
+        <line num="24" count="108721" type="stmt"/>
+        <line num="26" count="899499" type="cond" truecount="2" falsecount="0"/>
+        <line num="27" count="666806" type="cond" truecount="4" falsecount="0"/>
+        <line num="28" count="19335" type="stmt"/>
+        <line num="31" count="232693" type="stmt"/>
+        <line num="37" count="2" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="51" count="1" type="stmt"/>
+      </file>
+      <file name="day13.js" path="C:\GitHub\adventofcode\2021\day13.js">
+        <metrics statements="49" coveredstatements="49" conditionals="13" coveredconditionals="13" methods="13" coveredmethods="13"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="8" count="1618" type="cond" truecount="2" falsecount="0"/>
+        <line num="9" count="1616" type="cond" truecount="2" falsecount="0"/>
+        <line num="10" count="24" type="stmt"/>
+        <line num="15" count="48" type="cond" truecount="2" falsecount="0"/>
+        <line num="16" count="24" type="stmt"/>
+        <line num="18" count="24" type="stmt"/>
+        <line num="20" count="48" type="stmt"/>
+        <line num="24" count="1592" type="stmt"/>
+        <line num="27" count="1618" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="33" count="1592" type="stmt"/>
+        <line num="34" count="1592" type="stmt"/>
+        <line num="36" count="2" type="stmt"/>
+        <line num="38" count="1788" type="stmt"/>
+        <line num="39" count="1592" type="stmt"/>
+        <line num="40" count="2" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="46" count="13" type="stmt"/>
+        <line num="48" count="13" type="cond" truecount="2" falsecount="0"/>
+        <line num="49" count="7" type="stmt"/>
+        <line num="50" count="882" type="stmt"/>
+        <line num="51" count="882" type="stmt"/>
+        <line num="52" count="390094" type="cond" truecount="2" falsecount="0"/>
+        <line num="53" count="1360" type="stmt"/>
+        <line num="57" count="7" type="stmt"/>
+        <line num="58" count="7" type="stmt"/>
+        <line num="60" count="6" type="stmt"/>
+        <line num="61" count="2620" type="stmt"/>
+        <line num="62" count="1364238" type="stmt"/>
+        <line num="63" count="1364238" type="cond" truecount="2" falsecount="0"/>
+        <line num="64" count="1758" type="stmt"/>
+        <line num="67" count="2620" type="stmt"/>
+        <line num="68" count="2620" type="stmt"/>
+        <line num="74" count="1" type="stmt"/>
+        <line num="75" count="1" type="stmt"/>
+        <line num="76" count="1" type="stmt"/>
+        <line num="77" count="1" type="stmt"/>
+        <line num="80" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="84" count="1" type="stmt"/>
+        <line num="85" count="1" type="stmt"/>
+        <line num="86" count="1" type="stmt"/>
+        <line num="88" count="1" type="stmt"/>
+        <line num="89" count="12" type="stmt"/>
+        <line num="100" count="1" type="stmt"/>
+        <line num="103" count="1" type="stmt"/>
+        <line num="104" count="1" type="stmt"/>
+      </file>
+      <file name="day14.js" path="C:\GitHub\adventofcode\2021\day14.js">
+        <metrics statements="63" coveredstatements="63" conditionals="18" coveredconditionals="18" methods="19" coveredmethods="19"/>
+        <line num="2" count="204" type="stmt"/>
+        <line num="5" count="23" type="stmt"/>
+        <line num="7" count="19457" type="stmt"/>
+        <line num="10" count="1000" type="stmt"/>
+        <line num="11" count="1000" type="stmt"/>
+        <line num="12" count="1000" type="stmt"/>
+        <line num="13" count="19437" type="stmt"/>
+        <line num="14" count="19437" type="stmt"/>
+        <line num="17" count="1000" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="26" count="102" type="cond" truecount="4" falsecount="0"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="101" type="cond" truecount="2" falsecount="0"/>
+        <line num="29" count="100" type="stmt"/>
+        <line num="32" count="102" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="38" count="10" type="stmt"/>
+        <line num="39" count="10" type="stmt"/>
+        <line num="41" count="10" type="stmt"/>
+        <line num="42" count="1000" type="stmt"/>
+        <line num="43" count="1000" type="stmt"/>
+        <line num="44" count="19437" type="stmt"/>
+        <line num="48" count="10" type="stmt"/>
+        <line num="49" count="19437" type="stmt"/>
+        <line num="50" count="19437" type="stmt"/>
+        <line num="54" count="19437" type="stmt"/>
+        <line num="58" count="10" type="stmt"/>
+        <line num="61" count="1" type="stmt"/>
+        <line num="64" count="19457" type="stmt"/>
+        <line num="65" count="19457" type="cond" truecount="2" falsecount="0"/>
+        <line num="66" count="10" type="stmt"/>
+        <line num="68" count="19457" type="stmt"/>
+        <line num="69" count="19457" type="stmt"/>
+        <line num="71" count="10" type="stmt"/>
+        <line num="74" count="1" type="stmt"/>
+        <line num="79" count="1" type="stmt"/>
+        <line num="81" count="1" type="stmt"/>
+        <line num="83" count="102" type="cond" truecount="4" falsecount="0"/>
+        <line num="84" count="1" type="stmt"/>
+        <line num="85" count="101" type="cond" truecount="2" falsecount="0"/>
+        <line num="86" count="100" type="stmt"/>
+        <line num="89" count="102" type="stmt"/>
+        <line num="94" count="1" type="stmt"/>
+        <line num="96" count="39" type="cond" truecount="2" falsecount="0"/>
+        <line num="98" count="19" type="stmt"/>
+        <line num="100" count="12228" type="cond" truecount="2" falsecount="0"/>
+        <line num="101" count="1" type="stmt"/>
+        <line num="104" count="1" type="stmt"/>
+        <line num="105" count="1" type="stmt"/>
+        <line num="106" count="1" type="stmt"/>
+        <line num="107" count="3258" type="stmt"/>
+        <line num="108" count="40" type="stmt"/>
+        <line num="109" count="3057" type="stmt"/>
+        <line num="110" count="3057" type="stmt"/>
+        <line num="111" count="3057" type="stmt"/>
+        <line num="112" count="3057" type="stmt"/>
+        <line num="113" count="3057" type="stmt"/>
+        <line num="116" count="1" type="stmt"/>
+        <line num="117" count="1" type="stmt"/>
+        <line num="120" count="1" type="stmt"/>
+        <line num="123" count="1" type="stmt"/>
+        <line num="124" count="1" type="stmt"/>
+      </file>
+      <file name="day15.js" path="C:\GitHub\adventofcode\2021\day15.js">
+        <metrics statements="24" coveredstatements="24" conditionals="5" coveredconditionals="5" methods="12" coveredmethods="12"/>
+        <line num="2" count="200" type="stmt"/>
+        <line num="6" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="19" count="260000" type="stmt"/>
+        <line num="20" count="260000" type="cond" truecount="4" falsecount="0"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="24" count="1039992" type="stmt"/>
+        <line num="25" count="1039992" type="stmt"/>
+        <line num="26" count="1037594" type="stmt"/>
+        <line num="28" count="260000" type="stmt"/>
+        <line num="29" count="260000" type="stmt"/>
+        <line num="31" count="147059667" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="43" count="500" type="stmt"/>
+        <line num="45" count="250000" type="stmt"/>
+        <line num="54" count="1" type="stmt"/>
+        <line num="57" count="1" type="stmt"/>
+        <line num="58" count="1" type="stmt"/>
+      </file>
+      <file name="day16.js" path="C:\GitHub\adventofcode\2021\day16.js">
+        <metrics statements="78" coveredstatements="78" conditionals="27" coveredconditionals="27" methods="12" coveredmethods="12"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="10" count="1332" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="16" count="1332" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="22" count="169" type="stmt"/>
+        <line num="23" count="169" type="stmt"/>
+        <line num="24" count="459" type="stmt"/>
+        <line num="25" count="459" type="cond" truecount="2" falsecount="0"/>
+        <line num="26" count="169" type="stmt"/>
+        <line num="28" count="290" type="stmt"/>
+        <line num="30" count="169" type="stmt"/>
+        <line num="35" count="169" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="42" count="268" type="stmt"/>
+        <line num="43" count="268" type="stmt"/>
+        <line num="47" count="268" type="cond" truecount="2" falsecount="0"/>
+        <line num="48" count="169" type="stmt"/>
+        <line num="50" count="99" type="cond" truecount="2" falsecount="0"/>
+        <line num="53" count="268" type="stmt"/>
+        <line num="54" count="268" type="stmt"/>
+        <line num="56" count="268" type="cond" truecount="2" falsecount="0"/>
+        <line num="57" count="1" type="stmt"/>
+        <line num="59" count="267" type="stmt"/>
+        <line num="62" count="267" type="stmt"/>
+        <line num="66" count="1" type="stmt"/>
+        <line num="67" count="1" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
+        <line num="76" count="268" type="stmt"/>
+        <line num="77" count="268" type="stmt"/>
+        <line num="78" count="268" type="stmt"/>
+        <line num="79" count="268" type="cond" truecount="2" falsecount="0"/>
+        <line num="80" count="169" type="stmt"/>
+        <line num="81" count="169" type="stmt"/>
+        <line num="82" count="169" type="stmt"/>
+        <line num="83" count="290" type="stmt"/>
+        <line num="84" count="290" type="stmt"/>
+        <line num="86" count="169" type="stmt"/>
+        <line num="87" count="169" type="stmt"/>
+        <line num="88" count="169" type="stmt"/>
+        <line num="89" count="169" type="stmt"/>
+        <line num="91" count="99" type="stmt"/>
+        <line num="94" count="99" type="stmt"/>
+        <line num="95" count="99" type="cond" truecount="2" falsecount="0"/>
+        <line num="96" count="59" type="stmt"/>
+        <line num="97" count="59" type="stmt"/>
+        <line num="99" count="40" type="stmt"/>
+        <line num="100" count="40" type="stmt"/>
+        <line num="103" count="99" type="stmt"/>
+        <line num="104" count="267" type="stmt"/>
+        <line num="105" count="267" type="stmt"/>
+        <line num="106" count="267" type="stmt"/>
+        <line num="107" count="267" type="cond" truecount="2" falsecount="0"/>
+        <line num="108" count="175" type="stmt"/>
+        <line num="110" count="92" type="stmt"/>
+        <line num="113" count="99" type="stmt"/>
+        <line num="115" count="99" type="cond" truecount="7" falsecount="0"/>
+        <line num="117" count="117" type="stmt"/>
+        <line num="118" count="27" type="stmt"/>
+        <line num="120" count="72" type="stmt"/>
+        <line num="121" count="34" type="stmt"/>
+        <line num="123" count="20" type="stmt"/>
+        <line num="124" count="10" type="stmt"/>
+        <line num="126" count="18" type="stmt"/>
+        <line num="127" count="8" type="stmt"/>
+        <line num="129" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="130" count="8" type="stmt"/>
+        <line num="132" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="133" count="8" type="stmt"/>
+        <line num="135" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="136" count="4" type="stmt"/>
+        <line num="140" count="268" type="stmt"/>
+        <line num="144" count="1" type="stmt"/>
+        <line num="145" count="1" type="stmt"/>
+        <line num="148" count="1" type="stmt"/>
+        <line num="149" count="1" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

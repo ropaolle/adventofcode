@@ -1,21 +1,5 @@
-const testInput = `
-1163751742
-1381373672
-2136511328
-3694931569
-7463417111
-1319128137
-1359912421
-3125421639
-1293138521
-2311944581
-`;
-
 function parse(input) {
-  return input
-    .split(/\r?\n/)
-    .filter((line) => line.length !== 0) // Ignore empty lines in the test input
-    .map((v) => v.split('').map(Number));
+  return input.split(/\r?\n/).map((v) => v.split('').map(Number));
 }
 
 // https://www.reddit.com/r/adventofcode/comments/rgqzt5/comment/hom6gmm/?utm_source=share&utm_medium=web2x&context=3
@@ -68,12 +52,6 @@ function partTwo(input) {
   );
 
   return shortestPath(expandedMap);
-}
-
-/* c8 ignore next 4 */
-if (process.env.ROPAOLLE === 'DEV') {
-  console.info(`${__filename} - Part one:`, partOne(testInput));
-  console.info(`${__filename} - Part two:`, partTwo(testInput));
 }
 
 exports.partOne = partOne;

@@ -2,14 +2,15 @@
   "name": "adventofcode",
   "version": "1.0.0",
   "description": "Advent of Code solutions in JavaScript.",
+  "type": "commonjs",
+  "main": "index.js",
   "scripts": {
-    "dev": "nodemon -q",
-    "test:dev": "mocha -w --slow 10",
-    "test": "mocha --reporter mochawesome --reporter-options quiet=true",
-    "coverage": "c8 --100 npm test",
-    "update-badges": "node node.mjs",
-    "pre-commit": "npm run --silent coverage & node .scripts/update-badges.mjs",
-    "eslint": "eslint 20*/**.js"
+    "start": "nodemon -q index.js",
+    "test": "jest --config=jest.config.js",
+    "test:dev": "jest --watch --config=jest.config.js --coverage=false",
+    "badges": "node ./__test__/helpers/update-badges.js",
+    "lint": "eslint 20*/**.js",
+    "pre-commit": "npm run --silent test & npm run lint & npm run badges"
   },
   "repository": {
     "type": "git",
@@ -25,16 +26,16 @@
     ]
   },
   "devDependencies": {
-    "c8": "^7.10.0",
-    "chai": "^4.3.4",
     "eslint": "^8.2.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-prettier": "^4.0.0",
-    "mocha": "^9.1.3",
-    "mochawesome": "^7.0.1",
+    "jest": "^27.4.5",
+    "jest-junit": "^13.0.0",
+    "jest-slow-test-reporter": "^1.0.0",
     "nodemon": "^2.0.15",
-    "prettier": "2.5.1"
+    "prettier": "2.5.1",
+    "xml2js": "^0.4.23"
   }
 }

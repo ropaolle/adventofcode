@@ -1,16 +1,3 @@
-const testInput = `
-[({(<(())[]>[[{[]{<()<>>
-[(()[<>])]({[<{<<[]>>(
-{([(<{}[<>[]}>{[]{[(<()>
-(((({<>}<{<{<>}{[]{[]{}
-[[<[([]))<([[{}[[()]]]
-[{[{({}]{}}([{[{{{}}([]
-{<[[]]>}<{[{[{[]{()[[[]
-[<(<(<(<{}))><([]([]()
-<{([([[(<>()){}]>(<<{{
-<{([{{}}[<[[[<>{}]]]>[]]
-`;
-
 // Fixade inte denna, använde https://github.com/noamsauerutley/balanced-brackets/blob/master/balancedBrackets.js
 
 let isBalanced = (input) => {
@@ -54,7 +41,7 @@ let isBalanced2 = (input) => {
 };
 
 function parse(input) {
-  return input.split(/\r?\n/).filter((line) => line.length !== 0); // Ignore empty lines in the test input
+  return input.split(/\r?\n/);
 }
 
 function partOne(input) {
@@ -79,12 +66,6 @@ function partTwo(input) {
   const mid = Math.ceil((scores.length - 1) / 2);
 
   return scores[mid];
-}
-
-/* c8 ignore next 4 */
-if (process.env.ROPAOLLE === 'DEV') {
-  console.info(`${__filename} - Part one:`, partOne(testInput));
-  console.info(`${__filename} - Part two:`, partTwo(testInput));
 }
 
 exports.partOne = partOne;

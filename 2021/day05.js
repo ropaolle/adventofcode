@@ -1,16 +1,3 @@
-const testInput = `
-0,9 -> 5,9
-8,0 -> 0,8
-9,4 -> 3,4
-2,2 -> 2,1
-7,0 -> 7,4
-6,4 -> 2,0
-0,9 -> 2,9
-3,4 -> 1,4
-0,0 -> 8,8
-5,5 -> 8,2
-`;
-
 const getMax = (lines) =>
   lines.reduce(
     (acc, [[x1, y1], [x2, y2]]) => [Math.max(acc[0], x1, x2), Math.max(acc[1], y1, y2)],
@@ -28,10 +15,7 @@ const getCount = (grid) =>
   grid.reduce((acc, v) => v.reduce((acc, v) => (v > 1 ? acc + 1 : acc), acc), 0);
 
 function parse(input) {
-  return input
-    .split(/\r?\n/)
-    .filter((line) => line.length !== 0) // Ignore empty lines in the test input
-    .map((v) => v.split('->').map((v) => v.trim().split(',').map(Number)));
+  return input.split(/\r?\n/).map((v) => v.split('->').map((v) => v.trim().split(',').map(Number)));
 }
 
 function partOne(input) {
@@ -87,12 +71,6 @@ function partTwo(input) {
   });
 
   return getCount(grid);
-}
-
-/* c8 ignore next 4 */
-if (process.env.ROPAOLLE === 'DEV') {
-  console.info(`${__filename} - Part one:`, partOne(testInput));
-  console.info(`${__filename} - Part two:`, partTwo(testInput));
 }
 
 exports.partOne = partOne;
