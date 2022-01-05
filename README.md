@@ -17,3 +17,21 @@
 ![Codacy grade](https://img.shields.io/codacy/grade/25a68dd5c77a4b2db7d499f8f8882372?logo=codacy&style=for-the-badge)
 ![Codacy coverage](https://img.shields.io/codacy/coverage/25a68dd5c77a4b2db7d499f8f8882372?logo=codacy&style=for-the-badge)
 [![codebeat badge](https://codebeat.co/badges/bf22bb74-c257-4712-95e7-fcdb19808c9b)](https://codebeat.co/projects/github-com-ropaolle-adventofcode-main)
+
+## Badges
+
+Formats your JavaScript using [`prettier`][prettier] followed by [`eslint --fix`][eslint]
+
+[![Build Status][build-badge]][build]
+[![Code Coverage][coverage-badge]][coverage]
+[![version][version-badge]][package] [![downloads][downloads-badge]][npm-stat]
+[![MIT License][license-badge]][license]
+
+[![All Contributors](https://img.shields.io/badge/all_contributors-26-orange.svg?style=flat-square)](#contributors-)
+[![PRs Welcome][prs-badge]][prs] [![Donate][donate-badge]][donate]
+[![Code of Conduct][coc-badge]][coc] [![Roadmap][roadmap-badge]][roadmap]
+[![Examples][examples-badge]][examples]
+
+[![Watch on GitHub][github-watch-badge]][github-watch]
+[![Star on GitHub][github-star-badge]][github-star]
+[![Tweet][twitter-badge]][twitter]
