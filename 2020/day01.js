@@ -15,6 +15,8 @@ function partOne(input) {
       // }
       if (sum === 2020) {
         return data[p1] * data[p2];
+      } else {
+        //
       }
     }
   }
