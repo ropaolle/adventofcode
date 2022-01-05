@@ -3,9 +3,8 @@
 ## TODO
 
 - [ ] [freeCodeCamp points](https://www.freecodecamp.org/)
-- [ ] [codacy.com](https://codacy.com/)
-- [ ] [snyk.io](https://snyk.io/)
-- [ ] [codebeat.co](https://codebeat.co/)
+- [ ] Code quality (codacy.com, snyk.io, coadbeat.co)
+- [ ] [Compile Badges Action v1](https://github.com/marketplace/actions/compile-badges-action)
 
 ## Running test and dev
 
@@ -14,33 +13,20 @@
 npm start -- 2020 01
 ```
 
-## How to include commonjs module in ES6 module node app?
+## Badges
 
-[info](https://stackoverflow.com/questions/61549406/how-to-include-commonjs-module-in-es6-module-node-app)
+Formats your JavaScript using [`prettier`][prettier] followed by [`eslint --fix`][eslint]
 
-```json
-{
-  "name": "local-iso-dt",
-  "version": "3.1.0",
-  "description": "...",
-  "type": "commonjs",
-  "exports": {
-    "node": {
-      "import": "./index.mjs",
-      "require": "./index.js"
-    },
-    "default": "./index.mjs"
-  },
-  "main": "index.js",
-  "files": ["index.ts", "index.mjs", "index.js"],
-  "scripts": {
-    "clean": "rm index*.js index.mjs",
-    "prepublishOnly:cjs": "tsc index.ts --esModuleInterop --removeComments",
-    "prepublishOnly:esm": "tsc index.ts -t ES2015 --types node && mv index.js index.mjs",
-    "prepublishOnly": "npm run prepublishOnly:esm; npm run prepublishOnly:cjs"
-  },
-  "devDependencies": {
-    "typescript": "^4.0.2"
-  }
-}
-```
+[![Build Status][build-badge]][build]
+[![Code Coverage][coverage-badge]][coverage]
+[![version][version-badge]][package] [![downloads][downloads-badge]][npm-stat]
+[![MIT License][license-badge]][license]
+
+[![All Contributors](https://img.shields.io/badge/all_contributors-26-orange.svg?style=flat-square)](#contributors-)
+[![PRs Welcome][prs-badge]][prs] [![Donate][donate-badge]][donate]
+[![Code of Conduct][coc-badge]][coc] [![Roadmap][roadmap-badge]][roadmap]
+[![Examples][examples-badge]][examples]
+
+[![Watch on GitHub][github-watch-badge]][github-watch]
+[![Star on GitHub][github-star-badge]][github-star]
+[![Tweet][twitter-badge]][twitter]
