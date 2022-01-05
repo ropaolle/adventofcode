@@ -1,21 +1,5 @@
-const testInput = `
-199
-200
-208
-210
-200
-207
-240
-269
-260
-263
-`;
-
 function parse(input) {
-  return input
-    .split(/\r?\n/)
-    .filter((line) => line.length !== 0) // Ignore empty lines in the test input
-    .map((line) => Number(line));
+  return input.split(/\r?\n/).map((line) => Number(line));
 }
 
 function countValues(data, windowSize) {
@@ -36,12 +20,6 @@ function partOne(input) {
 
 function partTwo(input) {
   return countValues(parse(input), 3);
-}
-
-/* c8 ignore next 4 */
-if (process.env.ROPAOLLE === 'DEV') {
-  console.info(`${__filename} - Part one:`, partOne(testInput));
-  console.info(`${__filename} - Part two:`, partTwo(testInput));
 }
 
 exports.partOne = partOne;

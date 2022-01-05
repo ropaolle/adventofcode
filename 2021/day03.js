@@ -1,20 +1,5 @@
-const testInput = `
-00100
-11110
-10110
-10111
-10101
-01111
-00111
-11100
-10000
-11001
-00010
-01010
-`;
-
 function parse(input) {
-  return input.split(/\r?\n/).filter((line) => line.length !== 0); // Ignore empty lines in the test input
+  return input.split(/\r?\n/);
 }
 
 function flipBits(str) {
@@ -81,12 +66,6 @@ function partTwo(input) {
   const co2ScrubberRating = getRating(input, compareB);
 
   return oxygenGeneratorRating * co2ScrubberRating;
-}
-
-/* c8 ignore next 4 */
-if (process.env.ROPAOLLE === 'DEV') {
-  console.info(`${__filename} - Part one:`, partOne(testInput));
-  console.info(`${__filename} - Part two:`, partTwo(testInput));
 }
 
 exports.partOne = partOne;

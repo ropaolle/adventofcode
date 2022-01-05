@@ -1,19 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="6" failures="0" errors="0" time="0.633">
-  <testsuite name="AOC 2021" errors="0" failures="0" skipped="0" timestamp="2022-01-04T20:08:45" time="0.362" tests="4">
+<testsuites name="jest tests" tests="34" failures="0" errors="0" time="6.996">
+  <testsuite name="AOC 2020" errors="0" failures="0" skipped="0" timestamp="2022-01-05T11:02:00" time="0.681" tests="2">
+    <testcase classname="AOC 2020 Day 01 part one" name="AOC 2020 Day 01 part one" time="0.005">
+    </testcase>
+    <testcase classname="AOC 2020 Day 01 part two" name="AOC 2020 Day 01 part two" time="0.015">
+    </testcase>
+  </testsuite>
+  <testsuite name="AOC 2021" errors="0" failures="0" skipped="0" timestamp="2022-01-05T11:02:00" time="6.491" tests="32">
     <testcase classname="AOC 2021 Day 01 part one" name="AOC 2021 Day 01 part one" time="0.003">
     </testcase>
     <testcase classname="AOC 2021 Day 01 part two" name="AOC 2021 Day 01 part two" time="0.002">
     </testcase>
     <testcase classname="AOC 2021 Day 02 part one" name="AOC 2021 Day 02 part one" time="0.002">
     </testcase>
-    <testcase classname="AOC 2021 Day 02 part two" name="AOC 2021 Day 02 part two" time="0.002">
+    <testcase classname="AOC 2021 Day 02 part two" name="AOC 2021 Day 02 part two" time="0.001">
     </testcase>
-  </testsuite>
-  <testsuite name="AOC 2020" errors="0" failures="0" skipped="0" timestamp="2022-01-04T20:08:45" time="0.114" tests="2">
-    <testcase classname="AOC 2020 Day 01 part one" name="AOC 2020 Day 01 part one" time="0.005">
+    <testcase classname="AOC 2021 Day 03 part one" name="AOC 2021 Day 03 part one" time="0.003">
     </testcase>
-    <testcase classname="AOC 2020 Day 01 part two" name="AOC 2020 Day 01 part two" time="0.015">
+    <testcase classname="AOC 2021 Day 03 part two" name="AOC 2021 Day 03 part two" time="0.832">
+    </testcase>
+    <testcase classname="AOC 2021 Day 04 part one" name="AOC 2021 Day 04 part one" time="0.008">
+    </testcase>
+    <testcase classname="AOC 2021 Day 04 part two" name="AOC 2021 Day 04 part two" time="0.017">
+    </testcase>
+    <testcase classname="AOC 2021 Day 05 part one" name="AOC 2021 Day 05 part one" time="0.034">
+    </testcase>
+    <testcase classname="AOC 2021 Day 05 part two" name="AOC 2021 Day 05 part two" time="0.041">
+    </testcase>
+    <testcase classname="AOC 2021 Day 06 part one" name="AOC 2021 Day 06 part one" time="0.036">
+    </testcase>
+    <testcase classname="AOC 2021 Day 06 part two" name="AOC 2021 Day 06 part two" time="0">
+    </testcase>
+    <testcase classname="AOC 2021 Day 07 part one" name="AOC 2021 Day 07 part one" time="0.101">
+    </testcase>
+    <testcase classname="AOC 2021 Day 07 part two" name="AOC 2021 Day 07 part two" time="0.102">
+    </testcase>
+    <testcase classname="AOC 2021 Day 08 part one" name="AOC 2021 Day 08 part one" time="0.001">
+    </testcase>
+    <testcase classname="AOC 2021 Day 08 part two" name="AOC 2021 Day 08 part two" time="0.02">
+    </testcase>
+    <testcase classname="AOC 2021 Day 09 part one" name="AOC 2021 Day 09 part one" time="0.013">
+    </testcase>
+    <testcase classname="AOC 2021 Day 09 part two" name="AOC 2021 Day 09 part two" time="0.023">
+    </testcase>
+    <testcase classname="AOC 2021 Day 10 part one" name="AOC 2021 Day 10 part one" time="0.005">
+    </testcase>
+    <testcase classname="AOC 2021 Day 10 part two" name="AOC 2021 Day 10 part two" time="0.004">
+    </testcase>
+    <testcase classname="AOC 2021 Day 11 part one" name="AOC 2021 Day 11 part one" time="0.027">
+    </testcase>
+    <testcase classname="AOC 2021 Day 11 part two" name="AOC 2021 Day 11 part two" time="0.026">
+    </testcase>
+    <testcase classname="AOC 2021 Day 12 part one" name="AOC 2021 Day 12 part one" time="0.093">
+    </testcase>
+    <testcase classname="AOC 2021 Day 12 part two" name="AOC 2021 Day 12 part two" time="0.195">
+    </testcase>
+    <testcase classname="AOC 2021 Day 13 part one" name="AOC 2021 Day 13 part one" time="0.034">
+    </testcase>
+    <testcase classname="AOC 2021 Day 13 part two" name="AOC 2021 Day 13 part two" time="0.053">
+    </testcase>
+    <testcase classname="AOC 2021 Day 14 part one" name="AOC 2021 Day 14 part one" time="0.042">
+    </testcase>
+    <testcase classname="AOC 2021 Day 14 part two" name="AOC 2021 Day 14 part two" time="0.008">
+    </testcase>
+    <testcase classname="AOC 2021 Day 15 part one" name="AOC 2021 Day 15 part one" time="0.081">
+    </testcase>
+    <testcase classname="AOC 2021 Day 15 part two" name="AOC 2021 Day 15 part two" time="3.944">
+    </testcase>
+    <testcase classname="AOC 2021 Day 16 part one" name="AOC 2021 Day 16 part one" time="0.003">
+    </testcase>
+    <testcase classname="AOC 2021 Day 16 part two" name="AOC 2021 Day 16 part two" time="0.002">
     </testcase>
   </testsuite>
 </testsuites>

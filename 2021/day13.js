@@ -1,29 +1,5 @@
-const testInput = `
-6,10
-0,14
-9,10
-0,3
-10,4
-4,11
-6,0
-6,12
-4,1
-0,13
-10,12
-3,4
-3,0
-8,4
-1,10
-2,14
-8,10
-9,0
-
-fold along y=7
-fold along x=5
-`;
-
 function parse(input) {
-  return input.split(/\r?\n/).filter((line) => line.length !== 0); // Ignore empty lines in the test input
+  return input.split(/\r?\n/);
 }
 
 const getData = (data) =>
@@ -67,8 +43,10 @@ const getGrid = (cords) => {
 // const printPaper = (paper) => paper.forEach((v) => console.log(v.join('')));
 
 const foldPaper = (paper, fold) => {
-  if (fold.dir === 'y') {
-    for (let i = 0; i < fold.num; i++) {
+  const { dir, num } = fold;
+
+  if (dir === 'y') {
+    for (let i = 0; i < num; i++) {
       const last = paper.pop();
       for (let j = 0; j < last.length; j++) {
         if (last[j] === '#') {
@@ -78,9 +56,9 @@ const foldPaper = (paper, fold) => {
     }
     paper.pop();
     return paper;
-  } else if (fold.dir === 'x') {
+  } else {
     return paper.map((v) => {
-      for (let i = 0; i < fold.num; i++) {
+      for (let i = 0; i < num; i++) {
         const last = v.pop();
         if (last === '#') {
           v[i] = '#';
@@ -99,7 +77,7 @@ function partOne(input) {
   paper = foldPaper(paper, folds[0]);
   //   printPaper(paper);
   // const length =
-  return (paper.join('').match(/#/g) || /* c8 ignore next */ []).length;
+  return (paper.join('').match(/#/g) || /* istanbul ignore next */ []).length;
 }
 
 function partTwo(input) {
@@ -120,12 +98,6 @@ function partTwo(input) {
   // ####.##.#.#..#.#..#.####.#..#.#..#.###..
 
   return 'CJHAZHKU';
-}
-
-/* c8 ignore next 4 */
-if (process.env.ROPAOLLE === 'DEV') {
-  console.info(`${__filename} - Part one:`, partOne(testInput));
-  console.info(`${__filename} - Part two:`, partTwo(testInput));
 }
 
 exports.partOne = partOne;

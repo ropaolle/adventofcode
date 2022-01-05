@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "description": "Advent of Code solutions in JavaScript.",
   "type": "commonjs",
+  "main": "index.js",
   "scripts": {
-    "dev": "nodemon -q",
+    "start": "nodemon -q index.js",
     "test": "jest --config=jest.config.js",
-    "test:dev": "jest --watch --config=jest.config.js",
-    "update-badges": "node ./__test__/helpers/update-badges.js",
-    "pre-commit": "npm run --silent coverage & node .scripts/update-badges.mjs",
-    "eslint": "eslint 20*/**.js"
+    "test:dev": "jest --watch --config=jest.config.js --coverage=false",
+    "badges": "node ./__test__/helpers/update-badges.js",
+    "lint": "eslint 20*/**.js",
+    "pre-commit": "npm run --silent test & npm run lint & npm run badges"
   },
   "repository": {
     "type": "git",
@@ -33,7 +34,6 @@
     "jest": "^27.4.5",
     "jest-junit": "^13.0.0",
     "jest-slow-test-reporter": "^1.0.0",
-    "mochawesome": "^7.0.1",
     "nodemon": "^2.0.15",
     "prettier": "2.5.1",
     "xml2js": "^0.4.23"

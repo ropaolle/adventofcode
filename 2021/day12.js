@@ -1,18 +1,5 @@
-const testInput = `
-start-A
-start-b
-A-c
-A-b
-b-d
-A-end
-b-end
-`;
-
 function parse(input) {
-  return input
-    .split(/\r?\n/)
-    .filter((line) => line.length !== 0) // Ignore empty lines in the test input
-    .map((v) => v.split('-'));
+  return input.split(/\r?\n/).map((v) => v.split('-'));
 }
 
 function paths(links, { allowOneSmallCave } = {}) {
@@ -58,12 +45,6 @@ function partOne(input) {
 function partTwo(input) {
   const data = parse(input);
   return paths(data, { allowOneSmallCave: true });
-}
-
-/* c8 ignore next 4 */
-if (process.env.ROPAOLLE === 'DEV') {
-  console.info(`${__filename} - Part one:`, partOne(testInput));
-  console.info(`${__filename} - Part two:`, partTwo(testInput));
 }
 
 exports.partOne = partOne;

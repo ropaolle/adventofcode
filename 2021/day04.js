@@ -1,25 +1,3 @@
-const testInput = `
-7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1
-
-22 13 17 11  0
- 8  2 23  4 24
-21  9 14 16  7
- 6 10  3 18  5
- 1 12 20 15 19
-
- 3 15  0  2 22
- 9 18 13 17  5
-19  8  7 25 23
-20 11 10 24  4
-14 21 16 12  6
-
-14 21 17 24  4
-10 16 15  9 19
-18  8 23 26 20
-22 11 13  6  5
- 2  0 12  3  7
-`;
-
 const getBoards = (data) =>
   data.reduce((acc, val, i) => {
     const currentBoard = Math.ceil((i + 1) / 5);
@@ -52,7 +30,7 @@ const getScore = (board, number) =>
   board.reduce((acc, v) => (v !== -1 ? acc + v : acc), 0) * number;
 
 function parse(input) {
-  const data = input.split(/\r?\n/).filter((line) => line.length !== 0); // Ignore empty lines in the test input
+  const data = input.split(/\r?\n/).filter((line) => line.length !== 0);
   const numbers = data.shift().split(',').map(Number);
   const boards = getBoards(data);
   return [numbers, boards];
@@ -70,7 +48,6 @@ function partOne(input) {
       }
     }
   }
-  /* c8 ignore next */
 }
 
 function partTwo(input) {
@@ -92,12 +69,6 @@ function partTwo(input) {
       }
     }
   }
-}
-
-/* c8 ignore next 4 */
-if (process.env.ROPAOLLE === 'DEV') {
-  console.info(`${__filename} - Part one:`, partOne(testInput));
-  console.info(`${__filename} - Part two:`, partTwo(testInput));
 }
 
 exports.partOne = partOne;

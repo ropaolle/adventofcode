@@ -3,7 +3,7 @@ var fs = require('fs');
 function aocTest(year, day, answerOne, answerTwo) {
   describe(`Day ${day}`, function () {
     var { partOne, partTwo } = require(`../../${year}/day${day}.js`);
-    var file = fs.readFileSync(`./${year}/day${day}.txt`).toString();
+    var file = fs.readFileSync(`./${year}/input/day${day}.txt`).toString();
 
     it('part one', function () {
       expect(partOne(file)).toBe(answerOne);

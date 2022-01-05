@@ -1,30 +1,9 @@
-const testInput = `
-D2FE28
-38006F45291200
-EE00D40C823060
-8A004A801A8002F478
-620080001611562C8802118E34
-C0015000016115A2E0802F182340
-A0016C880162017C3686B18A3D4780
-
-
-
-C200B40A82
-04005AC33890
-880086C3E88112
-CE00C43D881120
-D8005AC2A8F0
-F600BC2D8F
-9C005AC2F8F0
-9C0141080250320F1802104A08
-`;
-
 function parse(input) {
-  return input.split(/\r?\n/).filter((line) => line.length !== 0); // Ignore empty lines in the test input
+  return input.split(/\r?\n/);
 }
 
 function hex2bin(hex) {
-  /* c8 ignore next 3 */
+  /* istanbul ignore next */
   if (typeof hex !== 'string' || hex.length > 8) {
     throw 'Invalid hex input! Should be a string with max length 8.';
   }
@@ -49,7 +28,7 @@ function getLiteral(data) {
     data = data.substring(5);
   }
   const literal = parseInt(values, 2);
-  /* c8 ignore next 3 */
+  /* istanbul ignore next */
   if (literal > Number.MAX_SAFE_INTEGER) {
     throw `Literal ${literal} exceeds MAX_SAFE_INTEGER .`;
   }
@@ -164,12 +143,6 @@ function getPacket(bin) {
 function partTwo(input) {
   const data = parse(input);
   return getPacket(hextString2bin(data[0])).data;
-}
-
-/* c8 ignore next 4 */
-if (process.env.ROPAOLLE === 'DEV') {
-  console.info(`${__filename} - Part one:`, partOne(testInput));
-  console.info(`${__filename} - Part two:`, partTwo(testInput));
 }
 
 exports.partOne = partOne;

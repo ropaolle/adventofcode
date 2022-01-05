@@ -8,16 +8,11 @@ module.exports = {
     ['jest-junit', { outputDirectory: '__test__/reports' /* , outputName: 'test.xml' */ }],
     ['jest-slow-test-reporter', { numTests: 1, warnOnSlowerThan: 300, color: true }],
   ],
+  collectCoverage: true,
   coveragePathIgnorePatterns: ['/node_modules/', '/__test__/helpers', '__test__/reports/'],
   coverageDirectory: '__test__/reports',
-  collectCoverage: true,
   // https://github.com/jest-community/awesome-jest#reporters
-  coverageReporters: [
-    'text',
-    'text-summary',
-    'clover',
-    //   'json-summary'
-  ],
+  coverageReporters: ['clover', 'text', 'text-summary' /*,  'json-summary' */],
   coverageThreshold: {
     global: {
       branches: 90,

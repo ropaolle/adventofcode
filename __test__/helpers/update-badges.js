@@ -22,7 +22,7 @@ async function parseTestData() {
     testsuite.forEach(({ $: test }) => {
       const { name, errors, tests } = test;
       const success = tests - errors;
-      const successProcent = Math.floor((success / 25) * 100);
+      const successProcent = Math.floor((success / 50) * 100);
       const year = name.slice(-4);
       result.push({ type: 'test', success, successProcent, year });
     });
@@ -60,7 +60,7 @@ function getBadge({ type, year, success, successProcent, coverageProcent }) {
       ? {
           tag: `![AoC Progress ${year}]`,
           label: `AoC Progress`,
-          color: success < 15 ? 'red' : success < 25 ? 'yellow' : 'lightgreen',
+          color: success < 30 ? 'red' : success < 50 ? 'yellow' : 'lightgreen',
           message: `${successProcent}% (${success} of 25)`,
         }
       : {

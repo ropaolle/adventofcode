@@ -1,5 +1,3 @@
-const testInput = `16,1,2,0,4,2,7,1,2,14`;
-
 function parse(input) {
   return input.split(',').map(Number);
 }
@@ -31,12 +29,6 @@ function partOne(input) {
 
 function partTwo(input) {
   return getCheapestOutcome(input, 2);
-}
-
-/* c8 ignore next 4 */
-if (process.env.ROPAOLLE === 'DEV') {
-  console.info(`${__filename} - Part one:`, partOne(testInput));
-  console.info(`${__filename} - Part two:`, partTwo(testInput));
 }
 
 exports.partOne = partOne;
