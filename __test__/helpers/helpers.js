@@ -1,7 +1,7 @@
 var fs = require('fs');
 
 function aocTest(year, day, answerOne, answerTwo) {
-  describe(`Day ${day}`, function () {
+  describe(`day-${day}`, function () {
     var { partOne, partTwo } = require(`../../${year}/day${day}.js`);
     var file = fs.readFileSync(`./${year}/input/day${day}.txt`).toString();
 
