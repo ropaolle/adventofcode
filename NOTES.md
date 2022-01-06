@@ -4,8 +4,12 @@ Run dev `npm start -- 2020 01`.
 
 ## TODO
 
+- [ ] Clean up slow code.
 - [ ] [freeCodeCamp points](https://www.freecodecamp.org/)
 - [ ] Code quality (codacy.com, snyk.io, coadbeat.co)
+- [ ] Use [pino](https://github.com/pinojs/pino) - Log to graylog
+  - Handle errors, do not just print to console
+- [ ] [Reveal presentations](https://revealjs.com/)
 
 ## Update readme
 
@@ -16,3 +20,8 @@ Run dev `npm start -- 2020 01`.
 - [info a](https://fromthebottomoftheheap.net/2020/04/30/rendering-your-readme-with-github-actions)
 - [info a](https://github.com/prettier/prettier-eslint/blob/master/package-scripts.js)
 - [Prettier-eslint](https://github.com/prettier/prettier-eslint)
+
+## Jest with ES Modules
+
+- [How-to](https://jestjs.io/docs/ecmascript-modules)
+- [Issue tracker](https://github.com/facebook/jest/issues/9430)

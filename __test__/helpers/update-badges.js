@@ -1,72 +1,80 @@
 const fsPromises = require('fs').promises;
-var parseStringPromise = require('xml2js').parseStringPromise;
+const parseStringPromise = require('xml2js').parseStringPromise;
 
-function getBadge({ year, success, successProcent, color }) {
-  const label = `AoC Progress ${year}`;
-  const message = `${successProcent}% (${success / 2} of 25)`;
-  const style = 'for-the-badge'; // 'flat'
-  const logo = 'github';
-  const url = 'https://img.shields.io/static/v1?';
-  const link = `${url}label=${label}&message=${message}&color=${color}&logo=${logo}&style=${style}`;
+/**
+ * Create a shields.io badge.
+ * @param {object} options - shields.io options.
+ * @return {string} Badge string.
+ */
+function makeShieldsIoBadge(options) {
+  const { baseUrl, label, message, color, logo, style /* , format */ } = {
+    ...{
+      style: 'for-the-badge', // flat | for-the-badge | ...
+      baseUrl: 'https://img.shields.io/static/v1?',
+      logo: 'github',
+      // format: 'markdown',
+    },
+    ...options,
+  };
 
-  return { year, badge: `![${label}](${encodeURI(link)})` };
+  const link = `${baseUrl}label=${label}&message=${message}&color=${color}&logo=${logo}&style=${style}`;
+
+  return `![${label}](${encodeURI(link)})`;
 }
 
-async function parseTestData() {
+function prepareBadgeData({ tests, errors, name }) {
+  const success = tests - errors;
+  const successProcent = Math.floor((success / 50) * 100);
+  const year = name.slice(-4);
+  return {
+    label: `AoC Progress ${year}`,
+    message: `${successProcent}% (${success / 2} of 25)`,
+    color: success < 30 ? 'red' : success < 50 ? 'yellow' : 'lightgreen',
+  };
+}
+
+async function parseTestData(filename = './__test__/reports/junit.xml') {
   const result = [];
 
   try {
-    const xml_data = await fsPromises.readFile('./__test__/reports/junit.xml');
+    const xml_data = await fsPromises.readFile(filename);
     const js_data = await parseStringPromise(xml_data);
-
     for (const { $: test } of js_data.testsuites.testsuite) {
-      const success = test.tests - test.errors;
-      result.push(
-        getBadge({
-          year: test.name.slice(-4),
-          success,
-          successProcent: Math.floor((success / 50) * 100),
-          color: success < 30 ? 'red' : success < 50 ? 'yellow' : 'lightgreen',
-        })
-      );
+      result.push(makeShieldsIoBadge(prepareBadgeData(test)));
     }
   } catch (err) {
-    console.error('Failed to load files', err.message);
+    console.error('Failed to load files', err);
   }
 
   return result;
 }
 
-async function updateFile(badges, filename = './README.md') {
-  const startTag = '<!--- aoc-progress-start --->';
-  const stopTag = '<!--- aoc-progress-stop --->';
+function replaceTagContent(textFile, tagName, linesToInsert = []) {
+  const lines = textFile.split(/\n/);
+  const start = lines.findIndex((line) => line.indexOf(`<!--- ${tagName}-start --->`) === 0);
+  const stop = lines.findIndex((line) => line.indexOf(`<!--- ${tagName}-stop --->`) === 0);
 
+  if (start === -1 || stop === -1) {
+    return console.error('Start or stop tag is missing!');
+  }
+
+  // Delete old badges
+  lines.splice(start + 1, stop - start - 1);
+
+  // Insert new badges
+  lines.splice(start + 1, 0, '', ...linesToInsert.map((badge) => badge + ' '), '');
+
+  return lines.join('\n');
+}
+
+async function updateFile(filename = './README.md') {
+  const badges = await parseTestData();
   try {
     const text = await fsPromises.readFile(filename, 'utf8');
-    const lines = text.split(/\n/);
-
-    const start = lines.findIndex((line) => line.indexOf(startTag) === 0);
-    const stop = lines.findIndex((line) => line.indexOf(stopTag) === 0);
-
-    if (start === -1 || stop === -1) {
-      return console.error('Start or stop tag is missing!');
-    }
-
-    // Delete old badges
-    lines.splice(start + 1, stop - start - 1);
-
-    // Insert new badges
-    lines.splice(start + 1, 0, '', ...badges.map(({ badge }) => badge + ' '), '');
-
-    await fsPromises.writeFile(filename, lines.join('\n'));
+    await fsPromises.writeFile(filename, replaceTagContent(text, 'aoc-progress', badges));
   } catch (err) {
     console.error('Failed to update file', err.message);
   }
 }
 
-async function updateBadges() {
-  const badges = await parseTestData();
-  await updateFile(badges);
-}
-
-updateBadges();
+updateFile();
