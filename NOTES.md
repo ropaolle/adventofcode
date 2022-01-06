@@ -14,6 +14,7 @@ Run dev `npm start -- 2020 01`.
 - [ ] Use [pino](https://github.com/pinojs/pino) - Log to graylog
   - Handle errors, do not just print to console
 - [ ] [Reveal presentations](https://revealjs.com/)
+- [ ] [emoji ](https://gist.github.com/rxaviers/7360908)
 
 ## Update readme
 
