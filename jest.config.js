@@ -6,7 +6,7 @@ module.exports = {
     'default',
     // https://github.com/jest-community/jest-junit
     ['jest-junit', { outputDirectory: '__test__/reports' /* , outputName: 'test.xml' */ }],
-    ['jest-slow-test-reporter', { numTests: 1, warnOnSlowerThan: 300, color: true }],
+    ['jest-slow-test-reporter', { numTests: 1, warnOnSlowerThan: 30, color: true }],
   ],
   collectCoverage: true,
   coveragePathIgnorePatterns: ['/node_modules/', '/__test__/helpers', '__test__/reports/'],

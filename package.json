@@ -7,7 +7,8 @@
   "scripts": {
     "start": "nodemon -q index.js",
     "test": "jest --config=jest.config.js",
-    "test:dev": "jest --watch --verbose --config=jest.config.js --coverage=false",
+    "test:dev": "jest --watch --config=jest.config.js --coverage=false",
+    "test:dev:verbose": "jest --watch --verbose --config=jest.config.js --coverage=false",
     "badges": "node ./.github/scripts/update-badges.js",
     "lint": "eslint 20*/**.js",
     "pre-commit": "npm run --silent test & npm run lint & npm run badges"

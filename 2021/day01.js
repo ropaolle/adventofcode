@@ -14,13 +14,10 @@ function countValues(data, windowSize) {
   return largerMeasurments;
 }
 
-function partOne(input) {
+exports.partOne = function partOne(input) {
   return countValues(parse(input), 1);
-}
+};
 
-function partTwo(input) {
+exports.partTwo = function partTwo(input) {
   return countValues(parse(input), 3);
-}
-
-exports.partOne = partOne;
-exports.partTwo = partTwo;
+};
