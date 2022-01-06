@@ -7,12 +7,11 @@ const parseStringPromise = require('xml2js').parseStringPromise;
  * @return {string} Badge string.
  */
 function makeShieldsIoBadge(options) {
-  const { baseUrl, label, message, color, logo, style /* , format */ } = {
+  const { baseUrl, label, message, color, logo, style } = {
     ...{
       style: 'for-the-badge', // flat | for-the-badge | ...
       baseUrl: 'https://img.shields.io/static/v1?',
       logo: 'github',
-      // format: 'markdown',
     },
     ...options,
   };
@@ -33,14 +32,17 @@ function prepareBadgeData({ tests, errors, name }) {
   };
 }
 
-async function parseTestData(filename = './__test__/reports/junit.xml') {
+async function parseTestData(filename) {
   const result = [];
 
   try {
+    // return;
     const xml_data = await fsPromises.readFile(filename);
     const js_data = await parseStringPromise(xml_data);
     for (const { $: test } of js_data.testsuites.testsuite) {
-      result.push(makeShieldsIoBadge(prepareBadgeData(test)));
+      if (test.name.indexOf('AOC 20') === 0) {
+        result.push(makeShieldsIoBadge(prepareBadgeData(test)));
+      }
     }
   } catch (err) {
     console.error('Failed to load files', err);
@@ -67,8 +69,8 @@ function replaceTagContent(textFile, tagName, linesToInsert = []) {
   return lines.join('\n');
 }
 
-async function updateFile(filename = './README.md') {
-  const badges = await parseTestData();
+async function updateFile(filename) {
+  const badges = await parseTestData('./__test__/reports/junit.xml');
   try {
     const text = await fsPromises.readFile(filename, 'utf8');
     await fsPromises.writeFile(filename, replaceTagContent(text, 'aoc-progress', badges));
@@ -77,4 +79,4 @@ async function updateFile(filename = './README.md') {
   }
 }
 
-updateFile();
+updateFile('./README.md');
