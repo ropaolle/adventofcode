@@ -37,7 +37,7 @@ function mostCommonBit(data, bitPosition) {
   return ones < zeros ? '0' : '1';
 }
 
-function getRating(data, ratingType = 'oxygenGenerator') {
+function getRating(data, ratingType) {
   let dataCopy = [...data];
 
   for (let i = 0; i < data[0].length; i++) {
