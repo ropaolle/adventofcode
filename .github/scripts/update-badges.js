@@ -36,7 +36,6 @@ async function parseTestData(filename) {
   const result = [];
 
   try {
-    // return;
     const xml_data = await fsPromises.readFile(filename);
     const js_data = await parseStringPromise(xml_data);
     for (const { $: test } of js_data.testsuites.testsuite) {
@@ -69,8 +68,9 @@ function replaceTagContent(textFile, tagName, linesToInsert = []) {
   return lines.join('\n');
 }
 
-async function updateFile(filename) {
-  const badges = await parseTestData('./__test__/reports/junit.xml');
+
+
+async function updateFile(filename, badges) {  
   try {
     const text = await fsPromises.readFile(filename, 'utf8');
     await fsPromises.writeFile(filename, replaceTagContent(text, 'aoc-progress', badges));
@@ -79,4 +79,9 @@ async function updateFile(filename) {
   }
 }
 
-updateFile('./README.md');
+async function updateBadges() {
+  const badges = await parseTestData('./__test__/reports/junit.xml');
+  await updateFile('./README.md', badges);
+}
+
+updateBadges()
