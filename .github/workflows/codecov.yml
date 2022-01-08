@@ -40,6 +40,10 @@ jobs:
         uses: paambaati/codeclimate-action@v3.0.0
         env:
           CC_TEST_REPORTER_ID: 15ecb7c2e52ea0fef2aa73c09d14ca3d6a875195a33538da0046bd5844fb467d
+        with:
+        coverageCommand: yarn run coverage
+          coverageLocations: |
+            ${{github.workspace}}/__test__/reports/lcov.info:lcov  
       
       - name: Update README
         run: |-
