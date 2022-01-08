@@ -35,7 +35,12 @@ jobs:
           # name: codecov-umbrella # optional
           # fail_ci_if_error: false # optional (default = false)
           # verbose: true # optional (default = false)
-
+      
+      - name: Test & publish code coverage
+        uses: paambaati/codeclimate-action@v3.0.0
+        env:
+          CC_TEST_REPORTER_ID: 15ecb7c2e52ea0fef2aa73c09d14ca3d6a875195a33538da0046bd5844fb467d
+      
       - name: Update README
         run: |-
           npm run badges

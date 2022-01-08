@@ -8,6 +8,8 @@
 [![codecov](https://codecov.io/gh/ropaolle/adventofcode/branch/main/graph/badge.svg?token=L6A6L78N92)](https://codecov.io/gh/ropaolle/adventofcode)
 [![license mit](https://img.shields.io/github/license/ropaolle/adventofcode)](https://opensource.org/licenses/MIT)
 [![language](https://img.shields.io/github/languages/top/ropaolle/adventofcode)](https://github.com/ropaolle/adventofcode)
+[![Maintainability](https://api.codeclimate.com/v1/badges/a39b07bc89d0cc6c067a/maintainability)](https://codeclimate.com/github/ropaolle/adventofcode/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/a39b07bc89d0cc6c067a/test_coverage)](https://codeclimate.com/github/ropaolle/adventofcode/test_coverage)
 
 ## Progress
 

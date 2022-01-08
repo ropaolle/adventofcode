@@ -12,7 +12,7 @@ module.exports = {
   coveragePathIgnorePatterns: ['/node_modules/', '/__test__/helpers', '__test__/reports/'],
   coverageDirectory: '__test__/reports',
   // https://github.com/jest-community/awesome-jest#reporters
-  coverageReporters: ['clover', 'text', 'text-summary' /*,  'json-summary' */],
+  coverageReporters: ['clover', 'text', 'text-summary', 'lcov' /*,  'json-summary' */],
   coverageThreshold: {
     global: {
       branches: 90,
