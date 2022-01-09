@@ -8,7 +8,7 @@ function parse(input) {
   });
 }
 
-module.exports.partOne = function partOne(input) {
+exports.partOne = function partOne(input) {
   const data = parse(input);
   return data.filter(({ start, stop, chr, password }) => {
     const count = password.split(chr).length - 1;
@@ -16,7 +16,7 @@ module.exports.partOne = function partOne(input) {
   }).length;
 };
 
-module.exports.partTwo = function partTwo(input) {
+exports.partTwo = function partTwo(input) {
   const data = parse(input);
   return data.filter(({ start, stop, chr, password }) => {
     const pos1 = password[start - 1] === chr;

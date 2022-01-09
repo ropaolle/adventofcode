@@ -27,9 +27,7 @@ const partTwo = () => {
   const map = new Map([[0, 1]]);
   for (let i = 0; i < data.length; i++) {
     const ways =
-    (map.get(data[i] - 1) || 0) +
-    (map.get(data[i] - 2) || 0) +
-    (map.get(data[i] - 3) || 0);
+      (map.get(data[i] - 1) || 0) + (map.get(data[i] - 2) || 0) + (map.get(data[i] - 3) || 0);
     map.set(data[i], ways);
   }
   return map.get(data.pop());
@@ -37,7 +35,7 @@ const partTwo = () => {
 
 // console.clear();
 // console.log('Part one:', partOne());
-console.log('Part two:', partTwo());
+// console.log('Part two:', partTwo());
 
 // Exports
 exports.partOne = partOne;

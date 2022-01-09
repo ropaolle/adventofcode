@@ -11,13 +11,13 @@ partOne [14,8,16,0,1,17]
 */
 
 const partOne = () => {
-    console.log('HALLÅ!')
+  // console.log('HALLÅ!')
 };
 
 const partTwo = () => {};
 
 // console.clear();
-console.log('Part one:', partOne());
+// console.log('Part one:', partOne());
 // console.log('Part two:', partTwo());
 
 // Exports

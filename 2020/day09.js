@@ -21,7 +21,7 @@ const partOne = () => {
     const val = data[i];
     const exists = sumExist(val, window);
     if (!exists) {
-      console.log(exists, i, val, window, val, data[i - 1]);
+      // console.log(exists, i, val, window, val, data[i - 1]);
       return val;
     }
     window.shift();

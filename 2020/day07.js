@@ -50,7 +50,7 @@ const getContent = (bagType, data, multiplicator) =>
 
 const partTwo = () => {
   let bags = getContent('shiny gold', data, 1);
-  let i = 0;
+  // let i = 0;
   let sum = 0;
   let prevSum = 0;
 
@@ -63,7 +63,7 @@ const partTwo = () => {
     }, []);
 
     // console.log('Loops', i, sum);
-    i += 1;
+    // i += 1;
   } while (sum > prevSum);
 
   return sum;

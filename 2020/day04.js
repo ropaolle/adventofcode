@@ -58,5 +58,5 @@ const partTwo = (input) => {
   return validPassports.length;
 };
 
-module.exports.partOne = partOne;
-module.exports.partTwo = partTwo;
+exports.partOne = partOne;
+exports.partTwo = partTwo;
