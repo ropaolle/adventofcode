@@ -26,9 +26,9 @@ const getLastInstruction = (data) => {
       pointer += 1;
     }
 
-    if (pointer < 0 || pointer > data.length) {
-      console.log('Error-pointer', pointer);
-    }
+    // if (pointer < 0 || pointer > data.length) {
+    //   console.log('Error-pointer', pointer);
+    // }
 
     if (usedPointers.has(pointer)) {
       // view.push({ operator, argument, acc });
@@ -60,13 +60,13 @@ const partTwo = () => {
     return acc;
   }, []);
 
-  for (let { index, operator, argument } of nopsAndJmps) {
+  for (let { index, operator } of nopsAndJmps) {
     // Deep clooning needed for objects in the array.
-    const tempData = JSON.parse(JSON.stringify(data))
+    const tempData = JSON.parse(JSON.stringify(data));
     tempData[index].operator = operator;
     const result = getLastInstruction(tempData);
     if (result.pointer >= tempData.length) {
-      acc = result.acc
+      acc = result.acc;
       break;
     }
   }

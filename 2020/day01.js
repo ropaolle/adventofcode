@@ -13,7 +13,6 @@ const partOne = (input) => {
   for (let p1 = 0; p1 < data.length - 1; p1++) {
     loop2: for (let p2 = p1 + 1; p2 < data.length; p2++) {
       const sum = data[p1] + data[p2];
-
       if (sum > 2020) {
         break loop2;
       } else if (sum === 2020) {

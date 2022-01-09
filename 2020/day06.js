@@ -39,10 +39,5 @@ const partTwo = () =>
     )
     .reduce((acc, v) => acc + v, 0);
 
-// console.clear();
-// console.log('Part one:', partOne());
-// console.log('Part two:', partTwo());
-
-// Exports
 exports.partOne = partOne;
 exports.partTwo = partTwo;

@@ -46,10 +46,5 @@ const partTwo = () => {
   return Object.values(map).reduce((a, b) => a + b, 0);
 };
 
-// console.clear();
-console.log('Part one:', partOne());
-console.log('Part two:', partTwo());
-
-// Exports
 exports.partOne = partOne;
 exports.partTwo = partTwo;

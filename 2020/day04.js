@@ -1,28 +1,25 @@
 const parse = (input) => {
   const lines = input.split(/\r?\n/);
-  const groups = lines.reduce(
-    (acc, line) => {
-      line.length > 0 ? acc[acc.length - 1].push(line) : acc.push([]);
-      return acc;
-    },
-    [[]]
-  );
-  const params = groups.map((group) =>
-    group
-      .join(' ')
-      .split(' ')
-      .reduce((acc, param) => {
-        const [field, value] = param.split(':');
-        return { ...acc, [field]: value };
-      }, {})
-  );
 
-  return params;
+  return lines
+    .map((line) => (line === '' ? '|' : line))
+    .join(' ')
+    .split('|')
+    .map((group) =>
+      group
+        .trim()
+        .split(' ')
+        .reduce((acc, param) => {
+          const [field, value] = param.split(':');
+          return { ...acc, [field]: value };
+        }, {})
+    );
 };
 
 const fields = ['ecl', 'pid', 'eyr', 'hcl', 'byr', 'iyr', /* 'cid', */ 'hgt'];
 
 const partOne = (input) =>
+  // eslint-disable-next-line no-prototype-builtins
   parse(input).filter((v) => fields.every((field) => v.hasOwnProperty(field))).length;
 
 const validateParamCount = (params, minCount) => Object.keys(params).length >= minCount;

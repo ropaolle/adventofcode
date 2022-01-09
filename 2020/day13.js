@@ -30,8 +30,8 @@ const partOne = () => {
 };
 
 const partTwo = () => {
-  const START_INDEX = 500000000000000;
-  const MAX_ITTERATIONS = 510000000000000;
+  // const START_INDEX = 500000000000000;
+  // const MAX_ITTERATIONS = 510000000000000;
 
   // console.log('100000000000000', 1000000000000000000000000000);
   // 17,x,13,19
@@ -70,10 +70,5 @@ const partTwo = () => {
   }*/
 };
 
-// console.clear();
-// console.log('Part one:', partOne());
-console.log('Part two:', partTwo());
-
-// Exports
 exports.partOne = partOne;
 exports.partTwo = partTwo;

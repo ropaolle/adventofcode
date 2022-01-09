@@ -27,6 +27,5 @@ const partTwo = (input) => {
   );
 };
 
-// Exports
 exports.partOne = partOne;
 exports.partTwo = partTwo;

@@ -10,7 +10,7 @@ const partOne = () => {
   let direction = 1;
   let northSouth = 0;
   let eastWest = 0;
-  const l = [];
+  // const l = [];
 
   const addDistance = (direction, distance) => {
     switch (direction) {
@@ -57,11 +57,7 @@ const partOne = () => {
   return Math.abs(eastWest) + Math.abs(northSouth);
 };
 
-const partTwo = () => {}; 
+const partTwo = () => {};
 
-console.log('Part one:', partOne());
-// console.log('Part two:', partTwo());
-
-// Exports
 exports.partOne = partOne;
 exports.partTwo = partTwo;

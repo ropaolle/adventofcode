@@ -85,11 +85,5 @@ const partTwo = () => {
   return next;
 };
 
-// console.clear();
-// partOne()
-console.log('Part one:', partOne());
-console.log('Part two:', partTwo());
-
-// Exports
 exports.partOne = partOne;
 exports.partTwo = partTwo;
