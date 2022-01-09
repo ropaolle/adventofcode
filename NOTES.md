@@ -83,3 +83,36 @@ logger.warn('Hello world 5');
 logger.error('Hello world 6');
 logger.fatal('asd', 'asd');
 ```
+
+### Log Execution Time
+
+```js
+const { performance } = require('perf_hooks');
+
+/* istanbul ignore next */
+// Usage: `return logExecutionTime(() => partTwoGo(input));`
+const logExecutionTime = (func) => {
+  const t0 = performance.now();
+  const result = func();
+  const t1 = performance.now();
+  console.info(`Execution time ${t1 - t0} ms.`);
+  return result;
+};
+
+/* TEMP */
+// const fs = require('fs');
+// const pathFunc = require('path');
+
+// exports.loadData = (path, filename, options = {}) => {
+//   const { numeric, sorted } = options;
+//   let file = fs.readFileSync(pathFunc.join(path, filename), 'utf8').split(/\r?\n/);
+
+//   if (numeric && sorted) {
+//     return file.map((v) => Number(v)).sort((a, b) => a - b);
+//   } else if (numeric) {
+//     return file.map((v) => Number(v));
+//   }
+
+//   return file;
+// };
+```
