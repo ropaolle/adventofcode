@@ -14,6 +14,7 @@
     "no-console": ["error", { "allow": ["warn", "error", "info"] }],
     "eqeqeq": ["error", "smart"],
     "complexity": ["error", 5],
-    "curly": "error"
+    "curly": "error",
+    "no-throw-literal": "error",
   }
 }
