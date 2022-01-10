@@ -1,16 +1,18 @@
-const { loadData } = require('../../lib.js');
+const parse = (input) => {
+  const lines = input.split(/\r?\n/);
 
-const data = loadData(__dirname, 'data.txt').reduce(
-  (acc, line) => {
-    if (line.trim().length > 0) {
-      acc[acc.length - 1].push(line);
-    } else {
-      acc.push([]);
-    }
-    return acc;
-  },
-  [[]]
-);
+  return lines.reduce(
+    (acc, line) => {
+      if (line.trim().length > 0) {
+        acc[acc.length - 1].push(line);
+      } else {
+        acc.push([]);
+      }
+      return acc;
+    },
+    [[]]
+  );
+};
 
 const chrCount = (val) =>
   val.reduce((acc, v) => {
@@ -25,19 +27,24 @@ const chrCount = (val) =>
     return acc;
   }, {});
 
-const partOne = () =>
-  data
+const partOne = (input) => {
+  const data = parse(input);
+
+  return data
     .map((v) => (v.length === 1 ? v[0].length : Object.keys(chrCount(v)).length))
     .reduce((acc, v) => acc + v, 0);
+};
 
-const partTwo = () =>
-  data
+const partTwo = (input) => {
+  const data = parse(input);
+  return data
     .map((v) =>
       v.length === 1
         ? v[0].length
         : Object.values(chrCount(v)).filter((v2) => v2 === v.length).length
     )
     .reduce((acc, v) => acc + v, 0);
+};
 
 exports.partOne = partOne;
 exports.partTwo = partTwo;
