@@ -9,13 +9,13 @@ const parse = (input) => {
 
 const getLastInstruction = (data) => {
   const usedPointers = new Set();
-  const maxItterations = 10000;
+  // const maxItterations = 10000;
 
   let acc = 0;
   let pointer = 0;
   let index = 0;
 
-  while (pointer < data.length && index < maxItterations) {
+  while (pointer < data.length /* && index < maxItterations */) {
     const { operator, argument } = data[pointer];
 
     if (operator === 'acc') {
