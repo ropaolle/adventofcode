@@ -7,35 +7,39 @@ const parse = (input) => {
   }));
 };
 
+const nextPointer = (operator, pointer, argument) => {
+  if (['acc', 'nop'].includes(operator)) {
+    pointer += 1;
+  } else if (operator === 'jmp') {
+    pointer += argument;
+  }
+
+  return pointer;
+};
+
 const getLastInstruction = (data) => {
   const usedPointers = new Set();
-  // const maxItterations = 10000;
 
   let acc = 0;
   let pointer = 0;
-  let index = 0;
 
-  while (pointer < data.length /* && index < maxItterations */) {
+  while (pointer < data.length) {
     const { operator, argument } = data[pointer];
 
     if (operator === 'acc') {
       acc += argument;
-      pointer += 1;
-    } else if (operator === 'jmp') {
-      pointer += argument;
-    } else if (operator === 'nop') {
-      pointer += 1;
     }
+
+    pointer = nextPointer(operator, pointer, argument);
 
     if (usedPointers.has(pointer)) {
       break;
     }
 
     usedPointers.add(pointer);
-    index += 1;
   }
 
-  return { acc, pointer, index, instructions: data.length };
+  return { acc, pointer };
 };
 
 const partOne = (input) => {
@@ -62,6 +66,7 @@ const partTwo = (input) => {
     const tempData = JSON.parse(JSON.stringify(data));
     tempData[index].operator = operator;
     const result = getLastInstruction(tempData);
+
     if (result.pointer >= tempData.length) {
       acc = result.acc;
       break;

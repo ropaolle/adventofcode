@@ -1,16 +1,19 @@
-const { loadData } = require('../../lib.js');
+const parse = (input) => {
+  const lines = input.split(/\r?\n/);
 
-const data = loadData(__dirname, 'data.txt').map((v) => ({
-  cmd: v[0],
-  val: Number(v.substring(1)),
-}));
+  return lines.map((v) => ({
+    cmd: v[0],
+    val: Number(v.substring(1)),
+  }));
+};
 
-const partOne = () => {
+const partOne = (input) => {
+  const data = parse(input);
+
   const directions = 'NESW';
   let direction = 1;
   let northSouth = 0;
   let eastWest = 0;
-  // const l = [];
 
   const addDistance = (direction, distance) => {
     switch (direction) {
@@ -48,16 +51,14 @@ const partOne = () => {
         addDistance(cmd, val);
         break;
     }
-
-    // l.push({ cmd, val, direction, direction2: directions[direction], northSouth, eastWest });
   });
-
-  // console.table(l);
 
   return Math.abs(eastWest) + Math.abs(northSouth);
 };
 
-const partTwo = () => {};
+const partTwo = (input) => {
+  const data = parse(input);
+};
 
 exports.partOne = partOne;
 exports.partTwo = partTwo;
