@@ -5,8 +5,9 @@ Run dev `npm start -- 2020 01`.
 ## TODO
 
 - [ ] Clean up slow code (day 5, 7, 12, 14 and 15).
-- [ ] Fix complexity
-- [ ] Switch to arrow funcs?
+  - Fix complexity
+  - Switch to arrow funcs?
+  - Use map, set, weak map (Object only, no itteration)
 - [ ] [freeCodeCamp points](https://www.freecodecamp.org/)
 - [ ] [Kent C Dobbs](https://remix.run/docs/en/v1/pages/technical-explanation)
 
@@ -35,6 +36,10 @@ Run dev `npm start -- 2020 01`.
     - Handle errors centrally, not within a middleware
     - Don't forget to test error flows
   - Require modules by folders, as opposed to the files directly
+
+## WSL 2
+
+- [Install](https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-wsl)
 
 ## Code
 

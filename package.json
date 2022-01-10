@@ -36,10 +36,7 @@
     "jest-junit": "^13.0.0",
     "jest-slow-test-reporter": "^1.0.0",
     "nodemon": "^2.0.15",
-    "pino": "^7.6.2",
-    "pino-pretty": "^7.3.0",
     "prettier": "2.5.1",
-    "rc": "^1.2.8",
     "xml2js": "^0.4.23"
   }
 }
