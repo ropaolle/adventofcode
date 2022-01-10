@@ -13,7 +13,7 @@
     "prettier/prettier": ["error", { "singleQuote": true, "printWidth": 100 }],
     "no-console": ["error", { "allow": ["warn", "error", "info"] }],
     "eqeqeq": ["error", "smart"],
-    "complexity": ["error", 5],
+    "complexity": ["error", 6],
     "curly": "error",
     "no-throw-literal": "error"
   }
