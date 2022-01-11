@@ -10,11 +10,11 @@
 partOne [14,8,16,0,1,17]
 */
 
-const partOne = () => {
+const partOne = (input) => {
   // console.log('HALLÅ!')
 };
 
-const partTwo = () => {};
+const partTwo = (input) => {};
 
 // console.clear();
 // console.log('Part one:', partOne());

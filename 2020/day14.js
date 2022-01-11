@@ -1,8 +1,7 @@
-const { loadData } = require('../../lib.js');
+const parse = (input) => input.split(/\r?\n/);
 
-const data = loadData(__dirname, 'data.txt');
-
-const partOne = () => {
+const partOne = (input) => {
+  const data = parse(input);
   const map = {};
   let orMask, andMask;
   data
@@ -18,7 +17,8 @@ const partOne = () => {
   return Object.values(map).reduce((a, b) => a + b, 0);
 };
 
-const partTwo = () => {
+const partTwo = (input) => {
+  const data = parse(input);
   const map = {};
   let masks;
   data

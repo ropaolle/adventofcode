@@ -1,8 +1,9 @@
-const { loadData } = require('../../lib.js');
+const parse = (input) => {
+  const lines = input.split(/\r?\n/);
+  return lines.map((v) => v.slice(0, -1));
+};
 
-const data = loadData(__dirname, 'data.txt').map((v) => v.slice(0, -1));
-
-const bagsThatCanContainOtherBags = () =>
+const bagsThatCanContainOtherBags = (data) =>
   data
     .map((v) => {
       const parts = v.split(' bags contain ');
@@ -15,7 +16,9 @@ const bagsIndirectly = (bagsThatCanContainOtherBags, canContainGoldBags) =>
     .filter(({ data }) => canContainGoldBags.some((v) => data.indexOf(v) !== -1))
     .map((v) => v.type);
 
-const partOne = () => {
+const partOne = (input) => {
+  const data = parse(input);
+
   let canContainGoldBagsDirectly = bagsThatCanContainOtherBags(data)
     .filter(({ data }) => data.indexOf('shiny gold bag') !== -1)
     .map((v) => v.type);
@@ -48,7 +51,9 @@ const getContent = (bagType, data, multiplicator) =>
       };
     });
 
-const partTwo = () => {
+const partTwo = (input) => {
+  const data = parse(input);
+
   let bags = getContent('shiny gold', data, 1);
   let sum = 0;
   let prevSum = 0;

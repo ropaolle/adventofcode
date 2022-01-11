@@ -1,8 +1,7 @@
-const { loadData } = require('../../lib.js');
+const parse = (input) => input.split(/\r?\n/);
 
-const data = loadData(__dirname, 'data.txt', { numeric: false, sorted: false });
-
-const partOne = () => {
+const partOne = (input) => {
+  const data = parse(input);
   const MAX_ITTERATIONS = 100;
 
   const timestamp = +data[0];
@@ -29,7 +28,8 @@ const partOne = () => {
 } while (true); */
 };
 
-const partTwo = () => {
+const partTwo = (input) => {
+  const data = parse(input);
   // const START_INDEX = 500000000000000;
   // const MAX_ITTERATIONS = 510000000000000;
 

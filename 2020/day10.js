@@ -1,8 +1,12 @@
-const { loadData } = require('../../lib.js');
+const parse = (input) => {
+  const lines = input.split(/\r?\n/);
+  const sortedNumbers = lines.map((v) => Number(v)).sort((a, b) => a - b);
 
-const data = loadData(__dirname, 'data.txt', { numeric: true, sorted: true });
+  return sortedNumbers;
+};
 
-const partOne = () => {
+const partOne = (input) => {
+  const data = parse(input);
   // const isAllUnique = data.length - new Set(data).size === 0;
   // const max = data[data.length - 1] + 3;
   let pointer = 0;
@@ -23,7 +27,9 @@ const partOne = () => {
   return ones * (threes + 1);
 };
 
-const partTwo = () => {
+const partTwo = (input) => {
+  const data = parse(input);
+
   const map = new Map([[0, 1]]);
   for (let i = 0; i < data.length; i++) {
     const ways =
@@ -33,10 +39,5 @@ const partTwo = () => {
   return map.get(data.pop());
 };
 
-// console.clear();
-// console.log('Part one:', partOne());
-// console.log('Part two:', partTwo());
-
-// Exports
 exports.partOne = partOne;
 exports.partTwo = partTwo;

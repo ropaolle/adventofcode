@@ -1,6 +1,4 @@
-const { loadData } = require('../../lib.js');
-
-const data = loadData(__dirname, 'data.txt').map((v) => Number(v));
+const parse = (input) => input.split(/\r?\n/).map((v) => Number(v));
 
 const sumExist = (val, arr) => {
   for (let i = 0; i < arr.length; i++) {
@@ -13,7 +11,9 @@ const sumExist = (val, arr) => {
   return false;
 };
 
-const partOne = () => {
+const partOne = (input) => {
+  const data = parse(input);
+
   const preambleSize = 25;
   let window = data.slice(0, preambleSize);
 
@@ -29,7 +29,9 @@ const partOne = () => {
   }
 };
 
-const partTwo = () => {
+const partTwo = (input) => {
+  const data = parse(input);
+
   const test = 177777905; //127;
 
   for (let i = 0; i < data.length; i++) {
@@ -54,10 +56,5 @@ const partTwo = () => {
   }
 };
 
-// console.clear();
-// console.log('Part one:', partOne());
-// console.log('Part two:', partTwo());
-
-// Exports
 exports.partOne = partOne;
 exports.partTwo = partTwo;

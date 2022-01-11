@@ -1,8 +1,10 @@
-const { loadData } = require('../../lib.js');
-const data = loadData(__dirname, 'data.txt').map((v) => v.split(''));
+const parse = (input) => {
+  const lines = input.split(/\r?\n/);
+  return lines.map((v) => v.split(''));
+};
 
-const width = data[0].length;
-const height = data.length;
+// const width = data[0].length;
+// const height = data.length;
 
 const adjacent = [
   [-1, -1],
@@ -21,6 +23,7 @@ const getSeat = (row, col, generation) => {
     : null;
 };
 
+// eslint-disable-next-line complexity
 const occupiedNeighbours = (row, col, levels, threshold, generation) => {
   const neighbours = [null, null, null, null, null, null, null, null];
   let level = 1;
@@ -41,7 +44,11 @@ const occupiedNeighbours = (row, col, levels, threshold, generation) => {
   return neighbours.filter((v) => v === '#').length;
 };
 
-const nextGeneration = (generation, levels, threshold) => {
+// eslint-disable-next-line complexity
+const nextGeneration = (generation, levels, threshold, width, height) => {
+  // const width = generation[0].length;
+  // const height = generation.length;
+
   // Deep cloning
   let next = JSON.parse(JSON.stringify(generation));
 
@@ -67,19 +74,28 @@ const nextGeneration = (generation, levels, threshold) => {
   return next;
 };
 
-const partOne = () => {
-  let next = data;
+const partOne = (input) => {
+  let next = parse(input);
+  const width = next[0].length;
+  const height = next.length;
+
+  // console.log('next', next);
   do {
-    next = nextGeneration(next, 1, 4);
+    next = nextGeneration(next, 1, 4, width, height);
   } while (Array.isArray(next));
 
   return next;
 };
 
-const partTwo = () => {
-  let next = data;
+const partTwo = (input) => {
+  let next = parse(input);
+  const width = next[0].length;
+  const height = next.length;
+
+  // console.log('width, height', width, height);
+
   do {
-    next = nextGeneration(next, Math.max(width, height), 5);
+    next = nextGeneration(next, Math.max(width, height), 5, width, height);
   } while (Array.isArray(next));
 
   return next;
