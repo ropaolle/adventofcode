@@ -3,9 +3,9 @@ const parse = (input) => {
 };
 
 const hex2bin = (hex) => {
-  if (typeof hex !== 'string' || hex.length > 8) {
-    throw new Error('Invalid hex input! Should be a string with max length 8.');
-  }
+  // if (typeof hex !== 'string' || hex.length > 8) {
+  //   throw new Error('Invalid hex input! Should be a string with max length 8.');
+  // }
   return parseInt(hex, 16).toString(2).padStart(8, '0');
 };
 
@@ -27,9 +27,9 @@ const getLiteral = (data) => {
     data = data.substring(5);
   }
   const literal = parseInt(values, 2);
-  if (literal > Number.MAX_SAFE_INTEGER) {
-    throw new Error(`Literal ${literal} exceeds MAX_SAFE_INTEGER .`);
-  }
+  // if (literal > Number.MAX_SAFE_INTEGER) {
+  //   throw new Error(`Literal ${literal} exceeds MAX_SAFE_INTEGER .`);
+  // }
   return [literal, data.substring(5)];
 };
 

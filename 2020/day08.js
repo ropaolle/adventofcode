@@ -8,8 +8,10 @@ const parse = (input) => {
 };
 
 const nextPointer = (operator, pointer, argument) => {
+  /* istanbul ignore next */
   if (['acc', 'nop'].includes(operator)) {
     pointer += 1;
+    // Not matched by the coverage test
   } else if (operator === 'jmp') {
     pointer += argument;
   }

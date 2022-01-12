@@ -50,6 +50,9 @@ describe('Lib tests', function () {
     it("should remove the first b in ['a', 'b', 'b', 'c']", function () {
       expect(removeItem(['a', 'b', 'b', 'c'], 'b')).toEqual(['a', 'b', 'c']);
     });
+    it("should not remove anything ['a', 'b', 'b', 'c']", function () {
+      expect(removeItem(['a', 'b', 'b', 'c'], 'x')).toEqual(['a', 'b', 'b', 'c']);
+    });
   });
 
   describe('removeAllItems', function () {
@@ -68,14 +71,17 @@ describe('Lib tests', function () {
 
   describe('getIndicesOf', function () {
     const { getIndicesOf } = require('../lib/extras');
-    it('bb in abbba should return [1]', function () {
+    it('bb in abbba should returns [1]', function () {
       expect(getIndicesOf('bb', 'abbba')).toEqual([1]);
     });
-    it('bB in abbba should return [1]', function () {
-      expect(getIndicesOf('bb', 'abbBa')).toEqual([1]);
+    it('bB in abbba should returns [1]', function () {
+      expect(getIndicesOf('bb', 'abbBa', false)).toEqual([1]);
     });
-    it('bb in abbba should return [2]', function () {
-      expect(getIndicesOf('bB', 'abbBa', true)).toEqual([2]);
+    it('bb in abbba should returns [2]', function () {
+      expect(getIndicesOf('bB', 'abbBa')).toEqual([2]);
+    });
+    it('empty search string returns []', function () {
+      expect(getIndicesOf('', 'abbBa', true)).toEqual([]);
     });
   });
 });
