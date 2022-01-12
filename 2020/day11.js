@@ -79,13 +79,19 @@ const partOne = (input) => {
   const width = next[0].length;
   const height = next.length;
 
-  // console.log('next', next);
+  const t0 = performance.now();
+  let i = 0;
   do {
+    i += 1;
     next = nextGeneration(next, 1, 4, width, height);
   } while (Array.isArray(next));
-
+  const t1 = performance.now();
+  console.info(`Execution time ${t1 - t0} ms.`);
+  console.info('one i', i);
   return next;
 };
+
+const { performance } = require('perf_hooks');
 
 const partTwo = (input) => {
   let next = parse(input);
@@ -94,10 +100,16 @@ const partTwo = (input) => {
 
   // console.log('width, height', width, height);
 
+  const t0 = performance.now();
+  let i = 0;
   do {
+    i += 1;
     next = nextGeneration(next, Math.max(width, height), 5, width, height);
   } while (Array.isArray(next));
 
+  const t1 = performance.now();
+  console.info(`Execution time ${t1 - t0} ms.`);
+  console.info('two i', i);
   return next;
 };
 

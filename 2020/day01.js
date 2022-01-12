@@ -1,10 +1,9 @@
-const { numericSort } = require('../lib/extras');
+const numericSort = (a, b) => a - b;
 
 const parse = (input) =>
   input
     .split(/\r?\n/)
     .map((line) => Number(line))
-    .sort(numericSort)
     .sort(numericSort);
 
 const partOne = (input) => {

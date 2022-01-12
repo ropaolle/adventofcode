@@ -32,6 +32,7 @@ const partOne = (input) => {
     }
   };
 
+  // eslint-disable-next-line complexity
   data.forEach(({ cmd, val }) => {
     switch (cmd) {
       case 'F':

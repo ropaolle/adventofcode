@@ -1,12 +1,12 @@
-function parse(input) {
+const parse = (input) => {
   return input.split(',').map(Number);
-}
+};
 
 const MAX_ITTERATIONS = 500;
 
 const sum = (val) => (val * (1 + val)) / 2;
 
-function getCheapestOutcome(input, part) {
+const getCheapestOutcome = (input, part) => {
   const positions = parse(input);
 
   let prevCost = 0;
@@ -21,15 +21,15 @@ function getCheapestOutcome(input, part) {
   }
 
   return prevCost;
-}
+};
 
-function partOne(input) {
+const partOne = (input) => {
   return getCheapestOutcome(input, 1);
-}
+};
 
-function partTwo(input) {
+const partTwo = (input) => {
   return getCheapestOutcome(input, 2);
-}
+};
 
 exports.partOne = partOne;
 exports.partTwo = partTwo;

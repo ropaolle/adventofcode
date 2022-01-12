@@ -29,14 +29,14 @@ const hasBingo = (board) => {
 const getScore = (board, number) =>
   board.reduce((acc, v) => (v !== -1 ? acc + v : acc), 0) * number;
 
-function parse(input) {
+const parse = (input) => {
   const data = input.split(/\r?\n/).filter((line) => line.length !== 0);
   const numbers = data.shift().split(',').map(Number);
   const boards = getBoards(data);
   return [numbers, boards];
-}
+};
 
-function partOne(input) {
+const partOne = (input) => {
   const [numbers, boards] = parse(input);
 
   for (let i = 0; i < numbers.length; i++) {
@@ -48,12 +48,13 @@ function partOne(input) {
       }
     }
   }
-}
+};
 
-function partTwo(input) {
+// eslint-disable-next-line complexity
+const partTwo = (input) => {
   const [numbers, boards] = parse(input);
-
   let boardIds = boards.map((_, i) => i);
+
   for (let i = 0; i < numbers.length; i++) {
     const number = numbers[i];
     for (let j = 0; j < boards.length; j++) {
@@ -69,7 +70,7 @@ function partTwo(input) {
       }
     }
   }
-}
+};
 
 exports.partOne = partOne;
 exports.partTwo = partTwo;

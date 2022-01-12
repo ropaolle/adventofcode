@@ -1,6 +1,6 @@
-function parse(input) {
+const parse = (input) => {
   return input.split(/\r?\n/);
-}
+};
 
 const getData = (data) =>
   data.reduce(
@@ -70,7 +70,7 @@ const foldPaper = (paper, fold) => {
   }
 };
 
-function partOne(input) {
+const partOne = (input) => {
   const data = parse(input);
   const [cords, folds] = getData(data);
   let paper = getGrid(cords);
@@ -78,9 +78,9 @@ function partOne(input) {
   //   printPaper(paper);
   // const length =
   return (paper.join('').match(/#/g) || /* istanbul ignore next */ []).length;
-}
+};
 
-function partTwo(input) {
+const partTwo = (input) => {
   const data = parse(input);
   const [cords, folds] = getData(data);
   let paper = getGrid(cords);
@@ -98,7 +98,7 @@ function partTwo(input) {
   // ####.##.#.#..#.#..#.####.#..#.#..#.###..
 
   return 'CJHAZHKU';
-}
+};
 
 exports.partOne = partOne;
 exports.partTwo = partTwo;

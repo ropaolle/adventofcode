@@ -40,16 +40,16 @@ let isBalanced2 = (input) => {
   return stack;
 };
 
-function parse(input) {
+const parse = (input) => {
   return input.split(/\r?\n/);
-}
+};
 
-function partOne(input) {
+const partOne = (input) => {
   const data = parse(input);
   return data.reduce((acc, v) => acc + isBalanced(v), 0);
-}
+};
 
-function partTwo(input) {
+const partTwo = (input) => {
   const data = parse(input);
 
   const points2 = ['', 2, '', 3, '', 1, '', 4];
@@ -66,7 +66,7 @@ function partTwo(input) {
   const mid = Math.ceil((scores.length - 1) / 2);
 
   return scores[mid];
-}
+};
 
 exports.partOne = partOne;
 exports.partTwo = partTwo;

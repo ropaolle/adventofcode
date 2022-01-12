@@ -1,13 +1,25 @@
-function parse(input) {
+const parse = (input) => {
   return input.split(/\r?\n/).map((v) => v.split('-'));
-}
+};
 
-function paths(links, { allowOneSmallCave } = {}) {
-  const next = (u) => [
-    ...links.filter((link) => link[0] === u).map((link) => link[1]),
-    ...links.filter((link) => link[1] === u).map((link) => link[0]),
-  ];
+const next = (links, u) => [
+  ...links.filter((link) => link[0] === u).map((link) => link[1]),
+  ...links.filter((link) => link[1] === u).map((link) => link[0]),
+];
 
+const pushFrontier = (frontier, v, visited, canSkip) => {
+  if (visited.includes(v)) {
+    if (canSkip && v !== 'start') {
+      frontier.push({ u: v, visited, canSkip: false });
+    }
+  } else {
+    frontier.push({ u: v, visited, canSkip });
+  }
+
+  return frontier;
+};
+
+const paths = (links, { allowOneSmallCave } = {}) => {
   let frontier = [{ u: 'start', visited: [], canSkip: allowOneSmallCave }];
   let p = 0;
 
@@ -19,33 +31,27 @@ function paths(links, { allowOneSmallCave } = {}) {
       visited.push(u);
     }
 
-    for (const v of next(u)) {
+    for (const v of next(links, u)) {
       if (v === 'end') {
         p++;
       } else {
-        if (visited.includes(v)) {
-          if (canSkip && v !== 'start') {
-            frontier.push({ u: v, visited, canSkip: false });
-          }
-        } else {
-          frontier.push({ u: v, visited, canSkip });
-        }
+        frontier = pushFrontier(frontier, v, visited, canSkip);
       }
     }
   }
 
   return p;
-}
+};
 
-function partOne(input) {
+const partOne = (input) => {
   const data = parse(input);
   return paths(data);
-}
+};
 
-function partTwo(input) {
+const partTwo = (input) => {
   const data = parse(input);
   return paths(data, { allowOneSmallCave: true });
-}
+};
 
 exports.partOne = partOne;
 exports.partTwo = partTwo;

@@ -1,8 +1,8 @@
-function parse(input) {
+const parse = (input) => {
   return input.split(/\r?\n/).map((line) => Number(line));
-}
+};
 
-function countValues(data, windowSize) {
+const countValues = (data, windowSize) => {
   let largerMeasurments = 0;
 
   for (let i = windowSize; i < data.length; i++) {
@@ -12,12 +12,15 @@ function countValues(data, windowSize) {
   }
 
   return largerMeasurments;
-}
+};
 
-exports.partOne = function partOne(input) {
+const partOne = (input) => {
   return countValues(parse(input), 1);
 };
 
-exports.partTwo = function partTwo(input) {
+const partTwo = (input) => {
   return countValues(parse(input), 3);
 };
+
+exports.partOne = partOne;
+exports.partTwo = partTwo;

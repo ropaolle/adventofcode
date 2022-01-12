@@ -1,4 +1,4 @@
-function parse(input) {
+const parse = (input) => {
   const lines = input.split(/\r?\n/);
 
   return lines.map((line) => {
@@ -6,7 +6,7 @@ function parse(input) {
     const [start, stop] = val[0].split('-');
     return { start, stop, chr: val[1].slice(0, -1), password: val[2] };
   });
-}
+};
 
 const partOne = (input) => {
   const data = parse(input);

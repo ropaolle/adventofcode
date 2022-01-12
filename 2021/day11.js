@@ -1,6 +1,6 @@
-function parse(input) {
+const parse = (input) => {
   return input.split(/\r?\n/).map((v) => v.split('').map(Number));
-}
+};
 
 const map = [
   [0, -1],
@@ -13,13 +13,14 @@ const map = [
   [1, -1],
 ];
 
+// eslint-disable-next-line complexity
 const countFlashes = (matrix, generation) => {
   let flashes = 0;
+  let shallFlash = 0;
 
-  for (let i = 0; i < 1000; i++) {
-    let shallFlash = 0;
+  const incByOne = () => {
+    shallFlash = 0;
 
-    // Inc by 1
     for (let x = 0; x < 10; x++) {
       for (let y = 0; y < 10; y++) {
         const level = matrix[y][x];
@@ -32,6 +33,23 @@ const countFlashes = (matrix, generation) => {
         }
       }
     }
+  };
+
+  const onGrid = (dx, dy) => {
+    if (matrix[dy] && matrix[dy][dx]) {
+      const level = matrix[dy][dx];
+      if (level === 9) {
+        shallFlash += 1;
+        flashes += 1;
+        matrix[dy][dx] = 'F';
+      } else if (level !== 'F' && level !== 0) {
+        matrix[dy][dx] += 1;
+      }
+    }
+  };
+
+  for (let i = 0; i < 1000; i++) {
+    incByOne();
 
     while (shallFlash > 0) {
       shallFlash = 0;
@@ -42,17 +60,7 @@ const countFlashes = (matrix, generation) => {
             map.forEach(([my, mx]) => {
               const dy = y + my;
               const dx = x + mx;
-              // On grid?
-              if (matrix[dy] && matrix[dy][dx]) {
-                const level = matrix[dy][dx];
-                if (level === 9) {
-                  shallFlash += 1;
-                  flashes += 1;
-                  matrix[dy][dx] = 'F';
-                } else if (level !== 'F' && level !== 0) {
-                  matrix[dy][dx] += 1;
-                }
-              }
+              onGrid(dx, dy);
             });
             matrix[y][x] = 0;
           }
@@ -72,15 +80,15 @@ const countFlashes = (matrix, generation) => {
   }
 };
 
-function partOne(input) {
+const partOne = (input) => {
   const matrix = parse(input);
   return countFlashes(matrix, 100);
-}
+};
 
-function partTwo(input) {
+const partTwo = (input) => {
   const matrix = parse(input);
   return countFlashes(matrix, 0);
-}
+};
 
 exports.partOne = partOne;
 exports.partTwo = partTwo;

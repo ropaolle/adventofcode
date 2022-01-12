@@ -1,6 +1,6 @@
-function parse(input) {
+const parse = (input) => {
   return input.split(/\r?\n/).map((v) => v.split('').map(Number));
-}
+};
 
 // https://www.reddit.com/r/adventofcode/comments/rgqzt5/comment/hom6gmm/?utm_source=share&utm_medium=web2x&context=3
 const shortestPath = (map, startPos = [0, 0]) => {
@@ -32,12 +32,12 @@ const shortestPath = (map, startPos = [0, 0]) => {
   }
 };
 
-function partOne(input) {
+const partOne = (input) => {
   const map = parse(input);
   return shortestPath(map);
-}
+};
 
-function partTwo(input) {
+const partTwo = (input) => {
   const map = parse(input);
   const expandedMap = [...Array(map.length * 5)].map((_, y) =>
     [...Array(map[0].length * 5)].map(
@@ -52,7 +52,7 @@ function partTwo(input) {
   );
 
   return shortestPath(expandedMap);
-}
+};
 
 exports.partOne = partOne;
 exports.partTwo = partTwo;

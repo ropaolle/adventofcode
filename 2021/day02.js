@@ -1,8 +1,6 @@
-function parse(input) {
-  return input.split(/\r?\n/).map((val) => val.split(' '));
-}
+const parse = (input) => input.split(/\r?\n/).map((val) => val.split(' '));
 
-function partOne(input) {
+const partOne = (input) => {
   let horizontal = 0;
   let depth = 0;
 
@@ -24,9 +22,9 @@ function partOne(input) {
   }
 
   return horizontal * depth;
-}
+};
 
-function partTwo(input) {
+const partTwo = (input) => {
   let horizontal = 0;
   let depth = 0;
   let aim = 0;
@@ -49,7 +47,7 @@ function partTwo(input) {
     }
   }
   return horizontal * depth;
-}
+};
 
 exports.partOne = partOne;
 exports.partTwo = partTwo;

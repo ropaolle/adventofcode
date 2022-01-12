@@ -14,11 +14,11 @@ const getGrid = (lines) => {
 const getCount = (grid) =>
   grid.reduce((acc, v) => v.reduce((acc, v) => (v > 1 ? acc + 1 : acc), acc), 0);
 
-function parse(input) {
+const parse = (input) => {
   return input.split(/\r?\n/).map((v) => v.split('->').map((v) => v.trim().split(',').map(Number)));
-}
+};
 
-function partOne(input) {
+const partOne = (input) => {
   const lines = parse(input);
   const grid = getGrid(lines);
 
@@ -40,14 +40,14 @@ function partOne(input) {
   });
 
   return getCount(grid);
-}
+};
 
-function partTwo(input) {
+const partTwo = (input) => {
   const lines = parse(input);
   const grid = getGrid(lines);
 
-  lines.forEach((v) => {
-    const [[x1, y1], [x2, y2]] = v;
+  // eslint-disable-next-line complexity
+  lines.forEach(([[x1, y1], [x2, y2]]) => {
     if (x1 === x2) {
       const start = Math.min(y1, y2);
       const stop = Math.max(y1, y2);
@@ -71,7 +71,7 @@ function partTwo(input) {
   });
 
   return getCount(grid);
-}
+};
 
 exports.partOne = partOne;
 exports.partTwo = partTwo;

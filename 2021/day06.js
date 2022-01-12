@@ -15,16 +15,16 @@ const getFishCount = (fishes, days) => {
   return fishes.length;
 };
 
-function parse(input) {
+const parse = (input) => {
   return input.split(',').map(Number);
-}
+};
 
-function partOne(input) {
+const partOne = (input) => {
   const data = parse(input);
   return getFishCount(data, 80);
-}
+};
 
-function partTwo(input) {
+const partTwo = (input) => {
   const data = parse(input);
 
   const fishGens = data.reduce(
@@ -44,7 +44,7 @@ function partTwo(input) {
   }
 
   return fishGens.reduce((acc, v) => acc + v);
-}
+};
 
 exports.partOne = partOne;
 exports.partTwo = partTwo;

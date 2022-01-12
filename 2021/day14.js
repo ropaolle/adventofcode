@@ -1,12 +1,10 @@
-function parse(input) {
-  return input.split(/\r?\n/).map((v) => v.split(' -> '));
-}
+const parse = (input) => input.split(/\r?\n/).map((v) => v.split(' -> '));
 
 const numSort = (a, b) => a - b;
 
 const ord = (str) => str.charCodeAt(0);
 
-function findPatterns(pattern, str) {
+const findPatterns = (pattern, str) => {
   const result = [];
   let i = str.indexOf(pattern, 0);
   while (i >= 0) {
@@ -15,10 +13,10 @@ function findPatterns(pattern, str) {
   }
 
   return result;
-}
+};
 
 // eslint-disable-next-line complexity
-function partOne(input) {
+const partOne = (input) => {
   const data = parse(input);
 
   let [template, rules] = data.reduce(
@@ -72,10 +70,10 @@ function partOne(input) {
     .sort(numSort);
 
   return charCounts[charCounts.length - 1] - charCounts[0];
-}
+};
 
 // https://github.com/ethsgo/aoc/blob/main/js/_14.js
-function partTwo(input) {
+const partTwo = (input) => {
   const data = parse(input);
 
   let [template, rulesKV] = data.reduce(
@@ -100,7 +98,7 @@ function partTwo(input) {
   const incr = (m, k, d) => m.set(k, (m.get(k) ?? 0) + d);
   const minMax = (xs) => [Math.min(...xs), Math.max(...xs)];
 
-  function sim({ template, rules }, steps) {
+  const sim = ({ template, rules }, steps) => {
     let c1 = count(template);
     let c2 = count(pairs(template));
     for (; steps > 0; steps--) {
@@ -115,10 +113,10 @@ function partTwo(input) {
     }
     const [min, max] = minMax([...c1.values()]);
     return max - min;
-  }
+  };
 
   return sim({ template, rules }, 40);
-}
+};
 
 exports.partOne = partOne;
 exports.partTwo = partTwo;

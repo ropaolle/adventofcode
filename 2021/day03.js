@@ -1,15 +1,15 @@
-function parse(input) {
+const parse = (input) => {
   return input.split(/\r?\n/);
-}
+};
 
-function flipBits(str) {
+const flipBits = (str) => {
   return str
     .split('')
     .map((b) => (1 - b).toString())
     .join('');
-}
+};
 
-function commonBits(data) {
+const commonBits = (data) => {
   let result = Array(data[0].length).fill(0);
 
   for (const bits of data) {
@@ -19,9 +19,9 @@ function commonBits(data) {
   }
 
   return result.map((v) => (v >= 0 ? 1 : 0)).join('');
-}
+};
 
-function mostCommonBit(data, bitPosition) {
+const mostCommonBit = (data, bitPosition) => {
   let zeros = 0;
   let ones = 0;
 
@@ -35,9 +35,9 @@ function mostCommonBit(data, bitPosition) {
   }
 
   return ones < zeros ? '0' : '1';
-}
+};
 
-function getRating(data, ratingType) {
+const getRating = (data, ratingType) => {
   let dataCopy = [...data];
 
   for (let i = 0; i < data[0].length; i++) {
@@ -55,24 +55,24 @@ function getRating(data, ratingType) {
   }
 
   return parseInt(dataCopy[0], 2);
-}
+};
 
-function partOne(input) {
+const partOne = (input) => {
   const data = parse(input);
   const gammaBin = commonBits(data);
   const gamma = parseInt(gammaBin, 2);
   const epsilon = parseInt(flipBits(gammaBin), 2);
 
   return gamma * epsilon;
-}
+};
 
-function partTwo(input) {
+const partTwo = (input) => {
   const data = parse(input);
   const oxygenGeneratorRating = getRating(data, 'oxygenGenerator');
   const co2ScrubberRating = getRating(data, 'co2Scrubber');
 
   return oxygenGeneratorRating * co2ScrubberRating;
-}
+};
 
 exports.partOne = partOne;
 exports.partTwo = partTwo;

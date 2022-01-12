@@ -1,23 +1,23 @@
-function parse(input) {
+const parse = (input) => {
   return input.split(/\r?\n/);
-}
+};
 
-function hex2bin(hex) {
+const hex2bin = (hex) => {
   if (typeof hex !== 'string' || hex.length > 8) {
     throw new Error('Invalid hex input! Should be a string with max length 8.');
   }
   return parseInt(hex, 16).toString(2).padStart(8, '0');
-}
+};
 
-function hextString2bin(str) {
+const hextString2bin = (str) => {
   let binStr = '';
   for (let i = 0; i < Math.ceil(str.length / 2); i++) {
     binStr += hex2bin(str.substring(i * 2, i * 2 + 2));
   }
   return binStr;
-}
+};
 
-function getLiteral(data) {
+const getLiteral = (data) => {
   let values = '';
   while (data.length > 4) {
     values += data.substring(1, 5);
@@ -31,12 +31,12 @@ function getLiteral(data) {
     throw new Error(`Literal ${literal} exceeds MAX_SAFE_INTEGER .`);
   }
   return [literal, data.substring(5)];
-}
+};
 
 let subPackets = [];
 let versionSum = 0;
 
-function decodePacket(bin) {
+const decodePacket = (bin) => {
   const version = parseInt(bin.substring(0, 3), 2);
   const typeId = parseInt(bin.substring(3, 6), 2);
   let literal;
@@ -58,19 +58,20 @@ function decodePacket(bin) {
   }
 
   return versionSum;
-}
+};
 
-function partOne(input) {
+const partOne = (input) => {
   const data = parse(input);
   let bin = hextString2bin(data[0]);
   return decodePacket(bin);
-}
+};
 
 // https://github.com/vendash/AoC/blob/98a8b7bdac2019229126eadb7fdce2740532eb5b/Day_16/2021_16_01.js
 // https://github.com/ethsgo/aoc
 // https://raw.githubusercontent.com/tymscar/Advent-Of-Code/master/2021/javascript/day16/part2.js
 
-function getPacket(bin) {
+// eslint-disable-next-line complexity
+const getPacket = (bin) => {
   const packet = {};
   packet.version = parseInt(bin.substr(0, 3), 2);
   packet.type = parseInt(bin.substr(3, 3), 2);
@@ -136,12 +137,12 @@ function getPacket(bin) {
   }
 
   return packet;
-}
+};
 
-function partTwo(input) {
+const partTwo = (input) => {
   const data = parse(input);
   return getPacket(hextString2bin(data[0])).data;
-}
+};
 
 exports.partOne = partOne;
 exports.partTwo = partTwo;

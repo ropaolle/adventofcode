@@ -1,4 +1,4 @@
-const { numericSort } = require('../lib/extras.js');
+const numericSort = (a, b) => a - b;
 
 const parse = (input) => input.split(/\r?\n/);
 
