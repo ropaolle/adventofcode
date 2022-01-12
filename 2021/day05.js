@@ -1,3 +1,7 @@
+const parse = (input) => {
+  return input.split(/\r?\n/).map((v) => v.split('->').map((v) => v.trim().split(',').map(Number)));
+};
+
 const getMax = (lines) =>
   lines.reduce(
     (acc, [[x1, y1], [x2, y2]]) => [Math.max(acc[0], x1, x2), Math.max(acc[1], y1, y2)],
@@ -14,28 +18,35 @@ const getGrid = (lines) => {
 const getCount = (grid) =>
   grid.reduce((acc, v) => v.reduce((acc, v) => (v > 1 ? acc + 1 : acc), acc), 0);
 
-const parse = (input) => {
-  return input.split(/\r?\n/).map((v) => v.split('->').map((v) => v.trim().split(',').map(Number)));
+const updateRow = (grid, y1, y2, x1) => {
+  const start = Math.min(y1, y2);
+  const stop = Math.max(y1, y2);
+  for (let y = start; y < stop + 1; y++) {
+    grid[y][x1] += 1;
+  }
+
+  return grid;
+};
+
+const updateCol = (grid, x1, x2, y1) => {
+  const start = Math.min(x1, x2);
+  const stop = Math.max(x1, x2);
+  for (let x = start; x < stop + 1; x++) {
+    grid[y1][x] += 1;
+  }
+
+  return grid;
 };
 
 const partOne = (input) => {
   const lines = parse(input);
-  const grid = getGrid(lines);
+  let grid = getGrid(lines);
 
-  lines.forEach((v) => {
-    const [[x1, y1], [x2, y2]] = v;
+  lines.forEach(([[x1, y1], [x2, y2]]) => {
     if (x1 === x2) {
-      const start = Math.min(y1, y2);
-      const stop = Math.max(y1, y2);
-      for (let y = start; y < stop + 1; y++) {
-        grid[y][x1] += 1;
-      }
+      grid = updateRow(grid, y1, y2, x1);
     } else if (y1 === y2) {
-      const start = Math.min(x1, x2);
-      const stop = Math.max(x1, x2);
-      for (let x = start; x < stop + 1; x++) {
-        grid[y1][x] += 1;
-      }
+      grid = updateCol(grid, x1, x2, y1);
     }
   });
 
@@ -44,22 +55,13 @@ const partOne = (input) => {
 
 const partTwo = (input) => {
   const lines = parse(input);
-  const grid = getGrid(lines);
+  let grid = getGrid(lines);
 
-  // eslint-disable-next-line complexity
   lines.forEach(([[x1, y1], [x2, y2]]) => {
     if (x1 === x2) {
-      const start = Math.min(y1, y2);
-      const stop = Math.max(y1, y2);
-      for (let y = start; y < stop + 1; y++) {
-        grid[y][x1] += 1;
-      }
+      grid = updateRow(grid, y1, y2, x1);
     } else if (y1 === y2) {
-      const start = Math.min(x1, x2);
-      const stop = Math.max(x1, x2);
-      for (let x = start; x < stop + 1; x++) {
-        grid[y1][x] += 1;
-      }
+      grid = updateCol(grid, x1, x2, y1);
     } else {
       const steps = Math.abs(x1 - x2);
       const dirX = x1 - x2 > 0 ? -1 : 1;
