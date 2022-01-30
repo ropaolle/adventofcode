@@ -1,3 +1,4 @@
+/* eslint-disable func-style */
 const numericSort = (a, b) => a - b;
 
 const parse = (input) =>

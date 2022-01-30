@@ -3,9 +3,6 @@ const parse = (input) => {
   return lines.map((v) => v.split(''));
 };
 
-// const width = data[0].length;
-// const height = data.length;
-
 const adjacent = [
   [-1, -1],
   [0, -1],
@@ -17,6 +14,11 @@ const adjacent = [
   [1, 1],
 ];
 
+const clone2DArray = (arr) => {
+  // return JSON.parse(JSON.stringify(arr));
+  return arr.map((row) => [...row]);
+};
+
 const getSeat = (row, col, generation) => {
   return typeof generation[row] !== 'undefined' && typeof generation[row][col] !== 'undefined'
     ? generation[row][col]
@@ -27,15 +29,21 @@ const getSeat = (row, col, generation) => {
 const occupiedNeighbours = (row, col, levels, threshold, generation) => {
   const neighbours = [null, null, null, null, null, null, null, null];
   let level = 1;
+  let hit = 0;
 
-  while (neighbours.filter((v) => v === '#').length < threshold && level <= levels) {
+  while (level <= levels) {
     for (let i = 0; i < adjacent.length; i++) {
       if (neighbours[i] !== '#' && neighbours[i] !== 'L') {
-        neighbours[i] = getSeat(
-          row + adjacent[i][1] * level,
-          col + adjacent[i][0] * level,
-          generation
-        );
+        const n = getSeat(row + adjacent[i][1] * level, col + adjacent[i][0] * level, generation);
+
+        if (n === '#' && neighbours[i] !== '#') {
+          hit += 1;
+        }
+
+        neighbours[i] = n;
+      }
+      if (hit >= threshold) {
+        break;
       }
     }
     level += 1;
@@ -45,29 +53,29 @@ const occupiedNeighbours = (row, col, levels, threshold, generation) => {
 };
 
 // eslint-disable-next-line complexity
-const nextGeneration = (generation, levels, threshold, width, height) => {
-  // const width = generation[0].length;
-  // const height = generation.length;
+const nextGeneration = (generation, threshold, closestNeighbours) => {
+  let next = clone2DArray(generation);
+  const maxCols = generation[0].length;
+  const maxRows = generation.length;
 
-  // Deep cloning
-  let next = JSON.parse(JSON.stringify(generation));
-
-  for (let row = 0; row < height; row++) {
-    for (let col = 0; col < width; col++) {
+  let changed = false;
+  for (let row = 0; row < maxRows; row++) {
+    for (let col = 0; col < maxCols; col++) {
+      const levels = closestNeighbours ? 1 : Math.max(maxCols - col, maxRows - row, col, row);
       const occupied = occupiedNeighbours(row, col, levels, threshold, generation);
       const val = generation[row][col];
 
       if (val === 'L' && occupied === 0) {
         next[row][col] = '#';
+        changed = true;
       } else if (val === '#' && occupied >= threshold) {
         next[row][col] = 'L';
-      } else {
-        next[row][col] = val;
+        changed = true;
       }
     }
   }
 
-  if (generation.flat().join('') === next.flat().join('')) {
+  if (!changed) {
     return next.flat().filter((x) => x === '#').length;
   }
 
@@ -75,42 +83,22 @@ const nextGeneration = (generation, levels, threshold, width, height) => {
 };
 
 const partOne = (input) => {
-  let next = parse(input);
-  const width = next[0].length;
-  const height = next.length;
+  let grid = parse(input);
 
-  const t0 = performance.now();
-  let i = 0;
   do {
-    i += 1;
-    next = nextGeneration(next, 1, 4, width, height);
-  } while (Array.isArray(next));
-  const t1 = performance.now();
-  console.info(`Execution time ${t1 - t0} ms.`);
-  console.info('one i', i);
-  return next;
+    grid = nextGeneration(grid, 4, true);
+  } while (Array.isArray(grid));
+
+  return grid;
 };
 
-const { performance } = require('perf_hooks');
-
 const partTwo = (input) => {
-  let next = parse(input);
-  const width = next[0].length;
-  const height = next.length;
-
-  // console.log('width, height', width, height);
-
-  const t0 = performance.now();
-  let i = 0;
+  let grid = parse(input);
   do {
-    i += 1;
-    next = nextGeneration(next, Math.max(width, height), 5, width, height);
-  } while (Array.isArray(next));
+    grid = nextGeneration(grid, 5, false);
+  } while (Array.isArray(grid));
 
-  const t1 = performance.now();
-  console.info(`Execution time ${t1 - t0} ms.`);
-  console.info('two i', i);
-  return next;
+  return grid;
 };
 
 exports.partOne = partOne;
