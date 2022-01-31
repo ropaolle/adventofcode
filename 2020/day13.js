@@ -16,32 +16,12 @@ const partOne = (input) => {
       return (index - timestamp) * startTimes[i];
     }
   }
-
-  /* let firstTimestamp = -1;
-  let index = timestamp;
-  do {
-    firstTimestamp = startTimes.map((v) => index % v).findIndex((v) => v === 0);
-    if (firstTimestamp !== -1) {
-        return (index - timestamp) * startTimes[firstTimestamp];
-    }
-    index += 1;
-} while (true); */
 };
 
 const partTwo = (input) => {
   const data = parse(input);
-  // const START_INDEX = 500000000000000;
-  // const MAX_ITTERATIONS = 510000000000000;
-
-  // console.log('100000000000000', 1000000000000000000000000000);
-  // 17,x,13,19
-
-  //   console.log(1068788 / 19);
-
   const startTimes = data[1]
     .split(',')
-    // .map((v, i) => ({ i, number: Number(v) }))
-    // .filter((v) => v.number);
     .map((x, i) => ({ id: +x, offset: i }))
     .filter(({ id }) => !isNaN(id));
 
@@ -54,20 +34,6 @@ const partTwo = (input) => {
     step *= id; //assumes bus numbers do not have common divisors
   });
   return result;
-
-  /*   for (let index = START_INDEX; index < MAX_ITTERATIONS; index++) {
-    const hit = startTimes.every(({ i, number }) => {
-      return (index + i) % number === 0;
-    });
-
-    if (hit) {
-      return [
-        index + startTimes[startTimes.length - 1].i,
-        index,
-        startTimes[startTimes.length - 1].i,
-      ];
-    } 
-  }*/
 };
 
 exports.partOne = partOne;
