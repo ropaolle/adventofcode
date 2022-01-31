@@ -15,41 +15,53 @@ const adjacent = [
 ];
 
 const clone2DArray = (arr) => {
-  // return JSON.parse(JSON.stringify(arr));
-  return arr.map((row) => [...row]);
+  return JSON.parse(JSON.stringify(arr));
+  // return arr.map((row) => [...row]);
 };
 
-const getSeat = (row, col, generation) => {
-  return typeof generation[row] !== 'undefined' && typeof generation[row][col] !== 'undefined'
-    ? generation[row][col]
-    : null;
-};
+const onGrid = (row, col, maxRows, maxCols) =>
+  row >= 0 && col >= 0 && row < maxRows && col < maxCols;
 
 // eslint-disable-next-line complexity
 const occupiedNeighbours = (row, col, levels, threshold, generation) => {
-  const neighbours = [null, null, null, null, null, null, null, null];
+  const maxCols = generation[0].length;
+  const maxRows = generation.length;
+  const neighbours = [true, true, true, true, true, true, true, true, true];
+
   let level = 1;
-  let hit = 0;
+  let vacantNeighbours = 0;
+  let occupiedNeighbours = 0;
 
   while (level <= levels) {
     for (let i = 0; i < adjacent.length; i++) {
-      if (neighbours[i] !== '#' && neighbours[i] !== 'L') {
-        const n = getSeat(row + adjacent[i][1] * level, col + adjacent[i][0] * level, generation);
-
-        if (n === '#' && neighbours[i] !== '#') {
-          hit += 1;
+      if (neighbours[i]) {
+        const currRow = row + adjacent[i][1] * level;
+        const currCol = col + adjacent[i][0] * level;
+        if (onGrid(currRow, currCol, maxRows, maxCols)) {
+          const currNeighbour = generation[currRow][currCol];
+          if (currNeighbour === '#') {
+            occupiedNeighbours += 1;
+            if (occupiedNeighbours >= threshold) {
+              return occupiedNeighbours;
+            }
+            neighbours[i] = false;
+          } else if (currNeighbour === 'L') {
+            vacantNeighbours += 1;
+            if (vacantNeighbours === 8) {
+              return 0;
+            }
+            neighbours[i] = false;
+          }
+        } else {
+          neighbours[i] = false;
         }
-
-        neighbours[i] = n;
-      }
-      if (hit >= threshold) {
-        break;
       }
     }
+
     level += 1;
   }
 
-  return neighbours.filter((v) => v === '#').length;
+  return occupiedNeighbours;
 };
 
 // eslint-disable-next-line complexity
@@ -64,7 +76,6 @@ const nextGeneration = (generation, threshold, closestNeighbours) => {
       const levels = closestNeighbours ? 1 : Math.max(maxCols - col, maxRows - row, col, row);
       const occupied = occupiedNeighbours(row, col, levels, threshold, generation);
       const val = generation[row][col];
-
       if (val === 'L' && occupied === 0) {
         next[row][col] = '#';
         changed = true;
