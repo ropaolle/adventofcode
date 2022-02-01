@@ -7,8 +7,6 @@ const parse = (input) => {
 
 const partOne = (input) => {
   const data = parse(input);
-  // const isAllUnique = data.length - new Set(data).size === 0;
-  // const max = data[data.length - 1] + 3;
   let pointer = 0;
   let ones = 0;
   let threes = 0;
@@ -22,7 +20,6 @@ const partOne = (input) => {
         threes += 1;
     }
     pointer = data[index];
-    // console.log('ones, threes', ones, threes, index);
   }
   return ones * (threes + 1);
 };

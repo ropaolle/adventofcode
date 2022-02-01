@@ -46,11 +46,7 @@ const partOne = (input) => {
     while (inserts.length > 0) {
       const pos = inserts.length;
       const insert = inserts.pop();
-
-      // This if is not picked up by line coverage
-      // if (insert) {
-      t.splice(pos, 0, insert); // TODO: Was to slow for big arrays
-      // }
+      t.splice(pos, 0, insert);
     }
 
     template = t.join('');

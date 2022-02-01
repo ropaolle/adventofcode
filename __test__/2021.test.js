@@ -14,9 +14,9 @@ describe('AOC 2021', function () {
   aocTest('2021', '11', 1642, 320);
   aocTest('2021', '12', 3887, 104834);
   aocTest('2021', '13', 666, 'CJHAZHKU');
-  aocTest('2021', '14', 3306, 3760312702877);
-  aocTest('2021', '15', 553, 2858); // Part 2 SLOW
-  aocTest('2021', '16', 986, 18234816469452);
+  aocTest('2021', '14', 3306, 3760312702877); // TODO: Not solved
+  aocTest('2021', '15', 553, 2858); // TODO: Not solved, part 2 slow
+  aocTest('2021', '16', 986, 18234816469452); // TODO: Not solved
   // aocTest('2021', '17', 0, 0);
   // aocTest('2021', '18', 0, 0);
   // aocTest('2021', '19', 0, 0);

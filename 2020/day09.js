@@ -21,7 +21,6 @@ const partOne = (input) => {
     const val = data[i];
     const exists = sumExist(val, window);
     if (!exists) {
-      // console.log(exists, i, val, window, val, data[i - 1]);
       return val;
     }
     window.shift();
@@ -50,7 +49,6 @@ const partTwo = (input) => {
       sum += val;
     }
     if (sum === test) {
-      // console.log('sum, min, max', sum, min, max);
       return min + max;
     }
   }
