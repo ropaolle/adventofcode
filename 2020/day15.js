@@ -1,17 +1,15 @@
-const numericSort = (a, b) => a - b;
-
-const parse = (input) =>
-  input
-    .split(/\r?\n/)
-    .map((line) => Number(line))
-    .sort(numericSort);
+const parse = (input) => {
+  return input.split(',').map((num) => Number(num));
+  // .sort(numericSort);
+};
 
 const partOne = (input) => {
   const data = parse(input);
+  console.log('data', data);
 };
 
 const partTwo = (input) => {
-  const data = parse(input);
+  // const data = parse(input);
 };
 
 exports.partOne = partOne;
