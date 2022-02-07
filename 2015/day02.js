@@ -1,7 +1,5 @@
 const parse = (input) => input.split(/\r?\n/).map((line) => line.split('x').map(Number));
 
-//
-
 const partOne = (input) => {
   const data = parse(input);
 
