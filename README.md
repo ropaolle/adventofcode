@@ -17,7 +17,7 @@
 
 ![AoC Progress 2021](https://img.shields.io/static/v1?label=AoC%20Progress%202021&message=64%25%20(16%20of%2025)&color=yellow&logo=github&style=for-the-badge) 
 ![AoC Progress 2020](https://img.shields.io/static/v1?label=AoC%20Progress%202020&message=56%25%20(14%20of%2025)&color=red&logo=github&style=for-the-badge) 
-![AoC Progress 2015](https://img.shields.io/static/v1?label=AoC%20Progress%202015&message=24%25%20(6%20of%2025)&color=red&logo=github&style=for-the-badge) 
+![AoC Progress 2015](https://img.shields.io/static/v1?label=AoC%20Progress%202015&message=32%25%20(8%20of%2025)&color=red&logo=github&style=for-the-badge) 
 
 <!--- aoc-progress-stop --->
 
