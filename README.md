@@ -24,8 +24,3 @@
 ## Notes
 
 - Run dev: `npm start -- 2020 01`
-
-```js
-const dec2bin = (dec) => (dec >>> 0).toString(2);
-const bin2dec = (bin) => parseInt(bin, 2).toString(10);
-```
