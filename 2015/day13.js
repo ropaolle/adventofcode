@@ -10,22 +10,42 @@ const parse = (input) =>
         .split(',')
     );
 
-// https://levelup.gitconnected.com/find-all-permutations-of-a-string-in-javascript-af41bfe072d2
-let findPermutations = (string) => {
-  if (string.length < 2) {
-    return string;
+// https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/sets/permutations
+const permutateWithoutRepetitions = (permutationOptions) => {
+  if (permutationOptions.length === 1) {
+    return [permutationOptions];
   }
 
-  let permutationsArray = [];
+  // Init permutations array.
+  const permutations = [];
 
-  for (let i = 0; i < string.length; i++) {
-    let char = string[i];
-    let remainingChars = string.slice(0, i) + string.slice(i + 1, string.length);
-    for (let permutation of findPermutations(remainingChars)) {
-      permutationsArray.push(char + permutation);
+  // Get all permutations for permutationOptions excluding the first element.
+  const smallerPermutations = permutateWithoutRepetitions(permutationOptions.slice(1));
+
+  // Insert first option into every possible position of every smaller permutation.
+  const firstOption = permutationOptions[0];
+
+  for (let permIndex = 0; permIndex < smallerPermutations.length; permIndex += 1) {
+    const smallerPermutation = smallerPermutations[permIndex];
+
+    // Insert first option into every possible position of smallerPermutation.
+    for (let positionIndex = 0; positionIndex <= smallerPermutation.length; positionIndex += 1) {
+      const permutationPrefix = smallerPermutation.slice(0, positionIndex);
+      const permutationSuffix = smallerPermutation.slice(positionIndex);
+      permutations.push(permutationPrefix.concat([firstOption], permutationSuffix));
     }
   }
-  return permutationsArray;
+
+  return permutations;
+};
+
+const permutateWithoutRepetitionsAndSameOrder = (permutationPattern) => {
+  // Remove the first character, get all permutations for the remaining pattern and
+  // then prefix all strings with 0.
+  const basePattern = permutationPattern.slice(1);
+  const basePermutations = permutateWithoutRepetitions(basePattern);
+
+  return basePermutations.map((v) => permutationPattern[0] + v);
 };
 
 // eslint-disable-next-line complexity
@@ -76,14 +96,12 @@ const happinessChange = (data, addMyself = false) => {
   const nodes = getNodes(data, addMyself);
   const keys = Array.from(nodes.keys());
 
-  // Get all uniqe combinations, without repetition
-  const permutationPattern = keys.reduce((acc, _, i) => acc + i, '');
+  // Get all uniqe combinations, without repetition.
   // As this is a circular permutation we can also ignore all combinations that are in the semr order,
   // i.e. ABCD is equal to BCDA. This can be done by consider the first element as "fixed" and freely
   // permutate the other.
-
-  // Remove the first 0, get all permutations for the remaining pattern and then prefix all strings with 0.
-  const permutations = findPermutations(permutationPattern.slice(1)).map((v) => '0' + v);
+  const permutationPattern = keys.reduce((acc, _, i) => acc + i, '');
+  const permutations = permutateWithoutRepetitionsAndSameOrder(permutationPattern);
 
   for (const p of permutations) {
     happiness = Math.max(happiness, getHappiness(p, nodes, keys));
@@ -92,15 +110,9 @@ const happinessChange = (data, addMyself = false) => {
   return happiness;
 };
 
-const partOne = (input) => {
-  const data = parse(input);
-  return happinessChange(data);
-};
+const partOne = (input) => happinessChange(parse(input));
 
-const partTwo = (input) => {
-  const data = parse(input);
-  return happinessChange(data, true);
-};
+const partTwo = (input) => happinessChange(parse(input), true);
 
 exports.partOne = partOne;
 exports.partTwo = partTwo;

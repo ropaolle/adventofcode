@@ -14,7 +14,7 @@ describe('AOC 2015', function () {
   aocTest('2015', '11', 'hepxxyzz', 'heqaabcc');
   aocTest('2015', '12', 156366, 96852);
   aocTest('2015', '13', 733, 725);
-  // aocTest('2015', '14', 1, 1);
+  aocTest('2015', '14', 2640, 1102);
   // aocTest('2015', '15', 1, 1);
   // aocTest('2015', '16', 1, 1);
   // aocTest('2015', '17', 1, 1);
