@@ -7,19 +7,11 @@ const isStraight = (chA, chB, chC) => ord(chB) - ord(chA) === 1 && ord(chC) - or
 
 // eslint-disable-next-line complexity
 const validate = (password) => {
-  if (password.length !== 8) {
-    return;
-  }
-
   let includesStraight = false;
   let nonOverlappingPairs = 0;
   let skipNext = false;
 
   for (let i = 0; i < password.length; i++) {
-    if (['i', 'o', 'l'].includes(password[i])) {
-      return;
-    }
-
     if (i < password.length - 2 && isStraight(password[i], password[i + 1], password[i + 2])) {
       includesStraight = true;
     }
@@ -80,8 +72,6 @@ const nextPassword = (password) => {
       return password;
     }
   }
-
-  return password;
 };
 
 const partOne = (input) => {

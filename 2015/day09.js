@@ -25,19 +25,12 @@ const getNodes = (data) => {
     if (!nodes.has(nodeA)) {
       nodes.set(nodeA, new Map());
     }
+    nodes.get(nodeA).set(nodeB, Number(dist));
+
     if (!nodes.has(nodeB)) {
       nodes.set(nodeB, new Map());
     }
-
-    const nA = nodes.get(nodeA);
-    if (!nA.has(nodeB)) {
-      nA.set(nodeB, Number(dist));
-    }
-
-    const nB = nodes.get(nodeB);
-    if (!nB.has(nodeA)) {
-      nB.set(nodeA, Number(dist));
-    }
+    nodes.get(nodeB).set(nodeA, Number(dist));
   }
 
   return nodes;
@@ -56,7 +49,7 @@ const getDist = (path, nodes, keys) => {
   return totalDist;
 };
 
-const getMaxOrMinDist = (input, maxDist = true) => {
+const getMaxOrMinDist = (input, maxDist) => {
   let dist = maxDist ? 0 : Infinity;
 
   const data = parse(input);

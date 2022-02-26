@@ -1,7 +1,7 @@
 const parse = (input) => JSON.parse(input.split(/\r?\n/));
 
 // eslint-disable-next-line complexity
-const getSum = (obj, excludeRed = false, sum = 0) => {
+const getSum = (obj, excludeRed, sum = 0) => {
   if (typeof obj === 'number') {
     return sum + obj;
   }
