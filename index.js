@@ -1,10 +1,15 @@
-var fs = require('fs');
+const fs = require('fs');
 
 const year = process.argv[2].padStart(4, '20');
 const day = process.argv[3].padStart(2, '0');
 
-var { partOne, partTwo } = require(`./${year}/day${day}.js`);
-var input = fs.readFileSync(`./${year}/input/day${day}-test.txt`).toString();
+const { partOne, partTwo } = require(`./${year}/day${day}.js`);
+
+let input = '';
+
+try {
+  input = fs.readFileSync(`./${year}/input/day${day}-test.txt`).toString();
+} catch (err) {}
 
 // eslint-disable-next-line no-console
 console.clear();
