@@ -1,4 +1,4 @@
-const parse = (input) => input.split(/\r?\n/).map((v) => v.split(' -> '));
+const parse = (input) => input.split('\n').map((v) => v.split(' -> '));
 
 const numSort = (a, b) => a - b;
 

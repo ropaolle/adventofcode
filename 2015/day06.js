@@ -1,6 +1,6 @@
 const parse = (input) =>
   input
-    .split(/\r?\n/)
+    .split('\n')
     .map((line) => line.replace(' through ', ',').replace('turn ', '').replace(' ', ',').split(','))
     .map(([a, b, c, d, e]) => [a, Number(b), Number(c), Number(d), Number(e)]);
 

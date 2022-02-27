@@ -1,5 +1,5 @@
 const parse = (input) =>
-  input.split(/\r?\n/).map((line) => {
+  input.split('\n').map((line) => {
     const [, name, speed, travelTime, restTime] = line.match(
       /^(\w+) can fly (\d+) km\/s for (\d+) seconds, but then must rest for (\d+) seconds\.$/
     );

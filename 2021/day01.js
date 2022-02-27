@@ -1,5 +1,5 @@
 const parse = (input) => {
-  return input.split(/\r?\n/).map((line) => Number(line));
+  return input.split('\n').map((line) => Number(line));
 };
 
 const countValues = (data, windowSize) => {

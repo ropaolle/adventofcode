@@ -1,4 +1,4 @@
-const parse = (input) => input.split(/\r?\n/).map((v) => Number(v));
+const parse = (input) => input.split('\n').map((v) => Number(v));
 
 const sumExist = (val, arr) => {
   for (let i = 0; i < arr.length; i++) {

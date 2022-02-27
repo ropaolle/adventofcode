@@ -1,4 +1,4 @@
-const parse = (input) => input.split(/\r?\n/);
+const parse = (input) => input.split('\n');
 
 const countTrees = (right, down, mapWith, data) => {
   let count = 0;

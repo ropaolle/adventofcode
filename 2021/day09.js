@@ -30,7 +30,7 @@ const getLowPoints = (matrix) => {
 };
 
 const parse = (input) => {
-  return input.split(/\r?\n/).map((v) => v.split('').map(Number));
+  return input.split('\n').map((v) => v.split('').map(Number));
 };
 
 const partOne = (input) => {

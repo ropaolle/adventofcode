@@ -1,5 +1,5 @@
 const parse = (input) => {
-  return input.split(/\r?\n/).map((v) => v.split('->').map((v) => v.trim().split(',').map(Number)));
+  return input.split('\n').map((v) => v.split('->').map((v) => v.trim().split(',').map(Number)));
 };
 
 const getMax = (lines) =>

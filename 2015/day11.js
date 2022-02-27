@@ -1,4 +1,4 @@
-const parse = (input) => input.split(/\r?\n/).pop();
+const parse = (input) => input.split('\n').pop();
 
 const ord = (str) => str.charCodeAt(0);
 const chr = (code) => String.fromCharCode(code);

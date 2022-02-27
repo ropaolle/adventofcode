@@ -1,4 +1,4 @@
-const parse = (input) => input.split(/\r?\n/).map((val) => val.split(' '));
+const parse = (input) => input.split('\n').map((val) => val.split(' '));
 
 const partOne = (input) => {
   let horizontal = 0;

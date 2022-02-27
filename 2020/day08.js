@@ -1,5 +1,5 @@
 const parse = (input) => {
-  const lines = input.split(/\r?\n/);
+  const lines = input.split('\n');
 
   return lines.map((v) => ({
     operator: v.substring(0, 3),

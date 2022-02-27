@@ -1,6 +1,6 @@
 // INFO: Got stuck att part one, used solution from https://medium.com/@ghaiklor/advent-of-code-2015-explanation-aa9932db6d6f#05ab.
 
-const parse = (input) => input.split(/\r?\n/);
+const parse = (input) => input.split('\n');
 
 const COMMAND_REGEX = /[A-Z]+/g;
 const ARGUMENTS_REGEX = /[a-z0-9]+/g;

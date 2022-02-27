@@ -1,5 +1,5 @@
 const parse = (input) => {
-  return input.split(/\r?\n/);
+  return input.split('\n');
 };
 
 const getData = (data) =>

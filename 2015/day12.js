@@ -1,4 +1,4 @@
-const parse = (input) => JSON.parse(input.split(/\r?\n/));
+const parse = (input) => JSON.parse(input.split('\n'));
 
 // eslint-disable-next-line complexity
 const getSum = (obj, excludeRed, sum = 0) => {

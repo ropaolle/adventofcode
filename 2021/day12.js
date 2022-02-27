@@ -1,5 +1,5 @@
 const parse = (input) => {
-  return input.split(/\r?\n/).map((v) => v.split('-'));
+  return input.split('\n').map((v) => v.split('-'));
 };
 
 const next = (links, u) => [

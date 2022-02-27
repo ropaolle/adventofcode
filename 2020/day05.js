@@ -1,6 +1,6 @@
 const numericSort = (a, b) => a - b;
 
-const parse = (input) => input.split(/\r?\n/);
+const parse = (input) => input.split('\n');
 
 const ids = (data) =>
   data.map(

@@ -1,5 +1,5 @@
 const parse = (input) => {
-  const lines = input.split(/\r?\n/);
+  const lines = input.split('\n');
   const sortedNumbers = lines.map((v) => Number(v)).sort((a, b) => a - b);
 
   return sortedNumbers;

@@ -1,5 +1,5 @@
 const parse = (input) => {
-  return input.split(/\r?\n/).map((v) => v.split('').map(Number));
+  return input.split('\n').map((v) => v.split('').map(Number));
 };
 
 // https://www.reddit.com/r/adventofcode/comments/rgqzt5/comment/hom6gmm/?utm_source=share&utm_medium=web2x&context=3

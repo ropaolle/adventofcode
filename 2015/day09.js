@@ -1,5 +1,5 @@
 const parse = (input) =>
-  input.split(/\r?\n/).map((line) => line.replace(' to ', ',').replace(' = ', ',').split(','));
+  input.split('\n').map((line) => line.replace(' to ', ',').replace(' = ', ',').split(','));
 
 // https://levelup.gitconnected.com/find-all-permutations-of-a-string-in-javascript-af41bfe072d2
 let findPermutations = (string) => {

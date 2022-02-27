@@ -30,7 +30,7 @@ const getScore = (board, number) =>
   board.reduce((acc, v) => (v !== -1 ? acc + v : acc), 0) * number;
 
 const parse = (input) => {
-  const data = input.split(/\r?\n/).filter((line) => line.length !== 0);
+  const data = input.split('\n').filter((line) => line.length !== 0);
   const numbers = data.shift().split(',').map(Number);
   const boards = getBoards(data);
   return [numbers, boards];

@@ -51,7 +51,7 @@ acedgfb cdfbe gcdfa fbcad dab cefabd cdfgeb eafb cagedb ab | cdfeb fcadb cdfeb c
 */
 
 const parse = (input) => {
-  return input.split(/\r?\n/);
+  return input.split('\n');
 };
 
 const partOne = (input) => {

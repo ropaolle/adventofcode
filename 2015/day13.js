@@ -1,6 +1,6 @@
 const parse = (input) =>
   input
-    .split(/\r?\n/)
+    .split('\n')
     .map((line) =>
       line
         .slice(0, -1)

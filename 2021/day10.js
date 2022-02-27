@@ -41,7 +41,7 @@ let isBalanced2 = (input) => {
 };
 
 const parse = (input) => {
-  return input.split(/\r?\n/);
+  return input.split('\n');
 };
 
 const partOne = (input) => {
