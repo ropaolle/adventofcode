@@ -15,12 +15,33 @@
 
 <!--- aoc-progress-start --->
 
-![AoC Progress 2021](https://img.shields.io/static/v1?label=AoC%20Progress%202021&message=64%25%20(16%20of%2025)&color=yellow&logo=github&style=for-the-badge) 
-![AoC Progress 2020](https://img.shields.io/static/v1?label=AoC%20Progress%202020&message=64%25%20(16%20of%2025)&color=yellow&logo=github&style=for-the-badge) 
-![AoC Progress 2015](https://img.shields.io/static/v1?label=AoC%20Progress%202015&message=80%25%20(20%20of%2025)&color=yellow&logo=github&style=for-the-badge) 
+![AoC Progress 2021](https://img.shields.io/static/v1?label=AoC%20Progress%202021&message=64%25%20(16%20of%2025)&color=yellow&logo=github&style=for-the-badge)
+![AoC Progress 2020](https://img.shields.io/static/v1?label=AoC%20Progress%202020&message=64%25%20(16%20of%2025)&color=yellow&logo=github&style=for-the-badge)
+![AoC Progress 2015](https://img.shields.io/static/v1?label=AoC%20Progress%202015&message=80%25%20(20%20of%2025)&color=yellow&logo=github&style=for-the-badge)
 
 <!--- aoc-progress-stop --->
 
 ## Notes
 
 - Run dev: `npm start -- 2020 01`
+
+## MP3
+
+- [x] Ryan Montbleau
+- [x] Ron Pope
+- [x] Sam Smith
+- [x] Saltatio Mortis
+- [x] Zac Brown Band
+- [x] Gavin DeGraw
+- [x] Sara Lofgren
+- [x] Ed Sheeran
+- [x] Freak Kitchen
+- [x] Seventh Wonder
+- [x] Joey Tempest
+- [x] Melissa Horn
+- [ ]
+- [ ] Delta Rae
+- [ ] Jim Crock
+- [ ] Nordlicht
+- [ ] Volbeat
+- [ ] Chester See
