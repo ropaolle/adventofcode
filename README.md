@@ -15,10 +15,10 @@
 
 <!--- aoc-progress-start --->
 
-![AoC Progress 2021](https://img.shields.io/static/v1?label=AoC%20Progress%202021&message=64%25%20(16%20of%2025)&color=yellow&logo=github&style=for-the-badge)
-![AoC Progress 2020](https://img.shields.io/static/v1?label=AoC%20Progress%202020&message=64%25%20(16%20of%2025)&color=yellow&logo=github&style=for-the-badge)
-![AoC Progress 2016](https://img.shields.io/static/v1?label=AoC%20Progress%202015&message=80%25%20(20%20of%2025)&color=yellow&logo=github&style=for-the-badge)
-![AoC Progress 2015](https://img.shields.io/static/v1?label=AoC%20Progress%202015&message=80%25%20(20%20of%2025)&color=yellow&logo=github&style=for-the-badge)
+![AoC Progress 2021](https://img.shields.io/static/v1?label=AoC%20Progress%202021&message=64%25%20(16%20of%2025)&color=yellow&logo=github&style=for-the-badge) 
+![AoC Progress 2020](https://img.shields.io/static/v1?label=AoC%20Progress%202020&message=68%25%20(17%20of%2025)&color=yellow&logo=github&style=for-the-badge) 
+![AoC Progress 2015](https://img.shields.io/static/v1?label=AoC%20Progress%202015&message=80%25%20(20%20of%2025)&color=yellow&logo=github&style=for-the-badge) 
+![AoC Progress 2016](https://img.shields.io/static/v1?label=AoC%20Progress%202016&message=12%25%20(3%20of%2025)&color=red&logo=github&style=for-the-badge) 
 
 <!--- aoc-progress-stop --->
 
