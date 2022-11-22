@@ -28,8 +28,8 @@ const parse = (input) => {
 
 const partOne = (input) => {
   const data = parse(input);
-  console.log('data', data);
-  console.log('data', data.rules);
+  // console.log('data', data);
+  // console.log('data', data.rules);
 
   const va = data.values.get('a');
   const vb = data.values.get('b');
@@ -48,7 +48,7 @@ const partOne = (input) => {
 
   for (const rule of data.rules) {
     if (rule[1].flat().includes('X')) {
-      console.log('rule', rule);
+      // console.log('rule', rule);
     }
   }
 };

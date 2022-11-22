@@ -138,7 +138,7 @@ const partOne = (input) => {
 
   // Initial qube
   let qube = [getGrid(width), data.map((row) => row.split('')), getGrid(width)];
-  console.log('grid', qube);
+  // console.log('grid', qube);
   print(qube);
 
   // const center = Math.floor(qube.length / 2);
