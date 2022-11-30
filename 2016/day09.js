@@ -58,5 +58,33 @@ const partTwo = (input) => {
   return decompressedLength;
 };
 
+/*
+// Nice alternative algorithm using weights https://github.com/rhardih/aoc/blob/master/2016/9p2.c.
+
+const partTwo2 = (input) => {
+  const weights = Array(input.length).fill(1);
+
+  let decompressedLength = 0;
+  let marker = '';
+
+  for (let i = 0; i < input.length; i++) {
+    const chr = input[i];
+    if (chr === ')') {
+      marker += chr;
+      const [length, repeat] = marker.match(/([0-9]+)/g);
+      for (let j = 0; j < length; j++) {
+        weights[i + j + 1] *= repeat;
+      }
+      marker = '';
+    } else if (chr === '(' || marker.length > 0) {
+      marker += chr;
+    } else {
+      decompressedLength += weights[i];
+    }
+  }
+
+  return decompressedLength;
+}; */
+
 exports.partOne = partOne;
 exports.partTwo = partTwo;
