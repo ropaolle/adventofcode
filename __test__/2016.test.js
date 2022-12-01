@@ -11,5 +11,6 @@ describe('AOC 2016', function () {
   aocTest('2016', '08', 128, 'EOARGPHYAO');
   aocTest('2016', '09', 115118, 11107527530);
   aocTest('2016', '10', 141, 1209);
+  aocTest('2016', '11', 37, 61);
   // aocTest('2016', '11', 0, 0);
 });
