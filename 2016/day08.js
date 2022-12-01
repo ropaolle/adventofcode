@@ -60,7 +60,7 @@ const partOne = (input) => {
 };
 
 const partTwo = () => {
-  printScreen();
+  // printScreen();
   return 'EOARGPHYAO';
 };
 

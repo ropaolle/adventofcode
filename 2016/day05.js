@@ -17,7 +17,6 @@ const partOne = (input) => {
     } while (i < MAX_ITERATIONS && !hash.startsWith('00000'));
 
     password += hash[5];
-    // console.log('Password:', i, password);
   }
 
   return password;
@@ -38,7 +37,6 @@ const partTwo = (input) => {
     } while (i < MAX_ITERATIONS && !hash.startsWith('00000'));
 
     const pos = hash[5];
-    // console.log('Password:', i, password.join(''));
 
     if (pos >= 0 && pos < 8 && password[pos] === '-') {
       password[pos] = hash[6];
