@@ -26,7 +26,7 @@
 ## Notes
 
 - Run dev: `npm start -- 2016 01`
-- Make files `echo 2016 04|( read year day; touch ./$year/day$day.js && touch ./$year/input/day$day.txt && touch ./$year/input/day$day-test.txt )`
+- Make files `echo 2016 04|( read year day; echo > ./$year/day$day.js && echo > ./$year/input/day$day.txt && echo > ./$year/input/day$day-test.txt )`
 
 ## JavaScript Notes
 
