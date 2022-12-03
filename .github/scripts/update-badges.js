@@ -39,6 +39,7 @@ async function parseTestData(filename) {
     const xml_data = await fsPromises.readFile(filename);
     const js_data = await parseStringPromise(xml_data);
     for (const { $: test } of js_data.testsuites.testsuite) {
+      console.log('test', test);
       if (test.name.indexOf('AOC 20') === 0) {
         result.push(makeShieldsIoBadge(prepareBadgeData(test)));
       }
