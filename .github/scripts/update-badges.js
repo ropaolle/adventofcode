@@ -38,8 +38,14 @@ async function parseTestData(filename) {
   try {
     const xml_data = await fsPromises.readFile(filename);
     const js_data = await parseStringPromise(xml_data);
+    const data = [];
     for (const { $: test } of js_data.testsuites.testsuite) {
-      console.log('test', test);
+      data.push(test);
+      // if (test.name.indexOf('AOC 20') === 0) {
+      //   result.push(makeShieldsIoBadge(prepareBadgeData(test)));
+      // }
+    }
+    for (const test of data.sort((a, b) => b.name.localeCompare(a.name))) {
       if (test.name.indexOf('AOC 20') === 0) {
         result.push(makeShieldsIoBadge(prepareBadgeData(test)));
       }
@@ -69,9 +75,7 @@ function replaceTagContent(textFile, tagName, linesToInsert = []) {
   return lines.join('\n');
 }
 
-
-
-async function updateFile(filename, badges) {  
+async function updateFile(filename, badges) {
   try {
     const text = await fsPromises.readFile(filename, 'utf8');
     await fsPromises.writeFile(filename, replaceTagContent(text, 'aoc-progress', badges));
@@ -85,4 +89,4 @@ async function updateBadges() {
   await updateFile('./README.md', badges);
 }
 
-updateBadges()
+updateBadges();
