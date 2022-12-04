@@ -26,12 +26,5 @@
 ## Notes
 
 - Run dev: `npm start -- 2016 01`
-- Make files `echo 2016 04|( read year day; echo > ./$year/day$day.js && echo > ./$year/input/day$day.txt && echo > ./$year/input/day$day-test.txt )`
+- Seed files `npm run seed 2022 01`
 
-## JavaScript Notes
-
-```js
-// Array of arrays, 
-const a = Array(6).fill([]) // Do not work. Each index points to the same array.
-const a = Array(6).fill(0).map(() => []);
-```
