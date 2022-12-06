@@ -1,7 +1,5 @@
 const crypto = require('crypto');
 
-const MAX_ITERATIONS = 100000000;
-
 const partOne = (input) => {
   let i = 0;
   let hash = '';
@@ -14,7 +12,7 @@ const partOne = (input) => {
         .createHash('md5')
         .update(input + i)
         .digest('hex');
-    } while (i < MAX_ITERATIONS && !hash.startsWith('00000'));
+    } while (!hash.startsWith('00000'));
 
     password += hash[5];
   }
@@ -34,7 +32,7 @@ const partTwo = (input) => {
         .createHash('md5')
         .update(input + i)
         .digest('hex');
-    } while (i < MAX_ITERATIONS && !hash.startsWith('00000'));
+    } while (!hash.startsWith('00000'));
 
     const pos = hash[5];
 
