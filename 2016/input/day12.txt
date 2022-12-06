@@ -8,9 +8,9 @@ inc d
 dec c
 jnz c -2
 cpy a c
-inc a
-dec b
-jnz b -2
+add a b
+noop
+noop
 cpy c b
 dec d
 jnz d -6

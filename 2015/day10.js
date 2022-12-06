@@ -1,27 +1,19 @@
-const parse = (input) => input.split('');
+const parse = (input) => input.split('').map(Number);
 
-const transform = (str) => {
-  let result = '';
-  let current;
+const transform = (buff) => {
+  let result = [];
+  let current = { number: buff[0], count: 0 };
 
-  for (let i = 0; i < str.length; i++) {
-    const number = str[i];
-
-    if (i === 0) {
-      current = { number, count: 0 };
-    }
-
+  for (const number of buff) {
     if (number === current.number) {
-      current.count += 1;
+      current.count++;
     } else {
-      result += current.count + current.number;
+      result.push(current.count, current.number);
       current = { number, count: 1 };
     }
-
-    if (i === str.length - 1) {
-      result += current.count + current.number;
-    }
   }
+
+  result.push(current.count, current.number);
 
   return result;
 };

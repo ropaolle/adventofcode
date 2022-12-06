@@ -1,87 +1,70 @@
-const parse = (input) => input.split('\n').pop();
-
-const ord = (str) => str.charCodeAt(0);
-const chr = (code) => String.fromCharCode(code);
-
-const isStraight = (chA, chB, chC) => ord(chB) - ord(chA) === 1 && ord(chC) - ord(chB) === 1;
-
-// eslint-disable-next-line complexity
-const validate = (password) => {
-  let includesStraight = false;
-  let nonOverlappingPairs = 0;
-  let skipNext = false;
-
-  for (let i = 0; i < password.length; i++) {
-    if (i < password.length - 2 && isStraight(password[i], password[i + 1], password[i + 2])) {
-      includesStraight = true;
-    }
-
-    if (i < password.length - 1) {
-      if (skipNext === true) {
-        skipNext = false;
-      } else if (password[i] === password[i + 1]) {
-        nonOverlappingPairs += 1;
-        skipNext = true;
-      }
-    }
-  }
-
-  if (!includesStraight) {
-    return;
-  }
-
-  if (nonOverlappingPairs < 2) {
-    return;
-  }
-
-  return true;
-};
-
-const getNextChar = (ch) => {
-  let nextChar = chr(ord(ch) + 1);
-  // Not allowed chars, skip
-  if (['i', 'o', 'l'].includes(nextChar)) {
-    nextChar = chr(ord(nextChar) + 1);
-  }
-  return nextChar;
-};
+const parse = (input) => input.split('').map((chr) => chr.charCodeAt(0) - 97);
 
 const increment = (password) => {
-  const passwordArr = password.split('');
-  let pointer = password.length - 1;
-
-  while (pointer) {
-    if (passwordArr[pointer] !== 'z') {
-      passwordArr[pointer] = getNextChar(passwordArr[pointer]);
-      pointer = null;
+  for (let i = password.length - 1; i >= 0; i--) {
+    if (password[i] === 25) {
+      password[i] = 0;
     } else {
-      passwordArr[pointer] = 'a';
-      pointer -= 1;
-    }
-  }
-
-  return passwordArr.join('');
-};
-
-const nextPassword = (password) => {
-  const MAX_ITERATIONS = 1000000;
-
-  for (let i = 0; i < MAX_ITERATIONS; i++) {
-    password = increment(password);
-    if (validate(password)) {
+      password[i]++;
       return password;
     }
   }
 };
 
-const partOne = (input) => {
-  const password = parse(input);
-  return nextPassword(password);
+const hasConfusingLetters = (password) => password.some((v) => [8, 14, 11].includes(v));
+
+const twoNonOverlappingPairs = (password) => {
+  let pairs = new Set();
+  let i = 0;
+
+  while (i < password.length) {
+    if (password[i] === password[i + 1]) {
+      pairs.add(password[i]);
+      if (pairs.size >= 2) {
+        return true;
+      }
+      i += 1;
+    }
+    i++;
+  }
+
+  return pairs.size >= 2;
 };
 
-const partTwo = (input) => {
-  const password = parse(input);
-  return nextPassword(nextPassword(password));
+const oneThreeLetterStraight = (password) => {
+  for (let i = 0; i < password.length; i++) {
+    if (password[i] + 1 === password[i + 1] && password[i] + 2 === password[i + 2]) {
+      return true;
+    }
+  }
+
+  return false;
+};
+
+const validate = (password) =>
+  !hasConfusingLetters(password) &&
+  twoNonOverlappingPairs(password) &&
+  oneThreeLetterStraight(password);
+
+const nextPassword = (password) => {
+  password = parse(password);
+
+  do {
+    password = increment(password);
+  } while (!validate(password));
+
+  return password.map((v) => String.fromCharCode(v + 97)).join('');
+};
+
+let passwordOne = '';
+
+const partOne = (input) => {
+  passwordOne = nextPassword(input);
+  return passwordOne;
+};
+
+const partTwo = () => {
+  return nextPassword(passwordOne);
 };
 
 exports.partOne = partOne;

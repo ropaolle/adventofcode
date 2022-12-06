@@ -1,5 +1,19 @@
 const parse = (input) => input.split('\n').map((line) => line.split(' '));
 
+/* Optimization - https://www.reddit.com/r/adventofcode/comments/5hus40/comment/db4chsi/?utm_source=share&utm_medium=web2x&context=3
+
+inc x
+dec y
+jnz y -2
+
+could be replaced with 
+
+add x y
+nop
+nop
+
+*/
+
 const getRegisterA = (input, registers) => {
   const instructions = parse(input).map((instruction) => {
     if (!isNaN(instruction[1])) {
@@ -32,6 +46,10 @@ const getRegisterA = (input, registers) => {
         if (registers[dataA] !== 0) {
           address += dataB - 1;
         }
+        break;
+      case 'add':
+        registers[dataA] += registers[dataB];
+        registers[dataB] = 0;
     }
 
     address++;
