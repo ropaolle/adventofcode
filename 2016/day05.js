@@ -35,7 +35,6 @@ const partTwo = (input) => {
     } while (!hash.startsWith('00000'));
 
     const pos = hash[5];
-
     if (pos >= 0 && pos < 8 && password[pos] === '-') {
       password[pos] = hash[6];
     }
