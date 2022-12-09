@@ -23,6 +23,10 @@
 
 <!--- aoc-progress-stop --->
 
+## Todo
+
+FIXA: The Jest test seems to accumulate day 1 time into day 2.
+
 ## Notes
 
 - Run dev: `npm start -- 2016 01`
@@ -31,3 +35,4 @@
 ### Optimizations
 
 The function `Number()` seems quite exopensive.
+

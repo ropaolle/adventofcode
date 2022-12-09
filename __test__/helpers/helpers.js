@@ -1,5 +1,6 @@
 var fs = require('fs');
 
+// eslint-disable-next-line func-style
 function aocTest(year, day, answerOne, answerTwo) {
   describe(`day-${day}`, function () {
     var { partOne, partTwo } = require(`../../${year}/day${day}.js`);

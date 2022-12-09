@@ -8,6 +8,6 @@ describe('AOC 2022', function () {
   aocTest('2022', '05', 'CNSZFDVLJ', 'QNDWLMGNS');
   aocTest('2022', '06', 1723, 3708);
   aocTest('2022', '07', 1390824, 7490863);
-  // aocTest('2022', '08', 0, 0);
+  aocTest('2022', '08', 1787, 440640);
   // aocTest('2022', '09', 0, 0);
 });
