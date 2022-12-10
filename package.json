@@ -8,7 +8,7 @@
     "start": "nodemon -q index.js",
     "test": "jest --config=jest.config.js",
     "test:dev": "jest --watch --coverage=false",
-    "test:dev2": "jest --watch --coverage=false --testNamePattern=day-09 2022.test.js",
+    "test:dev2": "jest --watch --coverage=false --testNamePattern=day-10 2022.test.js",
     "test:dev:verbose": "jest --watch --verbose --config=jest.config.js --coverage=false",
     "badges": "node ./.github/scripts/update-badges.js",
     "lint": "eslint 20*/**.js",
