@@ -7,7 +7,8 @@ const parse = (input) =>
 
     if (param === 'Monkey') {
       acc.push({
-        /* monkey: Number(rest) */
+        monkey: Number(rest),
+        inspectedItems: 0,
       });
     }
 
@@ -16,7 +17,7 @@ const parse = (input) =>
         current.items = rest.map(Number);
         break;
       case 'Operation':
-        current.operations = rest.map((v) => (isNaN(+v) ? v : +v));
+        current.operations = [Number(rest[0]), rest[1], Number(rest[2])];
         break;
       case 'Test':
         current.test = Number(rest.pop());
@@ -32,29 +33,49 @@ const parse = (input) =>
     return acc;
   }, []);
 
-/*
+const getWorryLevel = (old, operation, divider) => {
+  const [valueA, operator, valueB] = operation;
+  const a = valueA || old;
+  const b = valueB || old;
 
-After each monkey inspects an item but before it tests your worry level,
-your worry level to be divided by three and rounded down to the nearest integer.
+  if (!divider) {
+    return operator === '+' ? a + b : a * b;
+  }
 
-
-  'Monkey 0:',
-  '  Starting items: 79, 98',
-  '  Operation: new = old * 19',
-  '  Test: divisible by 23',
-  '    If true: throw to monkey 2',
-  '    If false: throw to monkey 3',
-*/
-
-const partOne = (input) => {
-  const data = parse(input);
-
-  console.log('data', data);
+  return Math.floor((operator === '+' ? a + b : a * b) / divider);
 };
 
-const partTwo = (input) => {
-  const data = parse(input);
+const monkeyBusiness = (data, rounds, divider) => {
+  const monkeys = data.length;
+  let item;
+  let i = 0;
+
+  const decreaser = data.reduce((acc, { test }) => acc * test, 1);
+
+  while (i < rounds * monkeys) {
+    const monkey = i % monkeys;
+    const { items, operations, test, trueDest, falseDest } = data[monkey];
+
+    data[monkey].inspectedItems += items.length;
+
+    while ((item = items.shift())) {
+      const next = getWorryLevel(item, operations, divider);
+      const monkeyDest = next % test === 0 ? trueDest : falseDest;
+      data[monkeyDest].items.push(next % decreaser);
+    }
+
+    i++;
+  }
+
+  return data
+    .sort((a, b) => a.inspectedItems - b.inspectedItems)
+    .slice(-2)
+    .reduce((acc, { inspectedItems }) => acc * inspectedItems, 1);
 };
+
+const partOne = (input) => monkeyBusiness(parse(input), 20, 3);
+
+const partTwo = (input) => monkeyBusiness(parse(input), 10000);
 
 exports.partOne = partOne;
 exports.partTwo = partTwo;
