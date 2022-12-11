@@ -1,10 +1,10 @@
 const parse = (input) =>
   input.split('\n').reduce((acc, line) => [...acc, line.split('').map(Number)], []);
 
-const printGrid = (grid) => {
+/* const printGrid = (grid) => {
   grid.forEach((row) => console.info(row.join(' ')));
   console.info();
-};
+}; */
 
 const rotateMatrix = (matrix) =>
   matrix[0].map((val, index) => matrix.map((row) => row[index]).reverse());
@@ -43,7 +43,7 @@ const viewingDistans = (viewpoint, trees) => {
       return distans;
     } else if (viewpoint > tree) {
       distans++;
-    } else if (viewpoint < tree) {
+    } /* else if (viewpoint < tree) */ else {
       distans++;
       return distans;
     }

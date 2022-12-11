@@ -52,7 +52,7 @@ const partTwo = (input) => {
 
   const lastSpoken = (number) => (numbers.has(number) ? numbers.get(number).lastSpoken : null);
   const secondToLastSpoken = (number) =>
-    numbers.has(number) ? numbers.get(number).secondToLastSpoken : null;
+    numbers.has(number) && numbers.get(number).secondToLastSpoken;
 
   for (let i = initialNumbers.length + 1; i <= TURNS; i++) {
     if (!secondToLastSpoken(prevNumber)) {

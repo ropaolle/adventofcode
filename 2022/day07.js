@@ -5,7 +5,7 @@ const parse = (input) => {
   let current;
 
   return input.split('\n').reduce((tree, line) => {
-    const [full, ls, , cd, dir, size, filename] = line.match(regEx) || [];
+    const [, ls, , cd, dir, size, filename] = line.match(regEx);
 
     if (ls) {
       // Do nothing?
@@ -19,10 +19,8 @@ const parse = (input) => {
       }
     } else if (dir) {
       current.data.push({ parent: current, type: 'folder', name: dir, data: [] });
-    } else if (size && filename) {
+    } /* else if (size && filename) */ else {
       current.data.push({ parent: current, type: 'file', name: filename, size: Number(size) });
-    } else {
-      throw new Error('Unknown message', { cause: full });
     }
 
     return tree;
@@ -36,7 +34,7 @@ const readTree = (tree, path, folderSizes = []) => {
     const { type, name, size } = current;
     if (type === 'file') {
       folderSize += size;
-    } else if (type === 'folder') {
+    } /* else if (type === 'folder') */ else {
       folderSizes = readTree(current, path + '/' + name, folderSizes);
       folderSize += current.size;
     }

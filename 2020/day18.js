@@ -60,11 +60,11 @@ const evulateExpression = (str, calcFunc) => {
     } else if (str.charAt(i) === ')') {
       const p = pos.pop();
       const sub = str.substring(p + 1, i);
-      if (sub.indexOf('(') === -1) {
-        const p1 = str.substring(0, p);
-        const p2 = str.substring(i + 1);
-        str = p1 + calcFunc(sub, sub.length + 2) + p2;
-      }
+      // if (sub.indexOf('(') === -1) {
+      const p1 = str.substring(0, p);
+      const p2 = str.substring(i + 1);
+      str = p1 + calcFunc(sub, sub.length + 2) + p2;
+      // }
     }
   }
 

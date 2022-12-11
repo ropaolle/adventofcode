@@ -49,7 +49,7 @@ const partTwo = (input) => {
       line = '';
     }
 
-    // Update regestry
+    // Update registry
     if (addStarted) {
       regX += addStarted;
       addStarted = false;
@@ -61,7 +61,7 @@ const partTwo = (input) => {
     }
   }
 
-  console.info(display);
+  // console.info(display);
 
   return 'RZEKEFHA';
 };
