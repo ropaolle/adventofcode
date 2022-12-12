@@ -38,35 +38,29 @@ const factorize = (n) => {
   return factn || [1];
 };
 
-const partOne = (input) => {
+const getHouseNumber = (input, getPresentCountFunc, divider) => {
   let data = parse(input);
-
-  const getPresentCount = (houseNumber) => factorize(houseNumber).reduce((acc, v) => acc + v, 0);
-
-  const PRESENTS = data / 10;
-
+  const presents = data / divider;
   let houseNumber = 1;
-  while (getPresentCount(houseNumber) <= PRESENTS) {
+
+  while (getPresentCountFunc(houseNumber) <= presents) {
     houseNumber += 1;
   }
 
   return houseNumber;
 };
 
-const partTwo = (input) => {
-  let data = parse(input);
+const partOne = (input) => {
+  const getPresentCount = (houseNumber) => factorize(houseNumber).reduce((acc, v) => acc + v, 0);
 
+  return getHouseNumber(input, getPresentCount, 10);
+};
+
+const partTwo = (input) => {
   const getPresentCount = (houseNumber) =>
     factorize(houseNumber).reduce((acc, v) => acc + (houseNumber / v > 50 ? 0 : v), 0);
 
-  const PRESENTS = data / 11;
-
-  let houseNumber = 1;
-  while (getPresentCount(houseNumber) <= PRESENTS) {
-    houseNumber += 1;
-  }
-
-  return houseNumber;
+  return getHouseNumber(input, getPresentCount, 11);
 };
 
 exports.partOne = partOne;
