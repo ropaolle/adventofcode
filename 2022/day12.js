@@ -12,10 +12,11 @@ const getVisitedGrid = (grid) =>
     .fill()
     .map(() => Array(grid[0].length).fill(-1));
 
-const findCell = (grid, chr) => {
+const findAndUpdateCell = (grid, find, replace) => {
   for (let row = 0; row < grid.length; row++) {
     for (let col = 0; col < grid[0].length; col++) {
-      if (grid[row][col] === chr) {
+      if (grid[row][col] === find) {
+        grid[row][col] = replace;
         return { row, col };
       }
     }
@@ -33,11 +34,8 @@ const isReachable = (grid, visited, current, adjacent, rows, cols) => {
     return false;
   }
 
-  // Cell too high, i.e. cannot be reached
+  // Cell too low (because we are running in reverse), i.e. cannot be reached
   if (
-    // Changed to run in revearse, i.e. from end to start
-    // grid[current.row][current.col].charCodeAt(0) + 1 <
-    // grid[adjacent.row][adjacent.col].charCodeAt(0)
     grid[current.row][current.col].charCodeAt(0) - 1 >
     grid[adjacent.row][adjacent.col].charCodeAt(0)
   ) {
@@ -48,8 +46,12 @@ const isReachable = (grid, visited, current, adjacent, rows, cols) => {
 };
 
 // Breadth first traversal (BFS) algorithm
-const findShortestPath = (grid, visited, start, end, endVal) => {
+const findShortestPath = (grid, partTwo) => {
   const q = [];
+
+  const visited = getVisitedGrid(grid);
+  const end = findAndUpdateCell(grid, 'S', 'a');
+  const start = findAndUpdateCell(grid, 'E', 'z');
 
   const rows = grid.length;
   const cols = grid[0].length;
@@ -63,8 +65,8 @@ const findShortestPath = (grid, visited, start, end, endVal) => {
     q.shift();
 
     // Is end found
-    if (endVal) {
-      if (grid[current.row][current.col] === endVal) {
+    if (partTwo) {
+      if (grid[current.row][current.col] === 'a') {
         return visited[current.row][current.col];
       }
     } else {
@@ -88,29 +90,9 @@ const findShortestPath = (grid, visited, start, end, endVal) => {
   }
 };
 
-const partOne = (input) => {
-  const grid = parse(input);
-  // Tag visited and to store level/steps
-  const visited = getVisitedGrid(grid);
-  const start = findCell(grid, 'S');
-  const end = findCell(grid, 'E');
-  grid[start.row][start.col] = 'a';
-  grid[end.row][end.col] = 'z';
+const partOne = (input) => findShortestPath(parse(input));
 
-  return findShortestPath(grid, visited, end, start);
-};
-
-const partTwo = (input) => {
-  const grid = parse(input);
-  // Tag visited and to store level/steps
-  const visited = getVisitedGrid(grid);
-  const start = findCell(grid, 'S');
-  const end = findCell(grid, 'E');
-  grid[start.row][start.col] = 'a';
-  grid[end.row][end.col] = 'z';
-
-  return findShortestPath(grid, visited, end, start, 'a');
-};
+const partTwo = (input) => findShortestPath(parse(input), () => 1);
 
 exports.partOne = partOne;
 exports.partTwo = partTwo;
