@@ -5,7 +5,7 @@ const parse = (input) =>
 
 const getArray = (rows, cols) => new Array(rows).fill().map(() => new Array(cols).fill('.'));
 
-const printScreen = (screen) => screen.map((row) => console.info(row.join('')));
+// const printScreen = (screen) => screen.map((row) => console.info(row.join('')));
 
 const getMinMax = (data) => {
   let max = { row: 0, col: 0 };
@@ -21,24 +21,21 @@ const getMinMax = (data) => {
   return { min, max };
 };
 
-const getScreen = (data, minMax, pourPoint, floor) => {
-  const screen = getArray(
-    minMax.max.row - minMax.min.row + 1 + 20,
-    minMax.max.col - minMax.min.col + 1 + 30
-  );
+const colOffset = 500;
 
-  // screen[0][pourPoint] = '+';
+const getScreen = (data, minMax, floor) => {
+  const screen = getArray(minMax.max.row + 1 + 2, minMax.max.col - minMax.min.col + 1 + colOffset);
 
   if (floor) {
-    screen[minMax.max.row + 8] = screen[minMax.max.row + 8].map(() => '#');
+    screen[minMax.max.row + 2] = screen[minMax.max.row + 2].map(() => '#');
   }
 
   for (const lines of data) {
     for (let i = 0; i < lines.length - 1; i++) {
-      const r1 = lines[i][1] - minMax.min.row + 10;
-      const c1 = lines[i][0] - minMax.min.col + 15;
-      const r2 = lines[i + 1][1] - minMax.min.row + 10;
-      const c2 = lines[i + 1][0] - minMax.min.col + 15;
+      const r1 = lines[i][1];
+      const c1 = lines[i][0] - minMax.min.col + colOffset / 2;
+      const r2 = lines[i + 1][1];
+      const c2 = lines[i + 1][0] - minMax.min.col + colOffset / 2;
 
       for (let r = Math.min(r1, r2); r <= Math.max(r1, r2); r++) {
         for (let c = Math.min(c1, c2); c <= Math.max(c1, c2); c++) {
@@ -51,7 +48,7 @@ const getScreen = (data, minMax, pourPoint, floor) => {
   return screen;
 };
 
-const fallDown = (screen, row, col, x) => {
+const pourSandUnit = (screen, row, col, pourPoint) => {
   while (row < screen.length - 1) {
     if (screen[row + 1][col] !== '.') {
       if (
@@ -59,58 +56,42 @@ const fallDown = (screen, row, col, x) => {
         screen[row + 1][col + 1] !== '.' &&
         screen[row + 1][col - 1] !== '.'
       ) {
-        screen[row][col] = x;
-        // console.log('row,col', row, col);
-        if (row === 6 && col === 21) {
+        screen[row][col] = 'o';
+        if (col === pourPoint && row === 0) {
           return false;
         }
         return true;
-      }
-
-      if (screen[row + 1][col - 1] === '.') {
-        return fallDown(screen, row + 1, col - 1, 'l');
+      } else if (screen[row + 1][col - 1] === '.') {
+        return pourSandUnit(screen, row + 1, col - 1, pourPoint);
       } else if (screen[row + 1][col + 1] === '.') {
-        return fallDown(screen, row + 1, col + 1, 'r');
+        return pourSandUnit(screen, row + 1, col + 1, pourPoint);
       }
     }
 
     row++;
   }
-
-  return false;
 };
 
-const partOne = (input) => {
-  const data = parse(input);
+const pourSand = (data, partTwo) => {
   const minMax = getMinMax(data);
-  const pourPoint = 500 - minMax.min.col + 15;
-  const screen = getScreen(data, minMax, pourPoint);
+  const pourPoint = 500 - minMax.min.col + colOffset / 2;
+  const screen = getScreen(data, minMax, partTwo);
   const start = [0, pourPoint];
+  // screen[0][pourPoint] = '+';
 
   let i = 0;
-  while (fallDown(screen, start[0], start[1], '-')) {
+  while (pourSandUnit(screen, start[0], start[1], partTwo && pourPoint)) {
     i++;
   }
 
-  return i;
+  // printScreen(screen);
+
+  return i + (partTwo ? 1 : 0);
 };
 
-const partTwo = (input) => {
-  const data = parse(input);
-  const minMax = getMinMax(data);
-  const pourPoint = 500 - minMax.min.col + 15;
-  const screen = getScreen(data, minMax, pourPoint, true);
-  const start = [0, pourPoint];
-  console.log('start', start);
-  let i = 0;
-  while (fallDown(screen, start[0], start[1], '-')) {
-    i++;
-  }
+const partOne = (input) => pourSand(parse(input));
 
-  printScreen(screen);
-
-  return i + 1;
-};
+const partTwo = (input) => pourSand(parse(input), true);
 
 exports.partOne = partOne;
 exports.partTwo = partTwo;
