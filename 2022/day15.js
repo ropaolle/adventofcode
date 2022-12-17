@@ -5,38 +5,6 @@ const parse = (input) => input.split('\n').map((line) => line.match(regEx).map(N
 const dist = (sx, sy, bx, by) =>
   Math.max(sx, bx) - Math.min(sx, bx) + Math.max(sy, by) - Math.min(sy, by);
 
-// const partOne = (input) => {
-//   const data = parse(input);
-
-//   let max = 0;
-//   for (const [sx, , bx] of data) {
-//     max = Math.max(sx, bx, max);
-//   }
-//   const y = max === 25 ? 10 : 2000000;
-//   const row = new Set();
-
-//   // max += 25;
-
-//   for (const [sx, sy, bx, by] of data) {
-//     const closestBeacon = dist(sx, sy, bx, by);
-
-//     for (let i = -max; i < max; i++) {
-//       if (closestBeacon >= dist(sx, sy, i, y)) {
-//         row.add(i);
-//       }
-//     }
-
-//     if (by === y) {
-//       row.delete(bx);
-//     }
-//   }
-
-//   // console.log('max', max);
-//   // console.log('row', row);
-
-//   return row.size;
-// };
-
 const nonBeaconPositions = (data, y) => {
   const row = new Set();
 
@@ -66,8 +34,37 @@ const partOne = (input) => {
   return nonBeaconPositions(data, y);
 };
 
-const nonBeaconPositions2 = (data, y, max) => {
-  const row = new Map();
+const sortRanges = (a, b) => {
+  // inc sort on start
+  if (a[0] > b[0]) {
+    return 1;
+  }
+  if (a[0] < b[0]) {
+    return -1;
+  }
+
+  // inc sort end
+  if (a[1] > b[1]) {
+    return 1;
+  }
+  if (a[1] < b[1]) {
+    return -1;
+  }
+
+  // start and end equal
+  return 0;
+};
+
+const rangeOverlap = ([startA, endA], [startB, endB]) => {
+  if (startB >= startA && startB < endA + 1) {
+    return [startA, Math.max(endA, endB)];
+  } else {
+    return endA + 1;
+  }
+};
+
+const nonBeaconPositions2 = (data, y) => {
+  const ranges = [];
 
   for (const [sx, sy, bx, by] of data) {
     const closestBeacon = dist(sx, sy, bx, by);
@@ -75,32 +72,29 @@ const nonBeaconPositions2 = (data, y, max) => {
     const right = sx + (closestBeacon - Math.abs(y - sy));
 
     if (left < right) {
-      for (let i = left; i <= right; i++) {
-        row.set(i, '#');
-      }
-    }
-
-    if (by === y) {
-      row.set(bx, 'B');
-    }
-    if (sy === y) {
-      row.set(sx, 'S');
+      ranges.push([left, right]);
     }
   }
 
-  for (let i = 0; i <= max; i++) {
-    if (!row.has(i)) {
-      return { y, x: i };
-    }
+  const sorted = ranges.sort(sortRanges);
+
+  let range = sorted[0];
+  let i = 1;
+
+  while (Array.isArray(range) && i < sorted.length) {
+    range = rangeOverlap(range, sorted[i]);
+    i++;
   }
+
+  return typeof range === 'number' ? { x: range, y } : false;
 };
 
 const partTwo = (input) => {
   const data = parse(input);
   const max = data[0][0] === 2 ? 20 : 4000000;
 
-  for (let i = 0; i <= max; i++) {
-    const beacon = nonBeaconPositions2(data, i, max);
+  for (let i = /* 0 */ 3349056; i <= max; i++) {
+    const beacon = nonBeaconPositions2(data, i);
     if (beacon) {
       return beacon.x * 4000000 + beacon.y;
     }
