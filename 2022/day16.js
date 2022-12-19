@@ -45,15 +45,15 @@ const partOne = (input) => {
   const ids = {};
   const q = [];
   q.push({ valve: 0, level: 0 });
-  q.push({ valve: 1, level: 0 });
-  q.push({ valve: 2, level: 0 });
-  q.push({ valve: 3, level: 0 });
-  q.push({ valve: 4, level: 0 });
-  q.push({ valve: 5, level: 0 });
-  q.push({ valve: 6, level: 0 });
-  q.push({ valve: 7, level: 0 });
-  q.push({ valve: 8, level: 0 });
-  q.push({ valve: 9, level: 0 });
+  // q.push({ valve: 1, level: 0 });
+  // q.push({ valve: 2, level: 0 });
+  // q.push({ valve: 3, level: 0 });
+  // q.push({ valve: 4, level: 0 });
+  // q.push({ valve: 5, level: 0 });
+  // q.push({ valve: 6, level: 0 });
+  // q.push({ valve: 7, level: 0 });
+  // q.push({ valve: 8, level: 0 });
+  // q.push({ valve: 9, level: 0 });
   const graph = Array(data.length)
     .fill(0)
     .map(() => Array(data.length).fill('-'));
@@ -69,17 +69,17 @@ const partOne = (input) => {
   console.log(data);
 
   let i = 0;
-  while (q.length > 0 && i < 1169) {
+  while (q.length > 0 && i < 116900) {
     // console.log('q.shift', q.shift());
     const { valve, level } = q.shift();
 
     // console.log('valve,level', valve, level);
     // if (level === 0) {
     for (const v of data[valve].valves) {
-      q.push({ valve: v, level: level + 1 });
       if (graph[valve][v] === '-') {
+        q.push({ valve: v, level: level + 1 });
         // console.log('v', v);
-        console.log('v', v, valve);
+        // console.log('v', v, valve);
         if (valve === v) {
           graph[valve][v] = 0;
         } else {
@@ -93,7 +93,7 @@ const partOne = (input) => {
     i++;
   }
 
-  console.log('q', q);
+  console.log('q', q, i);
   graph.forEach((v) => console.log(v.join('')));
 
   // let step = 0;
