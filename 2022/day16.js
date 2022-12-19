@@ -69,7 +69,7 @@ const partOne = (input) => {
   console.log(data);
 
   let i = 0;
-  while (q.length > 0 && i < 6900) {
+  while (q.length > 0 && i < 1169) {
     // console.log('q.shift', q.shift());
     const { valve, level } = q.shift();
 
@@ -77,13 +77,19 @@ const partOne = (input) => {
     // if (level === 0) {
     for (const v of data[valve].valves) {
       q.push({ valve: v, level: level + 1 });
-      // console.log('v', v);
-      graph[level][v] = level + 1;
-      graph[v][level] = level + 1;
+      if (graph[valve][v] === '-') {
+        // console.log('v', v);
+        console.log('v', v, valve);
+        if (valve === v) {
+          graph[valve][v] = 0;
+        } else {
+          graph[valve][v] = level + 1;
+          graph[v][valve] = level + 1;
+        }
+      }
     }
     // }
 
-    // graph[i][i] = 0;
     i++;
   }
 
