@@ -66,7 +66,7 @@ const partOne = (input) => {
     data[i].valves = data[i].valves.map((valve) => ids[valve]);
   }
 
-  console.log(data);
+  // console.log(data);
 
   let i = 0;
   while (q.length > 0 && i < 116900) {
@@ -93,17 +93,59 @@ const partOne = (input) => {
     i++;
   }
 
-  console.log('q', q, i);
-  graph.forEach((v) => console.log(v.join('')));
-
-  // let step = 0;
-  // for (let i = 0; i < 30; i++) {}
+  // console.log('q', q, i);
+  // graph.forEach((v) => console.log(v.join('')));
 
   return 0;
 };
 
+const graph = {
+  f: ['g', 'i'],
+  g: ['h'],
+  h: [],
+  i: ['g', 'k'],
+  j: ['i'],
+  k: [],
+};
+
+const hasPathDfsImperative = (graph, src, dst) => {
+  const queue = [src];
+
+  while (queue.length > 0) {
+    const current = queue.shift();
+
+    if (current === dst) {
+      return true;
+    }
+
+    for (const neighbor of graph[current]) {
+      queue.push(neighbor);
+    }
+  }
+
+  return false;
+};
+
+const hasPathDfs = (graph, src, dst) => {
+  if (src === dst) {
+    return true;
+  }
+
+  for (const neighbor of graph[src]) {
+    if (hasPathDfs(graph, neighbor, dst)) {
+      return true;
+    }
+  }
+
+  return false;
+};
+
 const partTwo = (input) => {
   const data = parse(input);
+
+  const a = hasPathDfsImperative(graph, 'f', 'k');
+  const b = hasPathDfs(graph, 'f', 'k');
+  console.log('Test', a, b);
 
   return 0;
 };
