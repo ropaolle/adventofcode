@@ -1,19 +1,19 @@
 const regEx = /([A-Z]{2})|([0-9]+)/g;
 
-const parse = (input) =>
-  input.split('\n').reduce((acc, line) => {
-    const [valve, flow, ...valves] = line.match(regEx);
-    // const id = valve[0].charCodeAt(0) - 65;
-    acc.push({ valve, flow: Number(flow), valves, open: false });
-    return acc;
-  }, []);
 // const parse = (input) =>
 //   input.split('\n').reduce((acc, line) => {
 //     const [valve, flow, ...valves] = line.match(regEx);
 //     // const id = valve[0].charCodeAt(0) - 65;
-//     acc[valve] = { valve, flow: Number(flow), valves, open: false };
+//     acc.push({ valve, flow: Number(flow), valves, open: false });
 //     return acc;
-//   }, {});
+//   }, []);
+const parse = (input) =>
+  input.split('\n').reduce((acc, line) => {
+    const [valve, flow, ...valves] = line.match(regEx);
+    // const id = valve[0].charCodeAt(0) - 65;
+    acc[valve] = { /* valve, */ flow: Number(flow), valves /* , open: false */ };
+    return acc;
+  }, {});
 
 // https://github.com/TheAlgorithms/JavaScript/blob/master/Graphs/FloydWarshall.js
 // https://www.programiz.com/dsa/floyd-warshall-algorithm
@@ -39,12 +39,49 @@ const FloydWarshall = (dist) => {
 //   return data[valve].valves.reduce((acc, valve) => Math.max(acc, data[valve].flow));
 // };
 
+const dst = (graph, src, visited, depth = 0, maxFlow) => {
+  if (visited.has(src)) {
+    return false;
+  }
+
+  visited.add(src);
+
+  if (!maxFlow) {
+    maxFlow = src;
+  }
+
+  for (const neighbor of graph[src].valves) {
+    const currOffset = graph[src].flow - depth;
+    const next = dst(graph, neighbor, visited, depth + 1, maxFlow);
+    if (next) {
+      const nextOffset = graph[next].flow - depth;
+      maxFlow = currOffset >= nextOffset ? src : next;
+    }
+  }
+
+  return maxFlow;
+};
+
 const partOne = (input) => {
   const data = parse(input);
+  console.log('data', data);
 
-  const ids = {};
-  const q = [];
-  q.push({ valve: 0, level: 0 });
+  const visited = new Set();
+  let x = false;
+
+  while (!x) {
+    x = dst(data, 'AA', visited);
+  }
+  console.log('x', x);
+
+  visited.clear();
+  x = false;
+
+  while (!x) {
+    x = dst(data, 'DD', visited);
+  }
+  console.log('x', x);
+
   // q.push({ valve: 1, level: 0 });
   // q.push({ valve: 2, level: 0 });
   // q.push({ valve: 3, level: 0 });
@@ -54,44 +91,44 @@ const partOne = (input) => {
   // q.push({ valve: 7, level: 0 });
   // q.push({ valve: 8, level: 0 });
   // q.push({ valve: 9, level: 0 });
-  const graph = Array(data.length)
-    .fill(0)
-    .map(() => Array(data.length).fill('-'));
+  // const graph = Array(data.length)
+  //   .fill(0)
+  //   .map(() => Array(data.length).fill('-'));
 
-  for (let i = 0; i < data.length; i++) {
-    ids[data[i].valve] = i;
-  }
+  // for (let i = 0; i < data.length; i++) {
+  //   ids[data[i].valve] = i;
+  // }
 
-  for (let i = 0; i < data.length; i++) {
-    data[i].valves = data[i].valves.map((valve) => ids[valve]);
-  }
+  // for (let i = 0; i < data.length; i++) {
+  //   data[i].valves = data[i].valves.map((valve) => ids[valve]);
+  // }
 
   // console.log(data);
 
-  let i = 0;
-  while (q.length > 0 && i < 116900) {
-    // console.log('q.shift', q.shift());
-    const { valve, level } = q.shift();
+  // let i = 0;
+  // while (q.length > 0 && i < 116900) {
+  //   // console.log('q.shift', q.shift());
+  //   const { valve, level } = q.shift();
 
-    // console.log('valve,level', valve, level);
-    // if (level === 0) {
-    for (const v of data[valve].valves) {
-      if (graph[valve][v] === '-') {
-        q.push({ valve: v, level: level + 1 });
-        // console.log('v', v);
-        // console.log('v', v, valve);
-        if (valve === v) {
-          graph[valve][v] = 0;
-        } else {
-          graph[valve][v] = level + 1;
-          graph[v][valve] = level + 1;
-        }
-      }
-    }
-    // }
+  //   // console.log('valve,level', valve, level);
+  //   // if (level === 0) {
+  //   for (const v of data[valve].valves) {
+  //     if (graph[valve][v] === '-') {
+  //       q.push({ valve: v, level: level + 1 });
+  //       // console.log('v', v);
+  //       // console.log('v', v, valve);
+  //       if (valve === v) {
+  //         graph[valve][v] = 0;
+  //       } else {
+  //         graph[valve][v] = level + 1;
+  //         graph[v][valve] = level + 1;
+  //       }
+  //     }
+  //   }
+  //   // }
 
-    i++;
-  }
+  //   i++;
+  // }
 
   // console.log('q', q, i);
   // graph.forEach((v) => console.log(v.join('')));
@@ -99,54 +136,8 @@ const partOne = (input) => {
   return 0;
 };
 
-const graph = {
-  f: ['g', 'i'],
-  g: ['h'],
-  h: [],
-  i: ['g', 'k'],
-  j: ['i'],
-  k: [],
-};
-
-const hasPathDfsImperative = (graph, src, dst) => {
-  const queue = [src];
-
-  while (queue.length > 0) {
-    const current = queue.shift();
-
-    if (current === dst) {
-      return true;
-    }
-
-    for (const neighbor of graph[current]) {
-      queue.push(neighbor);
-    }
-  }
-
-  return false;
-};
-
-const hasPathDfs = (graph, src, dst) => {
-  if (src === dst) {
-    return true;
-  }
-
-  for (const neighbor of graph[src]) {
-    if (hasPathDfs(graph, neighbor, dst)) {
-      return true;
-    }
-  }
-
-  return false;
-};
-
 const partTwo = (input) => {
   const data = parse(input);
-
-  const a = hasPathDfsImperative(graph, 'f', 'k');
-  const b = hasPathDfs(graph, 'f', 'k');
-  console.log('Test', a, b);
-
   return 0;
 };
 
