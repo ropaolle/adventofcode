@@ -15,11 +15,11 @@
 
 <!--- aoc-progress-start --->
 
-![AoC Progress 2022](https://img.shields.io/static/v1?label=AoC%20Progress%202022&message=48%25%20(12%20of%2025)&color=red&logo=github&style=for-the-badge) 
-![AoC Progress 2021](https://img.shields.io/static/v1?label=AoC%20Progress%202021&message=64%25%20(16%20of%2025)&color=yellow&logo=github&style=for-the-badge) 
-![AoC Progress 2020](https://img.shields.io/static/v1?label=AoC%20Progress%202020&message=68%25%20(17%20of%2025)&color=yellow&logo=github&style=for-the-badge) 
-![AoC Progress 2016](https://img.shields.io/static/v1?label=AoC%20Progress%202016&message=48%25%20(12%20of%2025)&color=red&logo=github&style=for-the-badge) 
-![AoC Progress 2015](https://img.shields.io/static/v1?label=AoC%20Progress%202015&message=76%25%20(19%20of%2025)&color=yellow&logo=github&style=for-the-badge) 
+![AoC Progress 2022](https://img.shields.io/static/v1?label=AoC%20Progress%202022&message=48%25%20(12%20of%2025)&color=red&logo=github&style=for-the-badge)
+![AoC Progress 2021](https://img.shields.io/static/v1?label=AoC%20Progress%202021&message=64%25%20(16%20of%2025)&color=yellow&logo=github&style=for-the-badge)
+![AoC Progress 2020](https://img.shields.io/static/v1?label=AoC%20Progress%202020&message=68%25%20(17%20of%2025)&color=yellow&logo=github&style=for-the-badge)
+![AoC Progress 2016](https://img.shields.io/static/v1?label=AoC%20Progress%202016&message=48%25%20(12%20of%2025)&color=red&logo=github&style=for-the-badge)
+![AoC Progress 2015](https://img.shields.io/static/v1?label=AoC%20Progress%202015&message=76%25%20(19%20of%2025)&color=yellow&logo=github&style=for-the-badge)
 
 <!--- aoc-progress-stop --->
 
@@ -36,3 +36,81 @@ FIXA: The Jest test seems to accumulate day 1 time into day 2.
 
 The function `Number()` seems quite exopensive.
 
+## Graph theory
+
+```js
+const depthFirstTraverselImperative = (graph, source) => {
+  const stack = [source];
+
+  while (stack.length > 0) {
+    const current = stack.pop();
+    console.log(current);
+
+    for (const neighbor of graph[current]) {
+      stack.push(neighbor);
+    }
+  }
+};
+
+const depthFirstTraverselRecursive = (graph, source) => {
+  console.log(source);
+
+  for (const neighbor of graph[source]) {
+    depthFirstTraverselRecursive(graph, neighbor);
+  }
+};
+
+const breadthFirstTraversel = (graph, source) => {
+  const stack = [source];
+
+  while (stack.length > 0) {
+    const current = stack.shift();
+    console.log(current);
+
+    for (const neighbor of graph[current]) {
+      stack.push(neighbor);
+    }
+  }
+};
+
+const graph = {
+  f: ['g', 'i'],
+  g: ['h'],
+  h: [],
+  i: ['g', 'k'],
+  j: ['i'],
+  k: [],
+};
+
+const hasPathDfsImperative = (graph, src, dst) => {
+  const queue = [src];
+
+  while (queue.length > 0) {
+    const current = queue.shift();
+
+    if (current === dst) {
+      return true;
+    }
+
+    for (const neighbor of graph[current]) {
+      queue.push(neighbor);
+    }
+  }
+
+  return false;
+};
+
+const hasPathDfs = (graph, src, dst) => {
+  if (src === dst) {
+    return true;
+  }
+
+  for (const neighbor of graph[src]) {
+    if (hasPathDfs(graph, neighbor, dst)) {
+      return true;
+    }
+  }
+
+  return false;
+};
+```
