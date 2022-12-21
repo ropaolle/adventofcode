@@ -132,7 +132,9 @@ const part2 = (input) => {
 
 const partOne = (input) => part1(input);
 
-const partTwo = (input) => part2(input);
+const partTwo = (input) => {
+  /* part2(input) */
+};
 
 exports.partOne = partOne;
 exports.partTwo = partTwo;

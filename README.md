@@ -25,7 +25,7 @@
 
 ## Todo
 
-FIXA: The Jest test seems to accumulate day 1 time into day 2.
+FIXA: The Jest test seems to accumulate the time for part 1 into part 2.
 
 ## Notes
 
@@ -34,7 +34,7 @@ FIXA: The Jest test seems to accumulate day 1 time into day 2.
 
 ### Optimizations
 
-The function `Number()` seems quite exopensive.
+The function `Number()` seems quite expensive, comapred to `+`.
 
 ## Graph theory
 

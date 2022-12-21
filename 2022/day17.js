@@ -1,6 +1,4 @@
-const regEx = /([a-z-]+)|([0-9]+)/g;
-
-const parse = (input) => input.split('\n').map((line) => line);
+const parse = (input) => input.split('');
 
 const partOne = (input) => {
   const data = parse(input);
