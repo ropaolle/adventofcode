@@ -5,7 +5,8 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -q index.js",
+    "start": "nodemon -q algorithms.js",
+    "start2": "nodemon -q index.js",
     "test": "jest --config=jest.config.js",
     "test:dev": "jest --watch --coverage=false",
     "test:dev2": "jest --watch --coverage=false --testNamePattern=day-17 2022.test.js",
