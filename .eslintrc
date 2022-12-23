@@ -11,7 +11,7 @@
   "extends": ["eslint:recommended", "plugin:prettier/recommended"],
   "rules": {
     "prettier/prettier": ["error", { "singleQuote": true, "printWidth": 100 }],
-    "no-console": ["error", { "allow": ["warn", "error", "info"] }],
+    "no-console": ["error", { "allow": ["warn", "error", "info", "clear"] }],
     "eqeqeq": ["error", "smart"],
     "complexity": ["error", 16],
     "curly": "error",

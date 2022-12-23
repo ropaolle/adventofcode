@@ -17,7 +17,7 @@ describe('AOC 2022', function () {
   aocTest('2022', '14', 674, 24958);
   aocTest('2022', '15', 5335787, 13673971349056); // TODO: Super slow brute force
   aocTest('2022', '16', 1880, 2520);
-  aocTest('2022', '17', 0, 0);
+  aocTest('2022', '17', 3219, 1582758620701);
   // aocTest('2022', '18', 0, 0);
   // aocTest('2022', '19', 0, 0);
   // aocTest('2022', '20', 0, 0);
