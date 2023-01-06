@@ -21,7 +21,7 @@
     "url": "git+https://github.com/ropaolle/adventofcode.git"
   },
   "author": "RopaOlle@gmail.com",
-  "license": "ISC",
+  "license": "MIT",
   "homepage": "https://github.com/ropaolle/adventofcode#readme",
   "c8": {
     "reporter": [
